@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Branding — Moon Tropica</title>
+<meta name="description" content="Download Moon Tropica branding assets including logos in PNG and vector formats." />
+<meta content="Branding — Moon Tropica" property="og:title">
+<meta content="Download Moon Tropica branding assets including logos in PNG, SVG, and AI formats for press kits and promotional use." property="og:description">
+<meta content="https://uploads-ssl.webflow.com/625e4cb0a3feb9d1581be68c/65734ac250912db95d3f31b5_open-graph3.jpg" property="og:image">
+<meta content="Branding — Moon Tropica" property="twitter:title">
+<meta content="Download Moon Tropica branding assets including logos in PNG, SVG, and AI formats for press kits and promotional use." property="twitter:description">
+<meta content="https://uploads-ssl.webflow.com/625e4cb0a3feb9d1581be68c/65734ac250912db95d3f31b5_open-graph3.jpg" property="twitter:image">
+<meta property="og:type" content="website">
+<meta content="summary_large_image" name="twitter:card">
+<link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/webclip.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* scrollbar */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--mt-ink-900)}
+::-webkit-scrollbar-thumb{background:var(--mt-ink-500);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--mt-purple-600)}
+:root {
+  scrollbar-color:var(--mt-ink-500) var(--mt-ink-900);
+  --mt-purple-400: #b06ee2;
+  --mt-purple-500: #9a4fd4;
+  --mt-purple-600: #7a3aba;
+  --mt-purple-700: #5b2d90;
+  --mt-purple-800: #3d1f63;
+  --mt-purple-900: #2a1447;
+  --mt-ink-900: #0f0f12;
+  --mt-ink-800: #17171c;
+  --mt-ink-700: #202027;
+  --mt-ink-600: #2b2b34;
+  --mt-ink-500: #3a3a46;
+  --mt-gold-500: #c5a93d;
+  --mt-gold-400: #d9bf52;
+  --mt-gold-300: #f5c460;
+  --mt-gold-200: #ffe066;
+  --mt-yellow: #ffdd00;
+  --mt-mint: #5de3c4;
+  --mt-coral: #ff6b6b;
+  --mt-white: #ffffff;
+  --mt-off-white: #f2ecff;
+  --mt-muted: #8a8195;
+  --mt-disabled: #4a4653;
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+  --font-sans: 'Mulish', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  font-weight:700;
+  color:var(--mt-white);
+  background:
+    radial-gradient(1200px 800px at 50% -20%, #3a1f66 0%, transparent 70%),
+    radial-gradient(900px 700px at 90% 110%, #2a1447 0%, transparent 60%),
+    var(--mt-ink-900);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.45;
+}
+.page{max-width:1200px;margin:0 auto;padding:0 24px 120px}
+
+/* nav */
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 24px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(15,15,18,.8);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-logo{height:27px;width:auto;display:block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(15,15,18,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:12px;gap:4px}
+.nav-links a{
+  color:var(--mt-muted);
+  text-decoration:none;
+  font-style:italic;
+  font-weight:900;
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:8px 16px;
+  border-radius:var(--r-pill);
+  transition:color .12s, background .12s;
+}
+.nav-links a:hover{color:var(--mt-off-white);background:rgba(255,255,255,.04)}
+.nav-links a.active{color:var(--mt-white);background:rgba(154,79,212,.14)}
+.nav-links.open{display:flex}
+.hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--mt-white);border-radius:2px;transition:transform .2s,opacity .2s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-divider{height:1px;background:rgba(255,255,255,.08);margin:8px 0}
+.nav-play{display:block;text-align:center;background:var(--mt-gold-500);color:var(--mt-ink-900)!important;font-weight:900;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:10px 16px;border-radius:var(--r-pill);text-decoration:none;transition:background .15s}
+.nav-play:hover{background:var(--mt-gold-400)!important}
+@media(min-width:769px){
+  .nav-links{left:auto;right:0;min-width:220px}
+}
+
+/* hero */
+.brand-hero{
+  margin-top:40px;
+  background:
+    radial-gradient(700px 400px at 70% 20%, var(--mt-purple-400) 0%, transparent 60%),
+    linear-gradient(135deg, var(--mt-purple-500), var(--mt-purple-700));
+  border-radius:var(--r-xl);
+  padding:64px 56px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 20px 60px -20px rgba(154,79,212,.55);
+}
+.brand-hero::before,.brand-hero::after{
+  content:"";position:absolute;
+  width:340px;height:340px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.12) 0%,transparent 65%);
+  pointer-events:none;
+}
+.brand-hero::before{top:-120px;left:-80px}
+.brand-hero::after{bottom:-160px;right:-60px;width:420px;height:420px}
+.brand-hero-content{position:relative;z-index:1}
+.brand-hero h1{
+  font-style:italic;font-weight:900;
+  font-size:clamp(36px,5vw,64px);
+  line-height:.95;margin:0 0 12px;
+  letter-spacing:-.02em;
+  text-shadow:0 4px 0 var(--mt-purple-700),0 12px 40px rgba(0,0,0,.35);
+}
+.brand-hero p{max-width:560px;font-weight:700;font-size:17px;color:rgba(255,255,255,.9);margin:0 0 24px;line-height:1.6}
+.brand-hero .btn-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--font-sans);font-style:italic;font-weight:900;
+  font-size:15px;letter-spacing:.08em;text-transform:uppercase;
+  padding:14px 26px;border:0;border-radius:var(--r-pill);
+  cursor:pointer;transition:transform .08s, box-shadow .12s, background .12s, opacity .12s;
+  white-space:nowrap;user-select:none;text-decoration:none;
+}
+.btn:active{transform:translateY(1px)}
+.btn-gold{background:var(--mt-gold-300);color:#1a1600;box-shadow:0 4px 0 #b58429}
+.btn-gold:active{box-shadow:0 1px 0 #b58429;transform:translateY(3px)}
+.btn-outline{background:transparent;color:var(--mt-white);border:2px solid var(--mt-white)}
+.btn-outline:hover{background:rgba(255,255,255,.08)}
+.btn-ghost{background:transparent;color:var(--mt-off-white);padding:10px 12px}
+.btn-ghost:hover{color:var(--mt-white);text-decoration:underline}
+
+/* sections */
+section{margin-top:80px;scroll-margin-top:80px}
+.section-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:28px;padding-bottom:16px;
+  border-bottom:1px dashed rgba(255,255,255,.12);
+}
+.section-head h2{
+  font-style:italic;font-weight:900;font-size:clamp(24px,3vw,36px);
+  margin:0;letter-spacing:-.01em;
+}
+.section-head .label{
+  font-family:var(--font-mono);font-size:12px;
+  color:var(--mt-muted);letter-spacing:.12em;text-transform:uppercase;
+}
+
+/* asset grid */
+.asset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.asset-card{
+  background:var(--mt-ink-700);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:var(--r-lg);padding:24px;
+  display:flex;flex-direction:column;gap:16px;
+  transition:border-color .2s,transform .15s;
+}
+.asset-card:hover{border-color:rgba(154,79,212,.35);transform:translateY(-2px)}
+.asset-preview{
+  width:100%;height:160px;
+  border-radius:var(--r-md);
+  background:
+    radial-gradient(circle at 50% 50%, var(--mt-purple-800) 0%, var(--mt-ink-900) 100%);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;overflow:hidden;
+}
+.asset-preview img{max-width:100%;max-height:100%;object-fit:contain}
+.asset-info{display:flex;justify-content:space-between;align-items:center}
+.asset-name{font-style:italic;font-weight:900;font-size:14px;color:var(--mt-off-white)}
+.asset-ext{font-family:var(--font-mono);font-size:11px;color:var(--mt-muted);text-transform:uppercase}
+.asset-dl{width:100%;padding:10px;text-align:center;font-size:12px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.1);background:transparent;color:var(--mt-off-white);font-family:var(--font-sans);font-weight:700;cursor:pointer;text-decoration:none;transition:background .12s,border-color .12s}
+.asset-dl:hover{background:var(--mt-purple-600);border-color:var(--mt-purple-600);color:#fff}
+
+/* format badges */
+.format-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-style:italic;font-weight:900;
+  font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:4px 10px;border-radius:var(--r-pill);
+}
+.badge-png{background:rgba(93,227,196,.14);color:var(--mt-mint)}
+.badge-svg{background:rgba(245,196,96,.15);color:var(--mt-gold-300)}
+.badge-ai{background:rgba(176,110,226,.15);color:var(--mt-purple-400)}
+.badge-muted{background:rgba(255,255,255,.06);color:var(--mt-muted)}
+.format-row{display:flex;gap:6px;flex-wrap:wrap}
+
+/* footer */
+footer{margin-top:96px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+.footer-logo img{height:36px;width:auto}
+.footer-logo p{color:var(--mt-muted);font-weight:600;font-size:13px;margin:12px 0 0;max-width:280px}
+.footer-col h4{font-style:italic;font-weight:900;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mt-muted);margin:0 0 16px}
+.footer-col a{display:block;color:var(--mt-off-white);text-decoration:none;font-weight:700;font-size:14px;padding:4px 0;transition:color .12s}
+.footer-col a:hover{color:var(--mt-white)}
+.footer-bottom{margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom span{color:var(--mt-muted);font-weight:600;font-size:13px}
+.social-row{display:flex;gap:8px;margin-top:12px}
+.social-link{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:0;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--mt-muted);text-decoration:none;font-size:14px;
+  transition:background .12s, color .12s;
+}
+.social-link:hover{background:var(--mt-purple-600);color:var(--mt-white)}
+
+/* carousel */
+.carousel-wrap{position:relative}
+.carousel-track{display:flex;gap:24px;overflow-x:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 0}
+.carousel-track > *{flex:0 0 calc(33.333% - 16px);scroll-snap-align:start;min-width:0}
+@media(max-width:600px){.carousel-track > *{flex:0 0 calc(50% - 12px)}}
+@media(max-width:480px){.carousel-track > *{flex:0 0 100%}}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:var(--mt-ink-700);color:var(--mt-off-white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .12s;font-size:18px;line-height:1}
+.carousel-btn:hover{background:var(--mt-purple-600)}
+.carousel-btn.prev{left:-16px}
+.carousel-btn.next{right:-16px}
+.brand-hero-img{flex:1;display:flex;align-items:center;justify-content:center}
+@media(max-width:768px){.brand-hero-img{display:none}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+
+/* modal */
+.modal-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal-box{background:var(--mt-ink-800);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:48px 40px;text-align:center;max-width:360px;width:90%;transform:scale(.92);transition:transform .25s;box-shadow:0 20px 60px rgba(0,0,0,.5);position:relative}
+.modal-overlay.open .modal-box{transform:scale(1)}
+.modal-box h3{font-style:italic;font-weight:900;font-size:24px;margin:0 0 8px;color:var(--mt-off-white)}
+.modal-box p{font-weight:600;font-size:14px;color:var(--mt-muted);margin:0 0 24px}
+.modal-close-icon{position:absolute;top:12px;right:16px;background:none;border:none;color:var(--mt-muted);font-size:22px;cursor:pointer;padding:4px;line-height:1;transition:color .15s}
+.modal-close-icon:hover{color:var(--mt-off-white)}
+.modal-close{background:var(--mt-purple-600);color:#fff;border:0;border-radius:var(--r-pill);padding:10px 32px;font-family:var(--font-sans);font-style:italic;font-weight:900;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .12s}
+.modal-close:hover{background:var(--mt-purple-500)}
+.math-reveal{display:flex;flex-direction:column;align-items:center;gap:12px}
+.math-reveal .row{display:flex;gap:8px;align-items:center;justify-content:center}
+.math-reveal .row span{font-size:22px;font-weight:900;font-style:italic;color:var(--mt-off-white)}
+.math-reveal input{width:80px;padding:10px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.1);background:var(--mt-ink-700);color:var(--mt-white);font-family:var(--font-sans);font-weight:700;font-size:18px;text-align:center;outline:none;transition:border-color .15s}
+.math-reveal input:focus{border-color:var(--mt-purple-400)}
+.math-reveal .result{display:none;padding:12px 16px;border-radius:var(--r-md);background:rgba(93,227,196,.1);border:1px solid rgba(93,227,196,.2)}
+.math-reveal .result.show{display:block}
+.math-reveal .result a{font-size:18px;font-weight:900;font-style:italic;color:var(--mt-off-white);text-decoration:none}
+.math-reveal .result a:hover{color:var(--mt-mint)}
+.math-reveal .error{display:none;font-size:13px;color:var(--mt-coral)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html"><img src="assets/Logo_Horizontal_White.png" alt="Moon Tropica" class="nav-logo" /></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="branding.html" class="active">Branding</a>
+    <a href="faq.html">FAQ</a>
+    <a href="https://docs.moontropica.com/" target="_blank">Litepaper</a>
+    <a href="https://blog.moontropica.com/" target="_blank">Blog</a>
+    <a href="#" onclick="event.preventDefault();openContactModal()">Contact</a>
+    <div class="nav-divider"></div>
+    <a href="https://store.steampowered.com/app/3664890/Moon_Tropica/" target="_blank" class="nav-play">PLAY NOW ›</a>
+  </div>
+</nav>
+<script>
+document.getElementById('hamburger').addEventListener('click', function(){
+  this.classList.toggle('open');
+  document.getElementById('navLinks').classList.toggle('open');
+});
+</script>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="brand-hero reveal" style="display:flex;align-items:center;gap:40px">
+    <div class="brand-hero-content" style="flex:1">
+      <h1 class="reveal reveal-delay-1">Branding Kit</h1>
+      <p class="reveal reveal-delay-2">Download official Moon Tropica logos and branding assets. Available in PNG, SVG, and AI formats.</p>
+      <div class="btn-row reveal reveal-delay-3">
+        <a href="branding/PNG/Logo_Horizontal_White.png" download class="btn btn-gold">DOWNLOAD ALL</a>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2 brand-hero-img">
+      <img src="assets/car.png" alt="Car" style="width:100%;max-width:400px;height:auto" />
+    </div>
+  </div>
+
+  <!-- LOGOS -->
+  <section class="reveal">
+    <div class="section-head">
+      <h2>Logos</h2>
+      <span class="label">PNG / SVG / AI</span>
+    </div>
+    <div class="carousel-wrap">
+      <button class="carousel-btn prev" onclick="scrollCarousel(-1)">‹</button>
+      <div class="carousel-track" id="logo-track">
+        <div class="asset-card">
+          <div class="asset-preview"><img src="branding/PNG/Logo_Horizontal_White.png" alt="Horizontal White" /></div>
+          <div class="asset-info"><span class="asset-name">Horizontal White</span></div>
+          <div class="format-row">
+            <span class="format-badge badge-png">PNG</span>
+            <span class="format-badge badge-svg">SVG</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <a href="branding/PNG/Logo_Horizontal_White.png" download class="asset-dl">PNG</a>
+            <a href="branding/Vector/Logo_Horizontal_White.svg" download class="asset-dl">SVG</a>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="background:#fff"><img src="branding/PNG/Logo_Horizontal_Dark.png" alt="Horizontal Dark" /></div>
+          <div class="asset-info"><span class="asset-name">Horizontal Dark</span></div>
+          <div class="format-row">
+            <span class="format-badge badge-png">PNG</span>
+            <span class="format-badge badge-svg">SVG</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <a href="branding/PNG/Logo_Horizontal_Dark.png" download class="asset-dl">PNG</a>
+            <a href="branding/Vector/Logo_Horizontal_Dark.svg" download class="asset-dl">SVG</a>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview"><img src="branding/PNG/Logo_Stacked_White.png" alt="Stacked White" /></div>
+          <div class="asset-info"><span class="asset-name">Stacked White</span></div>
+          <div class="format-row">
+            <span class="format-badge badge-png">PNG</span>
+            <span class="format-badge badge-svg">SVG</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <a href="branding/PNG/Logo_Stacked_White.png" download class="asset-dl">PNG</a>
+            <a href="branding/Vector/Logo_Stacked_White.svg" download class="asset-dl">SVG</a>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="background:#fff"><img src="branding/PNG/Logo_Stacked_Dark.png" alt="Stacked Dark" /></div>
+          <div class="asset-info"><span class="asset-name">Stacked Dark</span></div>
+          <div class="format-row">
+            <span class="format-badge badge-png">PNG</span>
+            <span class="format-badge badge-svg">SVG</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <a href="branding/PNG/Logo_Stacked_Dark.png" download class="asset-dl">PNG</a>
+            <a href="branding/Vector/Logo_Stacked_Dark.svg" download class="asset-dl">SVG</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="scrollCarousel(1)">›</button>
+    </div>
+  </section>
+
+  <!-- MARKS -->
+  <section class="reveal">
+    <div class="section-head">
+      <h2>Marks &amp; Assets</h2>
+      <span class="label">PNG / SVG</span>
+    </div>
+    <div class="asset-grid">
+      <div class="asset-card">
+        <div class="asset-preview"><img src="branding/PNG/Logo_3D_2.png" alt="Logo 3D" /></div>
+        <div class="asset-info"><span class="asset-name">Logo 3D</span></div>
+        <div class="format-row">
+          <span class="format-badge badge-png">PNG</span>
+          <span class="format-badge badge-svg">SVG</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <a href="branding/PNG/Logo_3D_2.png" download class="asset-dl">PNG</a>
+          <a href="branding/Vector/Logo_3D.svg" download class="asset-dl">SVG</a>
+        </div>
+      </div>
+      <div class="asset-card">
+        <div class="asset-preview"><img src="branding/PNG/CAH_Token.png" alt="CAH Token" /></div>
+        <div class="asset-info"><span class="asset-name">CAH Token</span></div>
+        <div class="format-row">
+          <span class="format-badge badge-png">PNG</span>
+          <span class="format-badge badge-ai">AI</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <a href="branding/PNG/CAH_Token.png" download class="asset-dl">PNG</a>
+          <a href="branding/Vector/CAH_Token.ai" download class="asset-dl">AI</a>
+        </div>
+      </div>
+      <div class="asset-card">
+        <div class="asset-preview"><img src="branding/PNG/Billy.png" alt="Billy" /></div>
+        <div class="asset-info"><span class="asset-name">Billy Mascot</span></div>
+        <div class="format-row">
+          <span class="format-badge badge-png">PNG</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr;gap:8px">
+          <a href="branding/PNG/Billy.png" download class="asset-dl">PNG</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="reveal">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <img src="assets/Logo_Horizontal_White.png" alt="Moon Tropica" />
+        <p>Moon Tropica is a spirited battle arena game where players participate in action-packed game modes. Strategy, skill, and determination are put to the ultimate test!</p>
+      </div>
+      <div class="footer-col">
+        <h4>Game</h4>
+        <a href="https://blog.moontropica.com/" target="_blank">Blog</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="branding.html">Branding</a>
+        <a href="#" onclick="event.preventDefault();openContactModal()">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Docs</h4>
+        <a href="https://docs.moontropica.com/" target="_blank">Litepaper</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Socials</h4>
+        <a href="https://twitter.com/moontropica" target="_blank">X</a>
+        <a href="https://t.me/MoonTropicaCAH" target="_blank">Telegram</a>
+        <a href="#" onclick="event.preventDefault();openDiscordModal()">Discord</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Moon Tropica</span>
+      <span>Built by Regarded.gg</span>
+    </div>
+  </footer>
+
+</div>
+
+<div class="modal-overlay" id="contact-modal">
+  <div class="modal-box">
+    <button class="modal-close-icon" onclick="closeContactModal()">&#xd7;</button>
+    <h3>Contact Us</h3>
+    <div class="math-reveal">
+      <p style="margin:0">Solve this to reveal our email:</p>
+      <div class="row">
+        <span id="math-q"></span>
+        <span style="color:var(--mt-muted)">=</span>
+        <input type="number" id="math-a" />
+      </div>
+      <button class="modal-close" id="math-btn">Reveal</button>
+      <div class="result" id="math-result">
+        <p style="margin:0 0 4px;font-size:13px;color:var(--mt-mint)">Email revealed!</p>
+        <a href="mailto:info@moontropica.com">info@moontropica.com</a>
+      </div>
+      <div class="error" id="math-error">Incorrect answer. Try again.</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="discord-modal">
+  <div class="modal-box">
+    <button class="modal-close-icon" onclick="closeDiscordModal()">&#xd7;</button>
+    <h3>Coming Soon</h3>
+    <p>The Moon Tropica Discord server is on its way. Stay tuned!</p>
+    <button class="modal-close" onclick="closeDiscordModal()">OK!</button>
+  </div>
+</div>
+
+<script>
+// ---- math captcha ----
+function generateMath() {
+  const a = Math.floor(Math.random() * 20) + 1
+  const b = Math.floor(Math.random() * 20) + 1
+  const ops = ['+', '-', '\u00d7']
+  const op = ops[Math.floor(Math.random() * ops.length)]
+  let ans
+  if (op === '+') ans = a + b
+  else if (op === '-') ans = a - b
+  else ans = a * b
+  document.getElementById('math-q').textContent = a + ' ' + op + ' ' + b
+  document.getElementById('math-a').value = ''
+  document.getElementById('math-result').classList.remove('show')
+  document.getElementById('math-error').style.display = 'none'
+  document.getElementById('math-btn').disabled = false
+  document.getElementById('math-btn').textContent = 'Reveal'
+  document.getElementById('math-a').dataset.answer = ans
+}
+function checkMath() {
+  const v = parseInt(document.getElementById('math-a').value)
+  const a = parseInt(document.getElementById('math-a').dataset.answer)
+  if (v === a) {
+    document.getElementById('math-result').classList.add('show')
+    document.getElementById('math-error').style.display = 'none'
+    document.getElementById('math-btn').textContent = '\u2713 Solved'
+    document.getElementById('math-btn').disabled = true
+  } else {
+    document.getElementById('math-error').style.display = 'block'
+    document.getElementById('math-result').classList.remove('show')
+  }
+}
+document.getElementById('math-btn').addEventListener('click', checkMath)
+document.getElementById('math-a').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkMath()
+})
+
+// ---- carousel ----
+function scrollCarousel(dir) {
+  const track = document.getElementById('logo-track')
+  const card = track.querySelector('.asset-card')
+  const gap = 24
+  const step = (card?.offsetWidth || 280) + gap
+  track.scrollBy({ left: dir * step, behavior: 'smooth' })
+}
+
+// ---- scroll reveal ----
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
+}, { threshold: .15 })
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+
+// ---- modals ----
+function openContactModal(){generateMath();document.getElementById('contact-modal').classList.add('open')}
+function closeContactModal(){document.getElementById('contact-modal').classList.remove('open')}
+function openDiscordModal(){document.getElementById('discord-modal').classList.add('open')}
+function closeDiscordModal(){document.getElementById('discord-modal').classList.remove('open')}
+document.getElementById('contact-modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeContactModal()})
+document.getElementById('discord-modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeDiscordModal()})
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeContactModal();closeDiscordModal()}})
+</script>
+</body>
+</html>

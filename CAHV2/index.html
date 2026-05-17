@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Moon Tropica</title>
+<meta name="description" content="Moon Tropica is a spirited battle arena game where players participate in a variety of action-packed game modes." />
+<meta content="Moon Tropica" property="og:title">
+<meta content="Moon Tropica is a spirited battle arena game where players participate in a variety of action-packed game modes. Strategy, skill, and determination are put to the ultimate test!" property="og:description">
+<meta content="https://uploads-ssl.webflow.com/625e4cb0a3feb9d1581be68c/65734ac250912db95d3f31b5_open-graph3.jpg" property="og:image">
+<meta content="Moon Tropica" property="twitter:title">
+<meta content="Moon Tropica is a spirited battle arena game where players participate in a variety of action-packed game modes. Strategy, skill, and determination are put to the ultimate test!" property="twitter:description">
+<meta content="https://uploads-ssl.webflow.com/625e4cb0a3feb9d1581be68c/65734ac250912db95d3f31b5_open-graph3.jpg" property="twitter:image">
+<meta property="og:type" content="website">
+<meta content="summary_large_image" name="twitter:card">
+<link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/webclip.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<style>
+/* scrollbar */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--mt-ink-900)}
+::-webkit-scrollbar-thumb{background:var(--mt-ink-500);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--mt-purple-600)}
+:root {
+  scrollbar-color:var(--mt-ink-500) var(--mt-ink-900);
+  --mt-purple-400: #b06ee2;
+  --mt-purple-500: #9a4fd4;
+  --mt-purple-600: #7a3aba;
+  --mt-purple-700: #5b2d90;
+  --mt-purple-800: #3d1f63;
+  --mt-purple-900: #2a1447;
+  --mt-ink-900: #0f0f12;
+  --mt-ink-800: #17171c;
+  --mt-ink-700: #202027;
+  --mt-ink-600: #2b2b34;
+  --mt-ink-500: #3a3a46;
+  --mt-gold-500: #c5a93d;
+  --mt-gold-400: #d9bf52;
+  --mt-gold-300: #f5c460;
+  --mt-gold-200: #ffe066;
+  --mt-yellow: #ffdd00;
+  --mt-mint: #5de3c4;
+  --mt-coral: #ff6b6b;
+  --mt-white: #ffffff;
+  --mt-off-white: #f2ecff;
+  --mt-muted: #8a8195;
+  --mt-disabled: #4a4653;
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+  --font-sans: 'Mulish', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  font-weight:700;
+  color:var(--mt-white);
+  background:
+    radial-gradient(1200px 800px at 50% -20%, #3a1f66 0%, transparent 70%),
+    radial-gradient(900px 700px at 90% 110%, #2a1447 0%, transparent 60%),
+    var(--mt-ink-900);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.45;
+}
+.page{max-width:1200px;margin:0 auto;padding:0 24px 120px}
+
+/* nav */
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 24px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(15,15,18,.8);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-logo{height:27px;width:auto;display:block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(15,15,18,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:12px;gap:4px}
+.nav-links a{
+  color:var(--mt-muted);
+  text-decoration:none;
+  font-style:italic;
+  font-weight:900;
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:8px 16px;
+  border-radius:var(--r-pill);
+  transition:color .12s, background .12s;
+}
+.nav-links a:hover{color:var(--mt-off-white);background:rgba(255,255,255,.04)}
+.nav-links a.active{color:var(--mt-white);background:rgba(154,79,212,.14)}
+.nav-links.open{display:flex}
+
+/* hero */
+.hero{
+  margin-top:40px;
+  background:
+    radial-gradient(700px 400px at 70% 20%, var(--mt-purple-400) 0%, transparent 60%),
+    linear-gradient(135deg, var(--mt-purple-500), var(--mt-purple-700));
+  border-radius:var(--r-xl);
+  padding:64px 56px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 20px 60px -20px rgba(154,79,212,.55);
+}
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(154,79,212,.55),rgba(43,20,71,.75));pointer-events:none}
+.hero-content{position:relative;z-index:1}
+.hero::before,.hero::after{
+  content:"";position:absolute;
+  width:340px;height:340px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.12) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero::before{top:-120px;left:-80px}
+.hero::after{bottom:-160px;right:-60px;width:420px;height:420px}
+.hero-logo{position:relative;display:block;height:clamp(38px,4.4vw,56px);width:auto;margin-bottom:24px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,0,0,.25);color:var(--mt-gold-200);
+  padding:6px 14px;border-radius:var(--r-pill);
+  font-style:italic;font-weight:800;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+}
+.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--mt-gold-300);box-shadow:0 0 12px var(--mt-gold-300)}
+h1.display{
+  font-style:italic;font-weight:900;
+  font-size:clamp(44px,6.4vw,84px);
+  line-height:.95;margin:18px 0 8px;
+  letter-spacing:-.02em;
+  text-shadow:0 4px 0 var(--mt-purple-700),0 12px 40px rgba(0,0,0,.35);
+}
+h1.display .line-2{display:block;color:var(--mt-off-white);opacity:.65}
+.hero p.lede{max-width:640px;font-weight:700;font-size:18px;color:rgba(255,255,255,.9);margin:16px 0 32px}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--font-sans);font-style:italic;font-weight:900;
+  font-size:15px;letter-spacing:.08em;text-transform:uppercase;
+  padding:14px 26px;border:0;border-radius:var(--r-pill);
+  cursor:pointer;transition:transform .08s, box-shadow .12s, background .12s;
+  white-space:nowrap;user-select:none;text-decoration:none;
+}
+.btn:active{transform:translateY(1px);box-shadow:var(--shadow-press)}
+.btn-play{
+  background:var(--mt-gold-500);color:#1a1600;
+  font-size:22px;letter-spacing:.06em;
+  padding:18px 36px;border-radius:var(--r-lg);
+  box-shadow:0 6px 0 #8a7627,0 14px 28px -10px rgba(197,169,61,.55);
+}
+.btn-shine{position:relative;overflow:hidden}
+.blog-row{position:relative;overflow:hidden;display:block;padding:18px 8px;border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none;color:inherit;transition:border-radius .2s;margin:0 -8px;border-radius:var(--r-sm)}
+.blog-row::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.04);border-radius:var(--r-sm);opacity:0;transition:opacity .35s;pointer-events:none;z-index:0}
+.blog-row > *{position:relative;z-index:1}
+.blog-row:last-child{border-bottom:0}
+.blog-row{opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
+.blog-row.fade-in{opacity:1;transform:translateY(0)}
+.blog-skel{display:block;padding:18px 8px;margin:0 -8px;border-radius:var(--r-sm);pointer-events:none}
+.blog-row:hover{color:var(--mt-purple-400)!important}
+.blog-row:hover::after{opacity:1}
+.btn-shine::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 48%,rgba(255,255,255,.5) 50%,rgba(255,255,255,.35) 52%,transparent 70%);background-size:200% 100%;background-position-x:100%;transition:background-position-x .5s;pointer-events:none;border-radius:inherit}
+.btn-shine:hover::after{background-position-x:-100%}
+.btn-play:hover{background:var(--mt-gold-400)}
+.btn-primary{background:var(--mt-white);color:var(--mt-purple-600)}
+.btn-primary:hover{background:var(--mt-off-white);color:var(--mt-purple-700)}
+.btn-outline{background:transparent;color:var(--mt-white);border:2px solid var(--mt-white)}
+.btn-outline:hover{background:rgba(255,255,255,.08)}
+.btn-ghost{background:transparent;color:var(--mt-off-white);padding:10px 12px}
+.btn-ghost:hover{color:var(--mt-white);text-decoration:underline}
+.btn-gold{background:var(--mt-gold-300);color:#1a1600;box-shadow:0 4px 0 #b58429}
+.btn-gold:active{box-shadow:0 1px 0 #b58429;transform:translateY(3px)}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+@media(max-width:768px){.btn-row{gap:16px}}
+
+/* sections */
+section{margin-top:80px;scroll-margin-top:80px}
+.section-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:28px;padding-bottom:16px;
+  border-bottom:1px dashed rgba(255,255,255,.12);
+}
+.section-head h2{
+  font-style:italic;font-weight:900;font-size:clamp(24px,3vw,36px);
+  margin:0;letter-spacing:-.01em;
+}
+.section-head .label{
+  font-family:var(--font-mono);font-size:12px;
+  color:var(--mt-muted);letter-spacing:.12em;text-transform:uppercase;
+}
+
+/* cards */
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r-lg);padding:28px;
+}
+.card-purple{
+  background:
+    linear-gradient(160deg,rgba(154,79,212,.85),rgba(43,20,71,.9)),
+    url('assets/bg-3.jpg');
+  background-size: cover;
+  background-position: center;
+  border:0;border-radius:var(--r-lg);padding:28px;
+  box-shadow:0 20px 60px -20px rgba(154,79,212,.55);
+}
+.card-dark{
+  background:var(--mt-ink-700);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:var(--r-lg);padding:28px;
+}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:900px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+/* badges */
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  font-style:italic;font-weight:900;
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  padding:4px 10px;border-radius:var(--r-pill);
+}
+.badge-gold{background:rgba(245,196,96,.15);color:var(--mt-gold-300)}
+.badge-mint{background:rgba(93,227,196,.14);color:var(--mt-mint)}
+.badge-new{background:var(--mt-purple-800);color:var(--mt-purple-400)}
+.badge-muted{background:rgba(255,255,255,.06);color:var(--mt-muted)}
+
+/* stat tiles */
+.stat{display:flex;flex-direction:column;gap:6px}
+.stat .k{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mt-muted)}
+.stat .v{font-style:italic;font-weight:900;font-size:28px;color:var(--mt-white)}
+.stat .v .unit{font-size:14px;color:var(--mt-muted);margin-left:4px;font-weight:700}
+
+/* quote rows */
+.quote-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 0;border-bottom:1px dashed rgba(255,255,255,.08);
+}
+.quote-row:last-child{border-bottom:0}
+.quote-row .k{color:#fff;font-weight:700;font-size:15px}
+.quote-row .v{font-family:var(--font-mono);font-weight:600;font-size:15px;color:#fff}
+.quote-row .v.gold{color:var(--mt-gold-200);font-style:italic;font-weight:900;font-size:20px}
+
+/* progress */
+.progress-bar{
+  width:100%;height:10px;
+  background:rgba(255,255,255,.08);
+  border-radius:var(--r-pill);overflow:hidden;
+}
+.progress-bar .fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--mt-gold-500),var(--mt-gold-200));
+  border-radius:var(--r-pill);
+  box-shadow:0 0 14px rgba(245,196,96,.5);
+}
+
+/* alerts */
+.alert{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:16px 20px;border-radius:var(--r-md);
+  font-weight:700;font-size:14px;
+  border:1px solid transparent;
+}
+.alert-info{
+  background:rgba(154,79,212,.1);
+  border-color:rgba(176,110,226,.25);
+  color:var(--mt-off-white);
+}
+.alert .icon{
+  flex:0 0 28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:#1a1600;font-style:italic;font-weight:900;
+}
+.alert-info .icon{background:var(--mt-purple-400);color:#fff}
+
+/* fields */
+.field-label{
+  font-style:italic;font-weight:900;font-size:15px;
+  color:var(--mt-white);margin-bottom:8px;display:block;
+}
+.field{
+  width:100%;background:var(--mt-purple-700);
+  color:var(--mt-white);border:0;border-radius:var(--r-pill);
+  padding:16px 22px;font-family:var(--font-sans);
+  font-weight:700;font-size:16px;outline:none;
+  transition:box-shadow .15s, background .15s;
+}
+.field::placeholder{color:rgba(255,255,255,.35);font-style:italic}
+.field:focus{background:var(--mt-purple-600);box-shadow:0 0 0 3px rgba(255,255,255,.2)}
+.field-dark{background:var(--mt-ink-700);box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.field-dark:focus{box-shadow:inset 0 0 0 1px var(--mt-purple-400),0 0 0 3px rgba(154,79,212,.25);background:var(--mt-ink-700)}
+
+/* promo feature blocks */
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+@media(max-width:768px){.feature-grid{grid-template-columns:1fr}}
+.feature-content h3{font-style:italic;font-weight:900;font-size:clamp(20px,2.5vw,28px);margin:0 0 16px}
+.feature-content p{font-weight:600;font-size:16px;color:rgba(255,255,255,.88);line-height:1.7;margin:0}
+.feature-visual{
+  min-height:280px;
+  border-radius:var(--r-xl);
+  background:
+    radial-gradient(circle at 70% 30%, var(--mt-purple-800) 0%, transparent 60%),
+    linear-gradient(160deg, var(--mt-ink-800), var(--mt-ink-900));
+  border:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.feature-visual::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(400px 300px at 80% 80%, rgba(176,110,226,.08), transparent);
+}
+#visual-unlimited{background:radial-gradient(circle at 70% 30%,rgba(61,31,99,.5) 0%,transparent 60%),linear-gradient(160deg,rgba(23,23,28,.65),rgba(15,15,18,.8)),url('assets/bg-1B.jpg');background-size:cover;background-position:center}
+#visual-wearables{background:radial-gradient(circle at 70% 30%,rgba(61,31,99,.5) 0%,transparent 60%),linear-gradient(160deg,rgba(23,23,28,.65),rgba(15,15,18,.8)),url('assets/furniture.png');background-size:cover;background-position:center}
+
+/* avatar carousel */
+.avatar-carousel{overflow:hidden;position:relative;width:100%;height:100%;display:flex;flex-direction:column}
+.avatar-row{display:flex;width:max-content;animation:scrollAvatars 20s linear infinite;flex:1}
+.avatar-row.invert{animation-direction:reverse}
+.avatar-row .av{width:80px;height:100%;flex-shrink:0;overflow:hidden}
+.avatar-row .av img{width:100%;height:100%;object-fit:cover}
+@keyframes scrollAvatars{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* center section */
+.section-centered{text-align:center;max-width:720px;margin:0 auto}
+.section-centered p{font-weight:600;font-size:17px;color:rgba(255,255,255,.88);line-height:1.7}
+
+/* token glyph */
+.token-glyph{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:48px;height:48px;border-radius:50%;
+  font-style:italic;font-weight:900;font-size:20px;
+  box-shadow:0 0 0 2px rgba(255,255,255,.15);
+}
+.token-cah{background:var(--mt-purple-500);color:var(--mt-off-white)}
+.token-sword{background:var(--mt-ink-600);color:var(--mt-gold-300)}
+
+/* footer */
+footer{margin-top:96px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+.footer-logo img{height:36px;width:auto}
+.footer-logo p{color:var(--mt-muted);font-weight:600;font-size:13px;margin:12px 0 0;max-width:280px}
+.footer-col h4{font-style:italic;font-weight:900;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mt-muted);margin:0 0 16px}
+.footer-col a{display:block;color:var(--mt-off-white);text-decoration:none;font-weight:700;font-size:14px;padding:4px 0;transition:color .12s}
+.footer-col a:hover{color:var(--mt-white)}
+.footer-bottom{margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom span{color:var(--mt-muted);font-weight:600;font-size:13px}
+
+/* social links */
+.social-row{display:flex;gap:8px;margin-top:12px}
+.social-link{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:0;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--mt-muted);text-decoration:none;font-size:14px;
+  transition:background .12s, color .12s;
+}
+.social-link:hover{background:var(--mt-purple-600);color:var(--mt-white)}
+
+/* details grid */
+.details-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 40px}
+.details-grid .item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+@media(max-width:768px){.details-grid .item{flex-direction:column;align-items:flex-start;gap:4px}}
+.details-grid .item:last-child{border-bottom:0}
+.details-grid .label{color:var(--mt-muted);font-weight:700;font-size:14px}
+.details-grid .value{font-weight:900;font-style:italic;font-size:16px;color:var(--mt-white)}
+.genre-tags{display:flex;gap:6px}
+.genre-tags .badge{font-size:10px;padding:3px 8px}
+@media(min-width:769px){.details-grid .item.genre-item{grid-column:1/-1}.genre-tags{gap:8px}.genre-tags .badge{font-size:11px;padding:4px 10px}}
+@media(max-width:768px){.details-grid .item.genre-item{flex-direction:column;align-items:flex-start;gap:6px}.genre-tags{flex-wrap:wrap}}
+
+/* additional */
+.mt-24{margin-top:24px}
+.mt-40{margin-top:40px}
+.text-gold{color:var(--mt-gold-200)}
+.text-center{text-align:center}
+.flex-center{display:flex;align-items:center;justify-content:center}
+
+/* hero visual */
+.hero-visual-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:768px){.hero-visual-grid{grid-template-columns:1fr}}
+
+/* mobile nav */
+.hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--mt-white);border-radius:2px;transition:transform .2s,opacity .2s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-divider{height:1px;background:rgba(255,255,255,.08);margin:8px 0}
+.nav-play{display:block;text-align:center;background:var(--mt-gold-500);color:var(--mt-ink-900)!important;font-weight:900;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:10px 16px;border-radius:var(--r-pill);text-decoration:none;transition:background .15s}
+.nav-play:hover{background:var(--mt-gold-400)!important}
+@media(max-width:768px){
+  .subscribe-text{display:none}
+  .subscribe-icon{display:block}
+}
+@media(min-width:769px){
+  .nav-links{left:auto;right:0;min-width:220px}
+}
+
+.subscribe-text{display:inline}
+.subscribe-icon{display:none}
+
+/* ---- scroll reveal ---- */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
+.reveal-delay-5{transition-delay:.5s}
+.reveal-stagger > *{opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease}
+.reveal-stagger.visible > *{opacity:1;transform:translateY(0)}
+.reveal-stagger.visible > *:nth-child(1){transition-delay:.05s}
+.reveal-stagger.visible > *:nth-child(2){transition-delay:.15s}
+.reveal-stagger.visible > *:nth-child(3){transition-delay:.25s}
+.reveal-stagger.visible > *:nth-child(4){transition-delay:.35s}
+
+/* ---- tilt cards ---- */
+.tilt-card{transition:transform .15s ease;will-change:transform}
+
+/* ---- modal ---- */
+.modal-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal-box{background:var(--mt-ink-800);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:48px 40px;text-align:center;max-width:360px;width:90%;transform:scale(.92);transition:transform .25s;box-shadow:0 20px 60px rgba(0,0,0,.5);position:relative}
+.modal-overlay.open .modal-box{transform:scale(1)}
+.modal-box h3{font-style:italic;font-weight:900;font-size:24px;margin:0 0 8px;color:var(--mt-off-white)}
+.modal-box p{font-weight:600;font-size:14px;color:var(--mt-muted);margin:0 0 24px}
+.modal-close-icon{position:absolute;top:12px;right:16px;background:none;border:none;color:var(--mt-muted);font-size:22px;cursor:pointer;padding:4px;line-height:1;transition:color .15s}
+.modal-close-icon:hover{color:var(--mt-off-white)}
+.modal-close{background:var(--mt-purple-600);color:#fff;border:0;border-radius:var(--r-pill);padding:10px 32px;font-family:var(--font-sans);font-style:italic;font-weight:900;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:background .12s}
+.modal-close:hover{background:var(--mt-purple-500)}
+.math-reveal{display:flex;flex-direction:column;align-items:center;gap:12px}
+.math-reveal .row{display:flex;gap:8px;align-items:center;justify-content:center}
+.math-reveal .row span{font-size:22px;font-weight:900;font-style:italic;color:var(--mt-off-white)}
+.math-reveal input{width:80px;padding:10px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.1);background:var(--mt-ink-700);color:var(--mt-white);font-family:var(--font-sans);font-weight:700;font-size:18px;text-align:center;outline:none;transition:border-color .15s}
+.math-reveal input:focus{border-color:var(--mt-purple-400)}
+.math-reveal .result{display:none;padding:12px 16px;border-radius:var(--r-md);background:rgba(93,227,196,.1);border:1px solid rgba(93,227,196,.2)}
+.math-reveal .result.show{display:block}
+.math-reveal .result a{font-size:18px;font-weight:900;font-style:italic;color:var(--mt-off-white);text-decoration:none}
+.math-reveal .result a:hover{color:var(--mt-mint)}
+.math-reveal .error{display:none;font-size:13px;color:var(--mt-coral)}
+
+/* ---- skeleton ---- */
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.skel{background:linear-gradient(90deg,rgba(255,255,255,.04) 25%,rgba(255,255,255,.1) 50%,rgba(255,255,255,.04) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:var(--r-sm)}
+.skel-title{height:14px;width:65%;margin-bottom:8px}
+.skel-line{height:10px;width:100%;margin-bottom:6px}
+.skel-line:last-child{width:45%;margin-bottom:0}
+
+/* ---- count-up ---- */
+.count-num{display:inline-block}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html"><img src="assets/Logo_Horizontal_White.png" alt="Moon Tropica" class="nav-logo" /></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" class="active">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="branding.html">Branding</a>
+    <a href="faq.html">FAQ</a>
+    <a href="https://docs.moontropica.com/" target="_blank">Litepaper</a>
+    <a href="https://blog.moontropica.com/" target="_blank">Blog</a>
+    <a href="#" onclick="openContactModal();return false">Contact</a>
+    <div class="nav-divider"></div>
+    <a href="https://store.steampowered.com/app/3664890/Moon_Tropica/" target="_blank" class="nav-play">PLAY NOW ›</a>
+  </div>
+</nav>
+<script>
+document.getElementById('hamburger').addEventListener('click', function(){
+  this.classList.toggle('open');
+  document.getElementById('navLinks').classList.toggle('open');
+});
+</script>
+
+<div class="page">
+
+  <!-- ═══ HERO ═══ -->
+  <div class="hero">
+    <video class="hero-vid" autoplay loop muted playsinline poster="assets/Dataroom4-poster-00001.jpg">
+      <source src="assets/Dataroom4-transcode.mp4" type="video/mp4">
+      <source src="assets/Dataroom4-transcode.webm" type="video/webm">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+    <img src="assets/Logo_Horizontal_White.png" alt="Moon Tropica" class="hero-logo reveal reveal-delay-1" />
+    <span class="eyebrow reveal reveal-delay-2"><span class="dot"></span> FREE TO PLAY · BATTLE ARENA</span>
+    <h1 class="display reveal reveal-delay-3">
+      ENTER THE ARENA
+      <span class="line-2">BECOME A LEGEND</span>
+    </h1>
+    <p class="lede reveal reveal-delay-4">Moon Tropica is a spirited battle arena game where players participate in a variety of action-packed game modes. Engage in competitive combat, alongside or against fellow players, as you strive to amass the most coveted and rare items.</p>
+    <div class="btn-row reveal reveal-delay-5">
+      <a href="https://store.steampowered.com/app/3664890/Moon_Tropica/" target="_blank" class="btn btn-play btn-shine">PLAY NOW ›</a>
+      <a href="#about" class="btn btn-ghost">Learn more →</a>
+    </div>
+    </div>
+  </div>
+
+  <!-- ═══ WHAT IS MOON TROPICA ═══ -->
+  <section id="about" class="reveal">
+    <div class="section-head">
+      <h2>What is Moon Tropica?</h2>
+      <span class="label">01 / overview</span>
+    </div>
+    <div class="hero-visual-grid">
+      <div class="card" style="display:flex;flex-direction:column;gap:20px">
+        <h3 style="font-style:italic;font-weight:900;font-size:20px;margin:0;color:var(--mt-off-white)">A Game for the Crypto Culture</h3>
+        <p style="font-weight:600;font-size:16px;color:rgba(255,255,255,.88);line-height:1.7;margin:0">
+          Step into a colorful world full of exciting battles and fun game modes where you can test your skills, team up with friends, and show off your best moves. Every single match is a brand-new adventure, so get ready to jump in, play hard, and have a blast!
+        </p>
+        <div class="details-grid">
+          <div class="item"><span class="label">Release Date</span><span class="value">TBA</span></div>
+          <div class="item"><span class="label">Platforms</span><span class="value">PC, Mac, Mobile</span></div>
+          <div class="item"><span class="label">Price</span><span class="value" style="color:var(--mt-mint)">Free To Play</span></div>
+          <div class="item"><span class="label">Age Rating</span><span class="value">ESRB Teen</span></div>
+          <div class="item genre-item"><span class="label">Genre</span>
+            <div class="genre-tags">
+              <span class="badge badge-mint">Single Player</span>
+              <span class="badge badge-gold">Co-op (2-4)</span>
+              <span class="badge badge-new">Multiplayer</span>
+            </div>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:8px">
+          <a href="https://coinmarketcap.com/currencies/moon-tropica/" target="_blank" class="btn btn-outline btn-shine" style="font-size:12px;background:#2b6aff;border-color:#2b6aff">CoinMarketCap</a>
+          <a href="https://app.uniswap.org/#/tokens/ethereum/0x8e0e57dcb1ce8d9091df38ec1bfc3b224529754a" target="_blank" class="btn btn-outline btn-shine" style="font-size:12px;background:#ff0075;border-color:#ff0075">Uniswap</a>
+        </div>
+      </div>
+      <div class="card-dark" style="display:flex;flex-direction:column;gap:4px;padding:28px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <span style="font-style:italic;font-weight:900;font-size:20px;color:var(--mt-off-white)">Latest Posts</span>
+          <a href="https://blog.moontropica.com/" target="_blank" style="font-family:var(--font-mono);font-size:11px;color:var(--mt-purple-400);text-decoration:none">VIEW ALL →</a>
+        </div>
+          <div id="blog-list" style="flex:1;display:flex;flex-direction:column;justify-content:space-between">
+            <div class="blog-skel" style="border-bottom:1px solid rgba(255,255,255,.06)"><div class="skel skel-title"></div><div class="skel skel-line"></div><div class="skel skel-line"></div><div class="skel skel-line"></div></div>
+            <div class="blog-skel" style="border-bottom:1px solid rgba(255,255,255,.06)"><div class="skel skel-title"></div><div class="skel skel-line"></div><div class="skel skel-line"></div><div class="skel skel-line"></div></div>
+            <div class="blog-skel" style="border-bottom:1px solid rgba(255,255,255,.06)"><div class="skel skel-title"></div><div class="skel skel-line"></div><div class="skel skel-line"></div><div class="skel skel-line"></div></div>
+            <div class="blog-skel" style="border-bottom:1px solid rgba(255,255,255,.06)"><div class="skel skel-title"></div><div class="skel skel-line"></div><div class="skel skel-line"></div><div class="skel skel-line"></div></div>
+            <div class="blog-skel"><div class="skel skel-title"></div><div class="skel skel-line"></div><div class="skel skel-line"></div><div class="skel skel-line"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BECOME A LEGEND ═══ -->
+  <section id="legend" class="reveal">
+    <div class="section-head">
+      <h2>Become A Legend</h2>
+      <span class="label">02 / journey</span>
+    </div>
+    <div class="card-purple" style="text-align:center;padding:48px 40px">
+      <div style="display:flex;justify-content:center;gap:12px;margin-bottom:20px">
+        <div id="crown-anim" style="width:80px;height:80px;margin:0 auto"></div>
+      </div>
+      <h3 style="font-style:italic;font-weight:900;font-size:clamp(24px,3vw,36px);margin:0 0 16px;color:#fff">Step Into the Arena</h3>
+      <p style="font-weight:600;font-size:17px;color:rgba(255,255,255,.9);line-height:1.7;max-width:680px;margin:0 auto">
+        Step into the adventurous, energetic, heart-pounding battle arenas where strategy, skill, and determination are put to the ultimate test. Earn XP progression, complete quests, conquer challenges, and receive rewards all while customizing your fully dynamic character from head-to-toe.
+      </p>
+    </div>
+    <div class="grid-3 mt-24 reveal-stagger">
+      <div class="card tilt-card">
+        <div class="stat">
+          <span class="k">Step 01</span>
+          <span class="v" style="font-size:18px;font-style:italic">Choose Your Class</span>
+          <span style="font-weight:600;font-size:14px;color:var(--mt-muted);line-height:1.6">Select from a roster of unique characters, each with distinct abilities and playstyles.</span>
+        </div>
+      </div>
+      <div class="card tilt-card">
+        <div class="stat">
+          <span class="k">Step 02</span>
+          <span class="v" style="font-size:18px;font-style:italic">Battle & Earn</span>
+          <span style="font-weight:600;font-size:14px;color:var(--mt-muted);line-height:1.6">Compete in action-packed game modes and earn XP, loot, and rare collectibles.</span>
+        </div>
+      </div>
+      <div class="card tilt-card">
+        <div class="stat">
+          <span class="k">Step 03</span>
+          <span class="v" style="font-size:18px;font-style:italic">Customize & Rise</span>
+          <span style="font-weight:600;font-size:14px;color:var(--mt-muted);line-height:1.6">Equip your character with unique items and climb the ranks to become a legend.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ THE WORLD IS YOURS ═══ -->
+  <section id="universe" class="reveal">
+    <div class="section-head">
+      <h2>The World Is Yours</h2>
+      <span class="label">03 / universe</span>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-content reveal" style="transition-delay:.1s">
+        <h3>Crafted by the #CAHmunity</h3>
+        <p>Moon Tropica wasn't built by just one person, it was shaped by an entire community of awesome players just like you! From brilliant ideas to cool feedback, thousands of creators and gamers have teamed up to build the world you see today. It's a massive, collaborative universe where everyone's voice helps craft the adventure.</p>
+        <p style="margin-top:16px">By joining the Moon Tropica family, you become a true part of the development team. Share your thoughts, collaborate with other players on massive projects, and help decide what exciting features come next. Together, we are constantly inventing, growing, and coding the ultimate gaming playground!</p>
+        <div class="btn-row" style="margin-top:20px">
+          <a href="#" class="btn btn-gold" style="display:none">BUILD MODE ›</a>
+          <a href="#" class="btn btn-ghost" style="display:none">Learn about Universe</a>
+        </div>
+      </div>
+      <div id="visual-unlimited" class="feature-visual reveal tilt-card" style="transition-delay:.25s;overflow:hidden">
+        <div class="avatar-carousel">
+          <div class="avatar-row">
+            <div class="av"><img src="assets/community/Lil T.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Robot.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/ZachLA.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Rob Woods.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Pappi.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/2Pac.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Ivan.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Ellio.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Lil T.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Robot.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/ZachLA.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Rob Woods.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Pappi.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/2Pac.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Ivan.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Ellio.jpg" alt="" /></div>
+          </div>
+          <div class="avatar-row invert">
+            <div class="av"><img src="assets/community/Je.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Stasher.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Becker.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Penguin.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Lindonium.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Ephraim.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Guybama.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/ioi.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Je.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Stasher.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Becker.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Penguin.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Lindonium.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Ephraim.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Guybama.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/ioi.jpg" alt="" /></div>
+          </div>
+          <div class="avatar-row">
+            <div class="av"><img src="assets/community/Ruben.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Cryptonite Chris.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Crobin.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Eduardo.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Pentoshi.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/AIX.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Kazi.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/CryptoBit.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Ruben.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Cryptonite Chris.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Crobin.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Eduardo.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Pentoshi.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/AIX.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/Kazi.jpg" alt="" /></div>
+            <div class="av"><img src="assets/community/CryptoBit.jpg" alt="" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COLLECTOR'S CORNER ═══ -->
+  <section id="collector" class="reveal">
+    <div class="section-head">
+      <h2>Collector's Corner</h2>
+      <span class="label">04 / assets</span>
+    </div>
+    <div class="feature-grid">
+      <div id="visual-wearables" class="feature-visual reveal tilt-card" style="transition-delay:.25s;order:2">
+        <div style="text-align:center;position:relative;z-index:1">
+          <div style="font-size:64px;margin-bottom:12px">💎</div>
+          <div style="font-style:italic;font-weight:900;font-size:20px;color:var(--mt-off-white)">Exclusive Wearables</div>
+          <div style="margin-top:16px;display:flex;gap:8px;justify-content:center">
+            <span class="badge badge-gold">★ RARE</span>
+            <span class="badge badge-mint">LEGENDARY</span>
+            <span class="badge badge-muted">COMMON</span>
+          </div>
+        </div>
+      </div>
+      <div class="feature-content reveal" style="transition-delay:.1s;order:1">
+        <h3>Discover Rare Collectibles</h3>
+        <p>Discover exclusive wearables and limited edition assets that not only reflect your in-game achievements but also become coveted symbols within the community.</p>
+        <p style="margin-top:16px">Turn every virtual discovery into a social celebration, where the pursuit of rarity becomes a shared passion among friends and strangers in the land of Moon Tropica.</p>
+        <div class="btn-row" style="margin-top:20px">
+          <a href="#" class="btn btn-gold" style="display:none">VIEW COLLECTION</a>
+          <a href="#" onclick="event.preventDefault();openMarketplaceModal()" class="btn btn-ghost"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>Marketplace →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS OVERVIEW ═══ -->
+  <section class="reveal" id="stats-section">
+    <div class="section-head">
+      <h2>Token Stats</h2>
+      <span class="label">05 / metrics</span>
+    </div>
+    <div class="grid-4 reveal-stagger">
+      <div class="card tilt-card">
+        <div class="stat">
+          <span class="k">Market Cap</span>
+          <span class="v" id="stat-mcap">—</span>
+        </div>
+      </div>
+      <div class="card tilt-card">
+        <div class="stat">
+          <span class="k">Price</span>
+          <span class="v" id="stat-price">—</span>
+        </div>
+      </div>
+      <div class="card tilt-card">
+        <div class="stat">
+          <span class="k">Liquidity</span>
+          <span class="v" id="stat-liq">—</span>
+        </div>
+      </div>
+      <div class="card tilt-card">
+        <div class="stat">
+          <span class="k">24h Volume</span>
+          <span class="v" id="stat-vol">—</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TRAILER / VIDEO ═══ -->
+  <section class="reveal">
+    <div class="section-head">
+      <h2>Trailer</h2>
+      <span class="label">06 / media</span>
+    </div>
+    <div class="card tilt-card" style="padding:0;overflow:hidden">
+      <a href="https://www.youtube.com/watch?v=2op-Mu7Fgko" target="_blank" style="display:block;position:relative;padding-top:56.25%;background:var(--mt-ink-800);text-decoration:none;background-image:url(https://img.youtube.com/vi/2op-Mu7Fgko/maxresdefault.jpg);background-size:cover;background-position:center">
+        <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.4);transition:background .2s">
+          <div style="width:72px;height:72px;border-radius:50%;background:var(--mt-gold-500);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(197,169,61,.5);transition:transform .2s">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#1a1600"><polygon points="8,5 19,12 8,19"/></svg>
+          </div>
+        </div>
+        <div style="position:absolute;bottom:16px;left:16px;display:flex;gap:8px;align-items:center">
+          <span class="badge badge-gold">▶ WATCH ON YOUTUBE</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══ NEWSLETTER ═══ -->
+  <section id="contact" class="reveal">
+    <div class="section-head">
+      <h2>Stay Connected</h2>
+      <span class="label">07 / newsletter</span>
+    </div>
+    <div class="grid-2">
+      <div class="card-purple tilt-card" style="display:flex;flex-direction:column;justify-content:center">
+        <h3 style="font-size:clamp(20px,2.5vw,28px);font-style:italic;font-weight:900;margin:0 0 8px;color:#fff">Stay up to date with Moon Tropica</h3>
+        <p style="font-weight:600;font-size:15px;color:rgba(255,255,255,.9);margin:0 0 20px">Get the latest news, updates, and exclusive drops delivered to your inbox.</p>
+        <form action="https://moontropica.us8.list-manage.com/subscribe/post?u=28f593b10ebf5b96fa7e9c39f&amp;id=da4711aad3&amp;f_id=004079e0f0" method="post" class="btn-row" style="gap:0">
+          <input class="field" style="border-radius:var(--r-pill) 0 0 var(--r-pill);flex:1;min-width:140px" maxlength="256" name="EMAIL" placeholder="Email Address" type="email" required />
+          <button type="submit" class="btn btn-primary" style="border-radius:0 var(--r-pill) var(--r-pill) 0" aria-label="Subscribe">
+            <span class="subscribe-text">SUBSCRIBE</span>
+            <svg class="subscribe-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="card-dark tilt-card" style="display:flex;flex-direction:column;justify-content:center;gap:16px">
+        <h3 style="font-style:italic;font-weight:900;font-size:18px;margin:0;color:var(--mt-off-white)">Join the Community</h3>
+        <p style="font-weight:600;font-size:14px;color:var(--mt-muted);margin:0;line-height:1.6">Follow us on social media and join the conversation. The Moon Tropica community is waiting for you.</p>
+        <div class="social-row">
+          <a href="https://twitter.com/moontropica" target="_blank" class="social-link" aria-label="X">𝕏</a>
+          <a href="https://t.me/MoonTropicaCAH" target="_blank" class="social-link" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a>
+          <a href="#" class="social-link" aria-label="Discord" onclick="event.preventDefault();openModal()"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="reveal">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <img src="assets/Logo_Horizontal_White.png" alt="Moon Tropica" />
+        <p>Moon Tropica is a spirited battle arena game where players participate in action-packed game modes. Strategy, skill, and determination are put to the ultimate test!</p>
+      </div>
+      <div class="footer-col">
+        <h4>Game</h4>
+        <a href="https://blog.moontropica.com/" target="_blank">Blog</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="branding.html">Branding</a>
+        <a href="#" onclick="openContactModal();return false">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Docs</h4>
+        <a href="https://docs.moontropica.com/" target="_blank">Litepaper</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Socials</h4>
+        <a href="https://twitter.com/moontropica" target="_blank">X</a>
+        <a href="https://t.me/MoonTropicaCAH" target="_blank">Telegram</a>
+        <a href="#" onclick="event.preventDefault();openModal()">Discord</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Moon Tropica</span>
+      <span>Built by Regarded.gg</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// ---- scroll reveal ----
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
+}, { threshold: .15 })
+
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el))
+
+// ---- smooth anchor scroll (progressive enhancement) ----
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href')
+    if (id === '#') return
+    const target = document.querySelector(id)
+    if (!target) return
+    e.preventDefault()
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  })
+})
+
+// ---- count-up ----
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return
+    const el = e.target
+    const target = parseFloat(el.dataset.count)
+    const suffix = el.dataset.suffix || ''
+    const decimals = (el.dataset.count.split('.')[1] || '').length
+    const duration = 1200
+    const start = performance.now()
+    function tick(now) {
+      const p = Math.min((now - start) / duration, 1)
+      const val = target * p
+      el.textContent = val.toFixed(decimals) + suffix
+      if (p < 1) requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+    countObserver.unobserve(el)
+  })
+}, { threshold: .5 })
+
+document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el))
+
+// ---- hover tilt ----
+document.querySelectorAll('.tilt-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect()
+    const x = (e.clientX - r.left) / r.width - .5
+    const y = (e.clientY - r.top) / r.height - .5
+    card.style.transform = `perspective(600px) rotateY(${x*8}deg) rotateX(${-y*8}deg)`
+  })
+  card.addEventListener('mouseleave', () => { card.style.transform = '' })
+})
+
+// ---- lottie crown ----
+if (typeof lottie !== 'undefined') {
+  lottie.loadAnimation({
+    container: document.getElementById('crown-anim'),
+    path: 'assets/crown2.json',
+    loop: true,
+    autoplay: true
+  });
+}
+
+// ---- live stats from DexScreener ----
+async function fetchStats() {
+  try {
+    const r = await fetch('https://api.dexscreener.com/latest/dex/tokens/0x8e0E57DCb1ce8d9091dF38ec1BfC3b224529754A')
+    const data = await r.json()
+    const pair = data.pairs?.[0]
+    if (!pair) return
+
+    const fmt = (n, suffix = '') => {
+      if (!n && n !== 0) return '—'
+      const abs = Math.abs(n)
+      let val
+      if (abs >= 1e9) val = (n / 1e9).toFixed(2) + 'B'
+      else if (abs >= 1e6) val = (n / 1e6).toFixed(2) + 'M'
+      else if (abs >= 1e3) val = (n / 1e3).toFixed(1) + 'K'
+      else val = n.toFixed(2)
+      return '$' + val + suffix
+    }
+
+    document.getElementById('stat-mcap').textContent = fmt(pair.marketCap)
+    document.getElementById('stat-price').textContent = '$' + (+pair.priceUsd).toFixed(4)
+    document.getElementById('stat-liq').textContent = fmt(pair.liquidity?.usd)
+    document.getElementById('stat-vol').textContent = fmt(pair.volume?.h24)
+  } catch (e) {
+    console.error('Stats fetch failed', e)
+  }
+}
+fetchStats()
+
+// ---- blog posts ----
+async function fetchBlog() {
+  const start = performance.now()
+  try {
+    const r = await fetch('https://blog.moontropica.com/wp-json/wp/v2/posts?per_page=5')
+    const posts = (await r.json()).filter(p => p.status === 'publish' && !p.content?.protected)
+    const elapsed = performance.now() - start
+    if (elapsed < 1000) await new Promise(r => setTimeout(r, 1000 - elapsed))
+    const html = posts.map(p => {
+      const excerpt = p.excerpt.rendered.replace(/<[^>]+>/g, '').trim()
+      return `
+      <a href="${p.link}" target="_blank" class="blog-row">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <span style="font-weight:700;font-size:13px;color:var(--mt-off-white);flex:1;padding-right:12px">${p.title.rendered}</span>
+          <span style="font-family:var(--font-mono);font-size:11px;color:var(--mt-muted);white-space:nowrap">${p.date.slice(0,10)}</span>
+        </div>
+        <div style="font-weight:600;font-size:12px;color:var(--mt-muted);line-height:1.5;margin-top:4px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden">${excerpt}</div>
+      </a>`
+    }).join('')
+    document.getElementById('blog-list').innerHTML = html
+    const rows = document.querySelectorAll('#blog-list .blog-row')
+    rows.forEach((row, i) => {
+      setTimeout(() => row.classList.add('fade-in'), i * 100)
+    })
+  } catch (e) {
+    document.getElementById('blog-list').innerHTML = '<span style="color:var(--mt-muted);font-size:13px">Could not load posts</span>'
+  }
+}
+fetchBlog()
+
+// ---- discord modal ----
+function openModal(){document.getElementById('discord-modal').classList.add('open')}
+function closeModal(){document.getElementById('discord-modal').classList.remove('open')}
+document.getElementById('discord-modal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal()})
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()})
+
+// ---- math captcha ----
+function generateMath() {
+  const a = Math.floor(Math.random() * 20) + 1
+  const b = Math.floor(Math.random() * 20) + 1
+  const ops = ['+', '-', '\u00d7']
+  const op = ops[Math.floor(Math.random() * ops.length)]
+  let ans
+  if (op === '+') ans = a + b
+  else if (op === '-') ans = a - b
+  else ans = a * b
+  document.getElementById('math-q').textContent = a + ' ' + op + ' ' + b
+  document.getElementById('math-a').value = ''
+  document.getElementById('math-result').classList.remove('show')
+  document.getElementById('math-error').style.display = 'none'
+  document.getElementById('math-btn').disabled = false
+  document.getElementById('math-btn').textContent = 'Reveal'
+  document.getElementById('math-a').dataset.answer = ans
+}
+function checkMath() {
+  const v = parseInt(document.getElementById('math-a').value)
+  const a = parseInt(document.getElementById('math-a').dataset.answer)
+  if (v === a) {
+    document.getElementById('math-result').classList.add('show')
+    document.getElementById('math-error').style.display = 'none'
+    document.getElementById('math-btn').textContent = '\u2713 Solved'
+    document.getElementById('math-btn').disabled = true
+  } else {
+    document.getElementById('math-error').style.display = 'block'
+    document.getElementById('math-result').classList.remove('show')
+  }
+}
+function openContactModal(){generateMath();document.getElementById('contact-modal').classList.add('open')}
+function closeContactModal(){document.getElementById('contact-modal').classList.remove('open')}
+function openMarketplaceModal(){document.getElementById('marketplace-modal').classList.add('open')}
+function closeMarketplaceModal(){document.getElementById('marketplace-modal').classList.remove('open')}
+</script>
+
+<div class="modal-overlay" id="discord-modal">
+  <div class="modal-box">
+    <button class="modal-close-icon" onclick="closeModal()">&#xd7;</button>
+    <h3>Coming Soon</h3>
+    <p>The Moon Tropica Discord server is on its way. Stay tuned!</p>
+    <button class="modal-close" onclick="closeModal()">OK!</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="marketplace-modal">
+  <div class="modal-box">
+    <button class="modal-close-icon" onclick="closeMarketplaceModal()">&#xd7;</button>
+    <h3>Coming Soon</h3>
+    <p>The Marketplace is under development. Stay tuned!</p>
+    <button class="modal-close" onclick="closeMarketplaceModal()">OK!</button>
+  </div>
+</div>
+
+<div class="modal-overlay" id="contact-modal">
+  <div class="modal-box">
+    <button class="modal-close-icon" onclick="closeContactModal()">&#xd7;</button>
+    <h3>Contact Us</h3>
+    <div class="math-reveal">
+      <p style="margin:0">Solve this to reveal our email:</p>
+      <div class="row">
+        <span id="math-q"></span>
+        <span style="color:var(--mt-muted)">=</span>
+        <input type="number" id="math-a" />
+      </div>
+      <button class="modal-close" id="math-btn">Reveal</button>
+      <div class="result" id="math-result">
+        <p style="margin:0 0 4px;font-size:13px;color:var(--mt-mint)">Email revealed!</p>
+        <a href="mailto:info@moontropica.com">info@moontropica.com</a>
+      </div>
+      <div class="error" id="math-error">Incorrect answer. Try again.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('math-btn').addEventListener('click', checkMath)
+document.getElementById('math-a').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkMath()
+})
+document.getElementById('contact-modal').addEventListener('click',function(e){if(e.target===e.currentTarget)closeContactModal()})
+document.getElementById('marketplace-modal').addEventListener('click',function(e){if(e.target===e.currentTarget)closeMarketplaceModal()})
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeModal();closeMarketplaceModal()}})
+</script>
+</body>
+</html>
