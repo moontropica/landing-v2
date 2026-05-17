@@ -131,7 +131,7 @@ nav{
 }
 .hero::before{top:-120px;left:-80px}
 .hero::after{bottom:-160px;right:-60px;width:420px;height:420px}
-.hero-logo{position:relative;display:block;height:clamp(38px,4.4vw,56px);width:auto;margin-bottom:24px}
+.hero-logo{position:relative;display:block;height:clamp(38px,4.4vw,56px);width:auto;max-width:100%;margin-bottom:24px}
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;
   background:rgba(0,0,0,.25);color:var(--mt-gold-200);
@@ -408,6 +408,7 @@ footer{margin-top:96px;padding-top:32px;border-top:1px solid rgba(255,255,255,.0
 .nav-play{display:block;text-align:center;background:var(--mt-gold-500);color:var(--mt-ink-900)!important;font-weight:900;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:10px 16px;border-radius:var(--r-pill);text-decoration:none;transition:background .15s}
 .nav-play:hover{background:var(--mt-gold-400)!important}
 @media(max-width:768px){
+  .hero{padding:48px 24px}
   .subscribe-text{display:none}
   .subscribe-icon{display:block}
 }
