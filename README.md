@@ -1,4 +1,4 @@
-# Moon Tropica — Landing Page Suite
+# 🌙 Moon Tropica — Landing Page Suite
 
 Brand landing pages for the Moon Tropica / CAH ecosystem.
 
