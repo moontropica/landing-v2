@@ -1,0 +1,1005 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Moon Tropica — $CAH Governance</title>
+<meta name="description" content="Vote on proposals and shape the future of Moon Tropica. Gasless governance powered by Snapshot." />
+<meta content="Moon Tropica — $CAH Governance" property="og:title">
+<meta content="Vote on proposals and shape the future of Moon Tropica. Gasless governance powered by Snapshot." property="og:description">
+<meta content="https://uploads-ssl.webflow.com/625e4cb0a3feb9d1581be68c/65734ac250912db95d3f31b5_open-graph3.jpg" property="og:image">
+<meta content="Moon Tropica — $CAH Governance" property="twitter:title">
+<meta content="Vote on proposals and shape the future of Moon Tropica. Gasless governance powered by Snapshot." property="twitter:description">
+<meta content="https://uploads-ssl.webflow.com/625e4cb0a3feb9d1581be68c/65734ac250912db95d3f31b5_open-graph3.jpg" property="twitter:image">
+<meta property="og:type" content="website">
+<meta content="summary_large_image" name="twitter:card">
+<link rel="shortcut icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/webclip.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* scrollbar */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--mt-ink-900)}
+::-webkit-scrollbar-thumb{background:var(--mt-ink-500);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--mt-purple-600)}
+:root {
+  scrollbar-color:var(--mt-ink-500) var(--mt-ink-900);
+  --mt-purple-400: #b06ee2;
+  --mt-purple-500: #9a4fd4;
+  --mt-purple-600: #7a3aba;
+  --mt-purple-700: #5b2d90;
+  --mt-purple-800: #3d1f63;
+  --mt-purple-900: #2a1447;
+  --mt-ink-900: #0f0f12;
+  --mt-ink-800: #17171c;
+  --mt-ink-700: #202027;
+  --mt-ink-600: #2b2b34;
+  --mt-ink-500: #3a3a46;
+  --mt-gold-500: #c5a93d;
+  --mt-gold-400: #d9bf52;
+  --mt-gold-300: #f5c460;
+  --mt-gold-200: #ffe066;
+  --mt-yellow: #ffdd00;
+  --mt-mint: #5de3c4;
+  --mt-coral: #ff6b6b;
+  --mt-white: #ffffff;
+  --mt-off-white: #f2ecff;
+  --mt-muted: #8a8195;
+  --mt-disabled: #4a4653;
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+  --r-pill: 999px;
+  --font-sans: 'Mulish', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:var(--font-sans);
+  font-weight:700;
+  color:var(--mt-white);
+  background:
+    radial-gradient(1200px 800px at 50% -20%, #3a1f66 0%, transparent 70%),
+    radial-gradient(900px 700px at 90% 110%, #2a1447 0%, transparent 60%),
+    var(--mt-ink-900);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.45;
+}
+.page{max-width:1200px;margin:0 auto;padding:0 24px 120px}
+
+/* nav */
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 24px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(15,15,18,.8);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-logo{height:27px;width:auto;display:block}
+.nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(15,15,18,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.06);padding:12px;gap:4px}
+.nav-links a{
+  color:var(--mt-muted);
+  text-decoration:none;
+  font-style:italic;
+  font-weight:900;
+  font-size:13px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  padding:10px 14px;
+  border-radius:var(--r-sm);
+  transition:color .12s, background .12s;
+}
+.nav-links a:hover{color:var(--mt-off-white);background:rgba(255,255,255,.04)}
+.nav-links a.active{color:var(--mt-white);background:rgba(154,79,212,.14)}
+.nav-links.open{display:flex}
+
+/* hero */
+.hero{
+  margin-top:40px;
+  background:
+    radial-gradient(700px 400px at 70% 20%, var(--mt-purple-400) 0%, transparent 60%),
+    linear-gradient(135deg, var(--mt-purple-500), var(--mt-purple-700));
+  border-radius:var(--r-xl);
+  padding:48px 46px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 20px 60px -20px rgba(154,79,212,.55);
+}
+.hero::before,.hero::after{
+  content:"";position:absolute;
+  width:340px;height:340px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.12) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero::before{top:-120px;left:-80px}
+.hero::after{bottom:-160px;right:-60px;width:420px;height:420px}
+.hero-content{position:relative;z-index:1}
+.hero h1{font-style:italic;font-weight:900;font-size:clamp(32px,4vw,52px);margin:0;letter-spacing:-.02em}
+.hero p{font-weight:700;font-size:16px;color:rgba(255,255,255,.85);margin:8px 0 0;max-width:560px}
+
+/* sections */
+section{margin-top:80px;scroll-margin-top:80px}
+.section-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:28px;padding-bottom:16px;
+  border-bottom:1px dashed rgba(255,255,255,.12);
+}
+.section-head h2{font-style:italic;font-weight:900;font-size:clamp(22px,2.6vw,34px);margin:0;letter-spacing:-.01em}
+.label{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--mt-muted)}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--font-sans);font-style:italic;font-weight:900;
+  font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  padding:12px 22px;border:0;border-radius:var(--r-pill);
+  cursor:pointer;transition:transform .08s, box-shadow .12s, background .12s;
+  white-space:nowrap;user-select:none;text-decoration:none;
+}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--mt-purple-600);color:var(--mt-off-white)}
+.btn-primary:hover{background:var(--mt-purple-500)}
+.btn-accent{background:var(--mt-gold-500);color:#1a1600}
+.btn-accent:hover{background:var(--mt-gold-400)}
+.btn-danger{background:var(--mt-coral);color:#fff}
+.btn-danger:hover{background:#ff5252}
+.btn-outline{background:transparent;color:var(--mt-off-white);border:2px solid rgba(255,255,255,.15)}
+.btn-outline:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.3)}
+.btn-sm{padding:8px 16px;font-size:11px}
+.btn.disabled{opacity:.45;pointer-events:none}
+.btn.loading{position:relative;color:transparent}
+.btn.loading::after{
+  content:"";position:absolute;inset:0;margin:auto;
+  width:16px;height:16px;border:2px solid rgba(255,255,255,.3);
+  border-top-color:white;border-radius:50%;
+  animation:spin .6s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* cards */
+.card{
+  background:var(--mt-ink-800);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--r-lg);
+  padding:28px;
+}
+.card-dark{background:var(--mt-ink-800);border:1px solid rgba(255,255,255,.06);border-radius:var(--r-lg);padding:24px}
+.card-purple{background:linear-gradient(135deg,rgba(154,79,212,.15),rgba(61,31,99,.25));border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:28px}
+
+/* grid */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.grid-2{grid-template-columns:1fr}}
+.grid-2-1{display:grid;grid-template-columns:2fr 1fr;gap:24px}
+@media(max-width:900px){.grid-2-1{grid-template-columns:1fr}}
+
+/* stats row */
+.stats-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px}
+.stat-box{
+  flex:1 1 160px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--r-md);
+  padding:20px 16px;
+  text-align:center;
+}
+.stat-value{font-size:clamp(24px,2.8vw,34px);font-weight:900;font-style:italic;margin-bottom:4px}
+.stat-label{font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--mt-muted)}
+
+/* tabs */
+.tab-row{display:flex;gap:0;margin-bottom:20px}
+.tab{
+  flex:1;padding:10px 14px;text-align:center;font-weight:900;font-style:italic;
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;background:var(--mt-ink-700);color:var(--mt-muted);
+  border:1px solid rgba(255,255,255,.06);transition:background .12s,color .12s;
+}
+.tab:first-child{border-radius:var(--r-sm) 0 0 var(--r-sm)}
+.tab:last-child{border-radius:0 var(--r-sm) var(--r-sm) 0}
+.tab+.tab{border-left:none}
+.tab.active{background:var(--mt-purple-600);color:var(--mt-white)}
+
+/* proposals list */
+.proposals-list{display:flex;flex-direction:column;gap:8px}
+.proposal-item{
+  padding:16px;background:var(--mt-ink-800);border:1px solid rgba(255,255,255,.06);
+  border-radius:var(--r-md);cursor:pointer;transition:border-color .15s,background .15s;
+  opacity:0;animation:fadeInUp .4s ease forwards;
+}
+.proposal-item:hover{border-color:rgba(255,255,255,.15);background:var(--mt-ink-700)}
+.proposal-item.selected{border-color:var(--mt-purple-400);border-width:2px}
+.proposal-item-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.proposal-title{font-weight:800;font-size:14px;color:var(--mt-off-white);line-height:1.3;flex:1}
+.proposal-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--mt-muted)}
+.proposal-votes{font-size:12px;color:var(--mt-muted);margin-top:6px}
+
+/* badges */
+.badge{display:inline-flex;align-items:center;padding:3px 10px;font-size:10px;font-weight:900;font-style:italic;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--r-pill);flex-shrink:0}
+.badge-active{background:rgba(93,227,196,.15);color:var(--mt-mint)}
+.badge-passed{background:rgba(93,227,196,.15);color:var(--mt-mint)}
+.badge-failed{background:rgba(255,107,107,.15);color:var(--mt-coral)}
+.badge-pending{background:rgba(255,221,0,.12);color:var(--mt-yellow)}
+
+/* proposal detail */
+.detail-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:16px}
+.detail-title{font-style:italic;font-weight:900;font-size:clamp(16px,1.8vw,22px);margin:0;color:var(--mt-off-white)}
+.hr{height:1px;background:rgba(255,255,255,.06);margin:16px 0}
+
+/* description */
+.description-scroll{max-height:240px;overflow-y:auto;padding:16px;background:var(--mt-ink-700);border-radius:var(--r-sm);border:1px solid rgba(255,255,255,.04)}
+.description-text{font-weight:600;font-size:14px;color:rgba(255,255,255,.8);line-height:1.6}
+.description-text strong{color:var(--mt-off-white)}
+.description-text ul{padding-left:18px;margin:8px 0}
+.description-text li{margin-bottom:4px}
+
+/* vote breakdown */
+.vote-bar{display:flex;width:100%;height:12px;border-radius:var(--r-pill);overflow:hidden;margin:10px 0;background:var(--mt-ink-700)}
+.vote-bar-for{background:var(--mt-mint);height:100%}
+.vote-bar-against{background:var(--mt-coral);height:100%}
+.vote-counts{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.vote-count{flex:1 1 80px;text-align:center;padding:12px 10px;background:var(--mt-ink-700);border-radius:var(--r-sm);border:1px solid rgba(255,255,255,.04)}
+.vote-count-value{font-weight:900;font-size:16px;margin-bottom:2px}
+.vote-count-label{font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mt-muted)}
+
+/* vote actions */
+.vote-actions{display:flex;gap:8px;margin-top:12px}
+.vote-actions .btn{flex:1;text-align:center}
+
+/* balance hint */
+.balance-hint{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.balance-amount{font-size:13px;color:var(--mt-muted);font-weight:700}
+
+/* info rows */
+.info-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.info-row:last-child{border-bottom:none}
+.info-label{font-size:13px;color:var(--mt-muted);font-weight:700}
+.info-value{font-weight:900;font-size:14px;color:var(--mt-off-white)}
+
+/* progress */
+.progress-track{width:100%;height:6px;background:var(--mt-ink-600);border-radius:var(--r-pill);overflow:hidden;margin-top:12px}
+.progress-fill{height:100%;background:var(--mt-mint);border-radius:var(--r-pill)}
+.progress-label{display:flex;justify-content:space-between;font-size:11px;color:var(--mt-muted);margin-top:4px}
+
+/* panel */
+.panel{background:var(--mt-ink-700);border:1px solid rgba(255,255,255,.04);border-radius:var(--r-sm);padding:14px}
+
+/* toast */
+.toast{
+  position:fixed;bottom:20px;right:20px;padding:14px 22px;
+  background:var(--mt-ink-800);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r-md);font-size:13px;font-weight:700;z-index:9999;
+  box-shadow:0 10px 40px rgba(0,0,0,.4);
+  animation:slideIn .2s ease;
+}
+@keyframes slideIn{from{transform:translateY(20px);opacity:0}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* mobile nav */
+.hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:8px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--mt-white);border-radius:2px;transition:transform .2s,opacity .2s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-divider{height:1px;background:rgba(255,255,255,.08);margin:8px 0}
+.nav-play{display:block;text-align:center;background:var(--mt-gold-500);color:var(--mt-ink-900)!important;font-weight:900;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:10px 16px;border-radius:var(--r-pill);text-decoration:none;transition:background .15s}
+.nav-play:hover{background:var(--mt-gold-400)!important}
+@media(max-width:768px){
+  .hero{padding:36px 24px}
+  .hero::before,.hero::after{display:none}
+}
+@media(min-width:769px){
+  .nav-links{left:auto;right:0;min-width:220px}
+}
+
+/* wallet modal overlay */
+.modal-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal-box{background:var(--mt-ink-800);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:32px 28px;text-align:center;max-width:340px;width:90%;transform:scale(.92);transition:transform .25s;box-shadow:0 20px 60px rgba(0,0,0,.5);position:relative}
+.modal-overlay.open .modal-box{transform:scale(1)}
+.modal-close-icon{position:absolute;top:12px;right:16px;background:none;border:none;color:var(--mt-muted);font-size:22px;cursor:pointer;padding:4px;line-height:1;transition:color .15s}
+.modal-close-icon:hover{color:var(--mt-off-white)}
+.modal-box h3{font-style:italic;font-weight:900;font-size:20px;margin:0 0 16px;color:var(--mt-off-white)}
+.modal-box .btn{width:100%;margin-bottom:10px;padding:14px}
+
+/* footer */
+footer{margin-top:96px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+@media(max-width:768px){.footer-grid{grid-template-columns:1fr 1fr}}
+.footer-logo img{height:36px;width:auto}
+.footer-logo p{color:var(--mt-muted);font-weight:600;font-size:13px;margin:12px 0 0;max-width:280px}
+.footer-col h4{font-style:italic;font-weight:900;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mt-muted);margin:0 0 16px}
+.footer-col a{display:block;color:var(--mt-off-white);text-decoration:none;font-weight:700;font-size:14px;padding:4px 0;transition:color .12s}
+.footer-col a:hover{color:var(--mt-white)}
+.footer-bottom{margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom span{color:var(--mt-muted);font-weight:600;font-size:13px}
+
+/* social */
+.social-row{display:flex;gap:8px;margin-top:12px}
+.social-link{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:0;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--mt-muted);text-decoration:none;font-size:14px;
+  transition:background .12s, color .12s;
+}
+.social-link:hover{background:var(--mt-purple-600);color:var(--mt-white)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* math reveal */
+.math-reveal{display:flex;flex-direction:column;align-items:center;gap:12px}
+.math-reveal .row{display:flex;gap:8px;align-items:center;justify-content:center}
+.math-reveal .row span{font-size:22px;font-weight:900;font-style:italic;color:var(--mt-off-white)}
+.math-reveal input{width:80px;padding:10px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.1);background:var(--mt-ink-700);color:var(--mt-white);font-family:var(--font-sans);font-weight:700;font-size:18px;text-align:center;outline:none;transition:border-color .15s}
+.math-reveal input:focus{border-color:var(--mt-purple-400)}
+.math-reveal .result{display:none;padding:12px 16px;border-radius:var(--r-md);background:rgba(93,227,196,.1);border:1px solid rgba(93,227,196,.2)}
+.math-reveal .result.show{display:block}
+.math-reveal .result a{font-size:18px;font-weight:900;font-style:italic;color:var(--mt-off-white);text-decoration:none}
+.math-reveal .result a:hover{color:var(--mt-mint)}
+.math-reveal .error{display:none;font-size:13px;color:var(--mt-coral)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html"><img src="assets/Logo_Horizontal_White.png" alt="Moon Tropica" class="nav-logo" /></a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="branding.html">Branding</a>
+    <a href="faq.html">FAQ</a>
+    <a href="governance.html" class="active">Governance</a>
+    <a href="https://docs.moontropica.com/" target="_blank">Litepaper</a>
+    <a href="https://blog.moontropica.com/" target="_blank">Blog</a>
+    <a href="#" onclick="openContactModal();return false">Contact</a>
+    <div class="nav-divider"></div>
+    <a href="https://store.steampowered.com/app/3664890/Moon_Tropica/" target="_blank" class="nav-play">PLAY NOW ›</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero reveal">
+    <div class="hero-content">
+      <span class="label" style="color:var(--mt-gold-200);margin-bottom:12px;display:block">$CAH Governance</span>
+      <h1>Governance Portal</h1>
+      <p>Vote on proposals and shape the future of Moon Tropica. Gasless voting powered by Snapshot.</p>
+    </div>
+  </div>
+
+  <!-- STATS + WALLET -->
+  <section class="reveal">
+    <div class="grid-2" style="align-items:start">
+      <div class="card-purple">
+        <div class="stats-row">
+          <div class="stat-box"><div class="stat-value" id="stat-total">--</div><div class="stat-label">Total Proposals</div></div>
+          <div class="stat-box"><div class="stat-value" id="stat-participation" style="color:var(--mt-mint)">--</div><div class="stat-label">Participation Rate</div></div>
+          <div class="stat-box"><div class="stat-value" id="stat-active" style="color:var(--mt-gold-300)">--</div><div class="stat-label">Active Proposals</div></div>
+          <div class="stat-box"><div class="stat-value" id="stat-power">--</div><div class="stat-label">Your Voting Power</div></div>
+        </div>
+      </div>
+      <div class="card-dark" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px">
+        <h3 style="font-style:italic;font-weight:900;font-size:16px;margin:0;color:var(--mt-off-white)">Connect your wallet to vote</h3>
+        <p style="font-weight:600;font-size:13px;color:var(--mt-muted);margin:0">Use your $CAH tokens to participate in governance.</p>
+        <button class="btn btn-accent" id="btn-connect">Connect Wallet</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPOSALS -->
+  <section class="reveal">
+    <div class="section-head">
+      <h2>Proposals</h2>
+      <span class="label">Vote &amp; shape the future</span>
+    </div>
+    <div class="grid-2">
+      <!-- List -->
+      <div class="card">
+        <div class="tab-row">
+          <div class="tab active" id="tab-all">All</div>
+          <div class="tab" id="tab-active">Active</div>
+          <div class="tab" id="tab-passed">Passed</div>
+          <div class="tab" id="tab-failed">Failed</div>
+        </div>
+        <div class="proposals-list" id="proposals-list">
+          <p style="text-align:center;padding:20px;color:var(--mt-muted);font-weight:600">Loading proposals...</p>
+        </div>
+      </div>
+      <!-- Detail -->
+      <div class="card" id="proposal-detail">
+        <p style="text-align:center;padding:40px;color:var(--mt-muted);font-weight:600">Select a proposal to view details</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="reveal">
+    <div class="footer-grid">
+      <div class="footer-logo">
+        <img src="assets/Logo_Horizontal_White.png" alt="Moon Tropica" />
+        <p>Moon Tropica is a spirited battle arena game where players participate in action-packed game modes. Strategy, skill, and determination are put to the ultimate test!</p>
+      </div>
+      <div class="footer-col">
+        <h4>Game</h4>
+        <a href="https://blog.moontropica.com/" target="_blank">Blog</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="branding.html">Branding</a>
+        <a href="#" onclick="openContactModal();return false">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Docs</h4>
+        <a href="https://docs.moontropica.com/" target="_blank">Litepaper</a>
+        <a href="faq.html">FAQ</a>
+        <a href="governance.html">Governance</a>
+      </div>
+      <div class="footer-col">
+        <h4>Socials</h4>
+        <a href="https://twitter.com/moontropica" target="_blank">X</a>
+        <a href="https://t.me/MoonTropicaCAH" target="_blank">Telegram</a>
+        <a href="#" onclick="event.preventDefault();openModal()">Discord</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Moon Tropica</span>
+      <span>Built by Regarded.gg</span>
+    </div>
+  </footer>
+
+</div>
+
+<!-- Wallet choice modal -->
+<div class="modal-overlay" id="wallet-choice-overlay">
+  <div class="modal-box">
+    <h3>Connect Wallet</h3>
+    <button class="btn btn-primary" id="btn-wallet-injected">Browser Wallet (MetaMask)</button>
+    <button class="btn btn-outline" id="btn-wallet-wc">WalletConnect</button>
+  </div>
+</div>
+
+<!-- Contact modal -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-box">
+    <button class="modal-close-icon" onclick="closeContactModal()">&times;</button>
+    <h3>Get in Touch</h3>
+    <p>Solve the challenge to reveal our email.</p>
+    <div class="math-reveal">
+      <div class="row">
+        <span id="mathA">0</span>
+        <span id="mathOp">+</span>
+        <span id="mathB">0</span>
+        <span>=</span>
+        <span>?</span>
+      </div>
+      <input type="number" id="mathInput" placeholder="Answer" />
+      <button class="btn btn-accent" onclick="checkMath()">Reveal</button>
+      <div class="result" id="mathResult"><a href="mailto:info@moontropica.com">info@moontropica.com</a></div>
+      <div class="error" id="mathError">Try again.</div>
+    </div>
+  </div>
+</div>
+
+<!-- Discord modal -->
+<div class="modal-overlay" id="discordModal">
+  <div class="modal-box">
+    <button class="modal-close-icon" onclick="closeModal()">&times;</button>
+    <h3>Coming Soon</h3>
+    <p style="margin-bottom:0">The Discord community is on its way. Stay tuned!</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@snapshot-labs/snapshot.js@0.4.119/dist/snapshot.umd.min.js"></script>
+<script>
+// ── Snapshot Governance Integration ──
+
+const SNAPSHOT_HUB = "https://hub.snapshot.org";
+const SPACE_ID = "cahgov.eth";
+const GRAPHQL_URL = "https://hub.snapshot.org/graphql";
+const CAH_TOKEN = "0x8e0e57dcb1ce8d9091df38ec1bfc3b224529754a";
+const WC_PROJECT_ID = "472c45b08fc25a88e517db60e89e0d22";
+
+let connectedAccount = null;
+let allProposals = [];
+let selectedProposal = null;
+let currentFilter = "all";
+let activeProvider = null;
+let walletConnectProvider = null;
+
+const client = new snapshot.Client712(SNAPSHOT_HUB);
+
+// ── Wallet Connection ──
+
+async function createWalletConnectProvider() {
+  const EthereumProvider = globalThis["@walletconnect/ethereum-provider"].EthereumProvider;
+  const provider = await EthereumProvider.init({
+    projectId: WC_PROJECT_ID,
+    chains: [1],
+    showQrModal: true,
+    metadata: { name: "Moon Tropica Governance", description: "$CAH Governance Portal", url: window.location.origin, icons: [window.location.origin + "/assets/favicon.png"] }
+  });
+  return provider;
+}
+
+function setupProviderListeners(provider) {
+  provider.on("accountsChanged", accounts => {
+    connectedAccount = accounts[0] || null;
+    updateWalletUI();
+    if (connectedAccount) loadVotingPower();
+    if (selectedProposal) renderProposalDetail(selectedProposal);
+  });
+  provider.on("disconnect", () => {
+    connectedAccount = null; activeProvider = null; updateWalletUI();
+  });
+}
+
+function connectWallet() {
+  if (!window.ethereum) { connectViaWalletConnect(); return; }
+  document.getElementById("wallet-choice-overlay").classList.add("open");
+}
+
+async function connectViaInjected() {
+  closeWalletChoice();
+  try {
+    const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+    activeProvider = window.ethereum;
+    connectedAccount = accounts[0];
+    localStorage.setItem("cah-wallet", "injected");
+    setupProviderListeners(activeProvider);
+    updateWalletUI();
+    loadVotingPower();
+  } catch (err) {
+    showToast("Wallet connection cancelled.");
+  }
+}
+
+async function connectViaWalletConnect() {
+  closeWalletChoice();
+  try {
+    if (!walletConnectProvider) walletConnectProvider = await createWalletConnectProvider();
+    await walletConnectProvider.connect();
+    activeProvider = walletConnectProvider;
+    connectedAccount = walletConnectProvider.accounts[0];
+    localStorage.setItem("cah-wallet", "walletconnect");
+    setupProviderListeners(activeProvider);
+    updateWalletUI();
+    loadVotingPower();
+  } catch (err) {
+    showToast("WalletConnect connection cancelled.");
+  }
+}
+
+function closeWalletChoice() {
+  document.getElementById("wallet-choice-overlay").classList.remove("open");
+}
+
+async function disconnectWallet() {
+  if (walletConnectProvider && activeProvider === walletConnectProvider) {
+    await walletConnectProvider.disconnect();
+    walletConnectProvider = null;
+  }
+  connectedAccount = null; activeProvider = null;
+  localStorage.removeItem("cah-wallet");
+  updateWalletUI();
+}
+
+function updateWalletUI() {
+  const btn = document.getElementById("btn-connect");
+  if (connectedAccount) {
+    btn.textContent = connectedAccount.slice(0,6) + "..." + connectedAccount.slice(-4);
+    btn.className = "btn btn-outline";
+  } else {
+    btn.textContent = "Connect Wallet";
+    btn.className = "btn btn-accent";
+  }
+}
+
+// ── GraphQL ──
+
+async function gqlQuery(query) {
+  const res = await fetch(GRAPHQL_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ query })
+  });
+  return (await res.json()).data;
+}
+
+// ── Load Proposals ──
+
+async function loadProposals() {
+  const data = await gqlQuery(`
+    query {
+      proposals(first: 50, skip: 0, where: { space_in: ["${SPACE_ID}"] }, orderBy: "created", orderDirection: desc) {
+        id title body choices start end snapshot state scores scores_total quorum author votes
+      }
+    }
+  `);
+  allProposals = data.proposals || [];
+  renderStats(allProposals);
+  filterAndRender();
+  if (allProposals.length > 0) selectProposal(allProposals[0]);
+  else document.getElementById("proposal-detail").innerHTML = '<p style="text-align:center;padding:40px;color:var(--mt-muted);font-weight:600">No proposals yet</p>';
+}
+
+// ── Voting Power ──
+
+async function loadVotingPower() {
+  if (!connectedAccount) return;
+  try {
+    const strategies = [{ name: "erc20-balance-of", params: { address: CAH_TOKEN, symbol: "CAH", decimals: 18 }, network: "1" }];
+    const vp = await snapshot.utils.getVp(connectedAccount, "1", strategies, "latest", SPACE_ID, false);
+    const power = vp.vp || 0;
+    document.getElementById("stat-power").textContent = formatNumber(power);
+  } catch (err) {
+    console.error("Voting power error:", err);
+  }
+}
+
+// ── Render Stats ──
+
+function renderStats(proposals) {
+  document.getElementById("stat-total").textContent = proposals.length;
+  document.getElementById("stat-active").textContent = proposals.filter(p => p.state === "active").length;
+  const closed = proposals.filter(p => p.state === "closed" && p.quorum > 0);
+  if (closed.length > 0) {
+    const avg = closed.reduce((s, p) => s + Math.min((p.scores_total / p.quorum) * 100, 100), 0) / closed.length;
+    document.getElementById("stat-participation").textContent = avg.toFixed(1) + "%";
+  } else {
+    document.getElementById("stat-participation").textContent = "--";
+  }
+}
+
+// ── Filter & Render List ──
+
+function filterAndRender() {
+  let filtered = allProposals;
+  if (currentFilter === "active") filtered = allProposals.filter(p => p.state === "active");
+  else if (currentFilter === "passed") filtered = allProposals.filter(p => p.state === "closed" && getOutcome(p) === "passed");
+  else if (currentFilter === "failed") filtered = allProposals.filter(p => p.state === "closed" && getOutcome(p) === "failed");
+  renderProposalList(filtered);
+}
+
+function getOutcome(p) {
+  if (p.state !== "closed") return null;
+  return (p.scores[0] || 0) > (p.scores[1] || 0) ? "passed" : "failed";
+}
+
+function getStatusBadge(p) {
+  if (p.state === "active") return '<span class="badge badge-active">Active</span>';
+  if (p.state === "pending") return '<span class="badge badge-pending">Pending</span>';
+  if (p.state === "closed") return '<span class="badge badge-' + (getOutcome(p) === "passed" ? "passed" : "failed") + '">' + (getOutcome(p) === "passed" ? "Passed" : "Failed") + '</span>';
+  return '<span class="badge">' + p.state + '</span>';
+}
+
+function getTimeLabel(p) {
+  const now = Math.floor(Date.now() / 1000);
+  if (p.state === "active") { const r = p.end - now; return r <= 0 ? "Ending..." : formatDuration(r) + " left"; }
+  if (p.state === "pending") return "Starts in " + formatDuration(p.start - now);
+  return "Ended " + formatDate(p.end);
+}
+
+function renderProposalList(proposals) {
+  const container = document.getElementById("proposals-list");
+  if (proposals.length === 0) {
+    container.innerHTML = '<p style="text-align:center;padding:20px;color:var(--mt-muted);font-weight:600">No proposals found</p>';
+    return;
+  }
+  container.innerHTML = proposals.map((p, i) => {
+    const sel = selectedProposal && selectedProposal.id === p.id;
+    return '<div class="proposal-item' + (sel ? " selected" : "") + '" data-id="' + p.id + '" onclick="selectProposalById(\'' + p.id + '\')" style="animation-delay:' + (i*0.08) + 's">' +
+      '<div class="proposal-item-header"><span class="proposal-title">' + escHtml(p.title) + '</span>' + getStatusBadge(p) + '</div>' +
+      '<div class="proposal-meta"><span>' + p.votes + ' vote' + (p.votes !== 1 ? "s" : "") + '</span><span>' + getTimeLabel(p) + '</span></div>' +
+      '<div class="proposal-votes">For: ' + formatNumber(p.scores[0] || 0) + ' &middot; Against: ' + formatNumber(p.scores[1] || 0) + '</div>' +
+      '</div>';
+  }).join("");
+}
+
+// ── Select Proposal ──
+
+function selectProposalById(id) {
+  const p = allProposals.find(x => x.id === id);
+  if (p) selectProposal(p);
+}
+
+async function selectProposal(proposal) {
+  selectedProposal = proposal;
+  document.querySelectorAll(".proposal-item").forEach(el => el.classList.toggle("selected", el.dataset.id === proposal.id));
+  renderProposalDetail(proposal);
+}
+
+// ── Render Detail ──
+
+function renderProposalDetail(p) {
+  const scores = p.scores || [];
+  const f = scores[0] || 0, a = scores[1] || 0, ab = scores[2] || 0;
+  const total = p.scores_total || 0;
+  const fPct = total > 0 ? ((f/total)*100).toFixed(1) : "0.0";
+  const aPct = total > 0 ? ((a/total)*100).toFixed(1) : "0.0";
+  const quorum = p.quorum || 0;
+  const qPct = quorum > 0 ? Math.min((total/quorum)*100,100).toFixed(0) : "0";
+  const isActive = p.state === "active";
+
+  document.getElementById("proposal-detail").innerHTML =
+    '<div class="detail-header"><h3 class="detail-title">' + escHtml(p.title) + '</h3>' + getStatusBadge(p) + '</div>' +
+    '<div class="hr"></div>' +
+    '<div class="description-scroll"><div class="description-text">' + formatBody(p.body) + '</div></div>' +
+    '<div class="hr"></div>' +
+    '<label style="font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mt-muted);display:block;margin-bottom:6px">Vote Breakdown</label>' +
+    '<div class="vote-bar"><div class="vote-bar-for" style="width:' + fPct + '%"></div><div class="vote-bar-against" style="width:' + aPct + '%"></div></div>' +
+    '<div class="vote-counts">' +
+      '<div class="vote-count"><div class="vote-count-value" style="color:var(--mt-mint)">' + formatNumber(f) + '</div><div class="vote-count-label">For (' + fPct + '%)</div></div>' +
+      '<div class="vote-count"><div class="vote-count-value" style="color:var(--mt-coral)">' + formatNumber(a) + '</div><div class="vote-count-label">Against (' + aPct + '%)</div></div>' +
+      '<div class="vote-count"><div class="vote-count-value">' + formatNumber(ab) + '</div><div class="vote-count-label">Abstain</div></div>' +
+    '</div>' +
+    '<div class="hr"></div>' +
+    '<label style="font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--mt-muted);display:block;margin-bottom:8px">Cast Your Vote</label>' +
+    '<div class="balance-hint"><span class="balance-amount">Your Voting Power:</span><span class="balance-amount" id="voting-power-display" style="font-weight:900;color:var(--mt-off-white)">' + (connectedAccount ? "Loading..." : "Connect wallet") + '</span></div>' +
+    '<div class="vote-actions">' +
+      '<button class="btn btn-primary' + (!isActive ? " disabled" : "") + '" onclick="castVote(1)">Vote For</button>' +
+      '<button class="btn btn-danger' + (!isActive ? " disabled" : "") + '" onclick="castVote(2)">Vote Against</button>' +
+      '<button class="btn btn-outline btn-sm' + (!isActive ? " disabled" : "") + '" onclick="castVote(3)">Abstain</button>' +
+    '</div>' +
+    '<div class="hr"></div>' +
+    '<div class="panel">' +
+      '<div class="info-row"><span class="info-label">Author</span><span class="info-value">' + p.author.slice(0,6) + '...' + p.author.slice(-4) + '</span></div>' +
+      '<div class="info-row"><span class="info-label">Start</span><span class="info-value">' + formatDate(p.start) + '</span></div>' +
+      '<div class="info-row"><span class="info-label">End</span><span class="info-value">' + formatDate(p.end) + '</span></div>' +
+      (quorum > 0 ?
+      '<div class="info-row"><span class="info-label">Quorum</span><span class="info-value">' + formatNumber(quorum) + ' $CAH</span></div>' +
+      '<div class="progress-track"><div class="progress-fill" style="width:' + qPct + '%"></div></div>' +
+      '<div class="progress-label"><span>' + formatNumber(total) + ' $CAH voted</span><span>' + formatNumber(quorum) + ' $CAH quorum</span></div>'
+      : '') +
+    '</div>';
+
+  if (connectedAccount) loadVotingPower();
+}
+
+// ── Cast Vote ──
+
+async function castVote(choice) {
+  if (!connectedAccount) { showToast("Connect your wallet to vote."); return; }
+  if (!selectedProposal || selectedProposal.state !== "active") { showToast("This proposal is not active."); return; }
+
+  const btnMap = {1:"btn-vote-for",2:"btn-vote-against",3:"btn-vote-abstain"};
+  const btn = document.getElementById(btnMap[choice]);
+
+  try {
+    btn.classList.add("loading");
+    document.querySelectorAll(".vote-actions .btn").forEach(b => b.classList.add("disabled"));
+
+    const wrappedProvider = new Proxy(activeProvider, {
+      get(target, prop, receiver) {
+        if (prop === "request") {
+          return async (args) => {
+            if (args.method === "eth_signTypedData_v4") {
+              try { return await target.request(args); }
+              catch (e) { if (e.code === 4200 || /not (supported|available|exist)/i.test(e.message)) return target.request({...args, method: "eth_signTypedData"}); throw e; }
+            }
+            return target.request(args);
+          };
+        }
+        return Reflect.get(target, prop, receiver);
+      }
+    });
+    const provider = new ethers.providers.Web3Provider(wrappedProvider);
+
+    await client.vote(provider, connectedAccount, {
+      space: SPACE_ID, proposal: selectedProposal.id, type: "single-choice", choice: choice, app: "cah-governance"
+    });
+
+    showToast("Vote submitted successfully!");
+    setTimeout(async () => {
+      await loadProposals();
+      if (selectedProposal) { const u = allProposals.find(p => p.id === selectedProposal.id); if (u) selectProposal(u); }
+    }, 5000);
+  } catch (err) {
+    if (err.message && err.message.includes("user rejected")) showToast("Vote cancelled.");
+    else showToast("Vote failed: " + (err.error_description || err.message || "Unknown error"));
+  } finally {
+    btn.classList.remove("loading");
+    document.querySelectorAll(".vote-actions .btn").forEach(b => b.classList.remove("disabled"));
+  }
+}
+
+// ── Tabs ──
+
+function setActiveTab(tabId, filter) {
+  currentFilter = filter;
+  document.querySelectorAll(".tab-row .tab").forEach(t => t.classList.remove("active"));
+  document.getElementById(tabId).classList.add("active");
+  filterAndRender();
+}
+
+// ── Toast ──
+
+function showToast(msg) {
+  const existing = document.querySelector(".toast");
+  if (existing) existing.remove();
+  const t = document.createElement("div");
+  t.className = "toast";
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 4000);
+}
+
+// ── Utils ──
+
+function formatNumber(num) {
+  if (num >= 1e6) return (num/1e6).toFixed(1) + "M";
+  if (num >= 1e3) return (num/1e3).toFixed(1) + "K";
+  return Math.floor(num).toLocaleString();
+}
+
+function formatDate(ts) {
+  return new Date(ts * 1000).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+}
+
+function formatDuration(sec) {
+  const d = Math.floor(sec / 86400), h = Math.floor((sec % 86400) / 3600);
+  if (d > 0) return d + "d " + h + "h";
+  const m = Math.floor((sec % 3600) / 60);
+  if (h > 0) return h + "h " + m + "m";
+  return m + "m";
+}
+
+function formatBody(body) {
+  if (!body) return "";
+  let html = escHtml(body);
+  html = html.replace(/^### (.+)$/gm, "<h4>$1</h4>");
+  html = html.replace(/^## (.+)$/gm, "<h3>$1</h3>");
+  html = html.replace(/^# (.+)$/gm, "<h2>$1</h2>");
+  html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  html = html.replace(/__(.+?)__/g, "<strong>$1</strong>");
+  html = html.replace(/\*(.+?)\*/g, "<em>$1</em>");
+  html = html.replace(/_(.+?)_/g, "<em>$1</em>");
+  html = html.replace(/^[\-\*] (.+)$/gm, "<li>$1</li>");
+  html = html.replace(/(<li>.*<\/li>\n?)+/g, "<ul>$&</ul>");
+  html = html.replace(/\n/g, "<br>");
+  html = html.replace(/<\/li><br>/g, "</li>");
+  return html;
+}
+
+function escHtml(str) {
+  const d = document.createElement("div");
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+// ── Contact modal ──
+
+let mathAnswer = 0;
+
+function openContactModal() {
+  const a = Math.floor(Math.random() * 20) + 1;
+  const b = Math.floor(Math.random() * 20) + 1;
+  const ops = ["+", "-", "×"];
+  const op = ops[Math.floor(Math.random() * ops.length)];
+  if (op === "+") mathAnswer = a + b;
+  else if (op === "-") mathAnswer = a - b;
+  else mathAnswer = a * b;
+  document.getElementById("mathA").textContent = a;
+  document.getElementById("mathB").textContent = b;
+  document.getElementById("mathOp").textContent = op;
+  document.getElementById("mathInput").value = "";
+  document.getElementById("mathResult").classList.remove("show");
+  document.getElementById("mathError").style.display = "none";
+  document.getElementById("contactModal").classList.add("open");
+}
+
+function closeContactModal() {
+  document.getElementById("contactModal").classList.remove("open");
+}
+
+function checkMath() {
+  const val = parseInt(document.getElementById("mathInput").value, 10);
+  if (val === mathAnswer) {
+    document.getElementById("mathResult").classList.add("show");
+    document.getElementById("mathError").style.display = "none";
+  } else {
+    document.getElementById("mathError").style.display = "block";
+    document.getElementById("mathResult").classList.remove("show");
+  }
+}
+
+function openModal() {
+  document.getElementById("discordModal").classList.add("open");
+}
+function closeModal() {
+  document.getElementById("discordModal").classList.remove("open");
+}
+
+// ── Init ──
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("open");
+    navLinks.classList.toggle("open");
+  });
+
+  document.getElementById("btn-connect").addEventListener("click", () => {
+    connectedAccount ? disconnectWallet() : connectWallet();
+  });
+  document.getElementById("btn-wallet-injected").addEventListener("click", connectViaInjected);
+  document.getElementById("btn-wallet-wc").addEventListener("click", connectViaWalletConnect);
+  document.getElementById("wallet-choice-overlay").addEventListener("click", e => {
+    if (e.target === e.currentTarget) closeWalletChoice();
+  });
+  document.getElementById("contactModal").addEventListener("click", e => {
+    if (e.target === e.currentTarget) closeContactModal();
+  });
+  document.getElementById("discordModal").addEventListener("click", e => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+
+  document.getElementById("tab-all").addEventListener("click", () => setActiveTab("tab-all", "all"));
+  document.getElementById("tab-active").addEventListener("click", () => setActiveTab("tab-active", "active"));
+  document.getElementById("tab-passed").addEventListener("click", () => setActiveTab("tab-passed", "passed"));
+  document.getElementById("tab-failed").addEventListener("click", () => setActiveTab("tab-failed", "failed"));
+
+  loadProposals().catch(err => {
+    console.error("Failed to load proposals:", err);
+    document.getElementById("proposals-list").innerHTML = '<p style="text-align:center;padding:20px;color:var(--mt-muted);font-weight:600">Failed to load proposals.</p>';
+  });
+
+  const saved = localStorage.getItem("cah-wallet");
+  if (saved === "injected" && window.ethereum) {
+    try {
+      const accounts = await window.ethereum.request({ method: "eth_accounts" });
+      if (accounts.length > 0) {
+        activeProvider = window.ethereum;
+        connectedAccount = accounts[0];
+        setupProviderListeners(activeProvider);
+        updateWalletUI();
+        loadVotingPower();
+      }
+    } catch (e) { localStorage.removeItem("cah-wallet"); }
+  } else if (saved === "walletconnect") {
+    try {
+      const wcProvider = await createWalletConnectProvider();
+      if (wcProvider.session) {
+        walletConnectProvider = wcProvider;
+        activeProvider = wcProvider;
+        connectedAccount = wcProvider.accounts[0];
+        setupProviderListeners(activeProvider);
+        updateWalletUI();
+        loadVotingPower();
+      } else { localStorage.removeItem("cah-wallet"); }
+    } catch (e) { localStorage.removeItem("cah-wallet"); }
+  }
+
+  // scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+  }, { threshold: .15 });
+  document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    document.querySelectorAll(".modal-overlay.open").forEach(m => m.classList.remove("open"));
+  }
+});
+</script>
+</body>
+</html>
