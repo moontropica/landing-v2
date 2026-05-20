@@ -64,10 +64,10 @@ body{
   font-family:var(--font-sans);
   font-weight:700;
   color:var(--mt-white);
-  background:
+  background-color:var(--mt-ink-900);
+  background-image:
     radial-gradient(1200px 800px at 50% -20%, #3a1f66 0%, transparent 70%),
-    radial-gradient(900px 700px at 90% 110%, #2a1447 0%, transparent 60%),
-    var(--mt-ink-900);
+    radial-gradient(900px 700px at 90% 110%, #2a1447 0%, transparent 60%);
   min-height:100vh;
   -webkit-font-smoothing:antialiased;
   line-height:1.45;
@@ -507,7 +507,8 @@ footer{margin-top:96px;padding-top:32px;border-top:1px solid rgba(255,255,255,.0
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@snapshot-labs/snapshot.js@0.4.119/dist/snapshot.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@snapshot-labs/snapshot.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@walletconnect/ethereum-provider@2/dist/index.umd.js"></script>
 <script>
 // ── Snapshot Governance Integration ──
 
