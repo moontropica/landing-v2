@@ -313,8 +313,16 @@ section{margin-top:80px;scroll-margin-top:80px}
 .modal-close-icon:hover{color:var(--mt-off-white)}
 .modal-box h3{font-style:italic;font-weight:900;font-size:20px;margin:0 0 16px;color:var(--mt-off-white)}
 .modal-box .btn{width:100%;margin-bottom:10px;padding:14px}
-.wallet-btn{display:flex;align-items:center;justify-content:center;gap:10px}
-.wallet-btn svg{flex-shrink:0}
+.wallet-icon-btn{
+  display:flex;align-items:center;justify-content:center;
+  width:64px;height:64px;border-radius:var(--r-md);
+  border:2px solid rgba(255,255,255,.1);
+  background:var(--mt-ink-700);
+  cursor:pointer;transition:border-color .15s,background .15s;
+  padding:0
+}
+.wallet-icon-btn:hover{border-color:var(--mt-purple-400);background:var(--mt-ink-600)}
+.wallet-icon-btn svg{width:36px;height:36px}
 
 /* footer */
 footer{margin-top:96px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}
@@ -472,14 +480,14 @@ footer{margin-top:96px;padding-top:32px;border-top:1px solid rgba(255,255,255,.0
 <div class="modal-overlay" id="wallet-choice-overlay">
   <div class="modal-box">
     <h3>Connect Wallet</h3>
-    <button class="btn btn-primary wallet-btn" id="btn-wallet-injected">
-      <svg width="20" height="20" viewBox="0 0 40 40" fill="none"><path d="M36.011 3H3.989A.99.99 0 003 3.989v32.022c0 .546.443.989.989.989h32.022a.99.99 0 00.989-.989V3.989A.99.99 0 0036.011 3z" fill="#E2761B" stroke="#E2761B" stroke-width=".4"/><path d="M30.048 19.664l-2.54 7.804-4.955-1.362 1.345 5.427-7.768.003-6.026-5.426-.41-9.387 7.258-3.13" fill="#E4761B" stroke="#E4761B" stroke-width=".4"/><path d="M6.864 26.612l4.323.795-1.175 4.623-3.148-5.418z" fill="#D7C1B3" stroke="#D7C1B3" stroke-width=".4"/><path d="M28.573 26.933l-2.676 1.122-2.282-1.122-.917 2.642 5.04 1.213.835-3.855z" fill="#233447" stroke="#233447" stroke-width=".4"/><path d="M11.563 22.48l2.4 1.884-.933 2.802 4.135-4.326-1.082-2.596-1.19-6.667-5.039 2.462 1.21 3.374-.74 2.25 2.239.817z" fill="#CD6116" stroke="#CD6116" stroke-width=".4"/><path d="M10.07 13.602l3.89 5.172 1.083 2.595-2.48-1.042-2.493-6.725z" fill="#E4751F" stroke="#E4751F" stroke-width=".4"/><path d="M23.913 27.065l4.955 1.362 2.153-1.37-1.09 5.396-3.912.93 1.47-3.604z" fill="#E4761B" stroke="#E4761B" stroke-width=".4"/><path d="M29.165 21.38l-3.41-1.767-4.49 3.434-.904 2.994.525 3.572 3.613-1.098 1.625-3.244.104-1.618-1.646-.702 1.467-2.036.401-.536zm-3.72-5.43l.724 2.237 1.635-.23.628-1.694-2.987-.313z" fill="#F5DBC0" stroke="#F5DBC0" stroke-width=".4"/><path d="M21.7 16.01l6.566 2.718-2.417 2.696-2.92-1.364-1.228-4.05z" fill="#CD6116" stroke="#CD6116" stroke-width=".4"/></svg>
-      MetaMask
-    </button>
-    <button class="btn btn-outline wallet-btn" id="btn-wallet-wc">
-      <svg width="20" height="20" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="8" fill="#3396FF"/><path d="M12.5 15.5c4.8-4.7 12.6-4.7 17.4 0l.6.5a.6.6 0 010 .9l-2 1.9a.3.3 0 01-.45 0l-.7-.7c-3.4-3.3-8.8-3.3-12.2 0l-.8.7a.3.3 0 01-.45 0l-2-1.9a.6.6 0 010-.9l.8-.5zm21.5 3.8l1.7 1.7a.6.6 0 010 .9l-7.9 7.7a.6.6 0 01-.9 0l-5.6-5.5a.15.15 0 00-.2 0l-5.6 5.5a.6.6 0 01-.9 0l-7.9-7.7a.6.6 0 010-.9l1.8-1.7a.6.6 0 01.9 0l5.6 5.5a.15.15 0 00.2 0l5.6-5.5a.6.6 0 01.9 0l5.6 5.5a.15.15 0 00.2 0l5.6-5.5a.6.6 0 01.9 0z" fill="#fff"/></svg>
-      WalletConnect
-    </button>
+    <div style="display:flex;gap:16px;justify-content:center">
+      <button class="wallet-icon-btn" id="btn-wallet-injected" aria-label="MetaMask">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M38.3 3.3H3.3C1.5 3.3 0 4.8 0 6.6v26.7c0 1.9 1.5 3.4 3.3 3.4h35c1.8 0 3.3-1.5 3.3-3.3V6.6c0-1.8-1.5-3.3-3.3-3.3z" fill="#E2761B"/><path d="M28.5 25.7l-1.8 5.8c-.1.3-.4.5-.7.4l-3.5-1c-.3-.1-.6.1-.7.4L19.6 34c-.2.4-.7.4-.9 0l-3.4-5.9c-.1-.2-.4-.3-.6-.2l-4.5 1.5c-.4.1-.8-.2-.8-.6l-2.4-8.8c0-.2-.1-.4-.3-.4L3 17.9c-.5-.3-.4-1.1.2-1.2l33.5-5.5c.5-.1.9.4.7.9l-2.4 6.8c-.1.2 0 .5.2.6l3.4 2.7c.4.3.3 1-.2 1l-4.6.8c-.3 0-.5.3-.4.6l1.6 5.2c.1.4-.2.7-.6.6l-3.4-1.1c-.3-.1-.6 0-.7.4z" fill="#E4761B"/><path d="M23.2 28.6l2.8-1c.3-.1.6.1.7.4l1.8 4.2c.2.4-.2.8-.6.6l-3.8-1.7c-.3-.1-.5-.4-.5-.7l.3-1.2c0-.3.2-.6.5-.7l-1.2.1z" fill="#D7C1B3"/><path d="M14.9 30.9c0 .3.1.5.3.7l3 .7c.3.1.5 0 .7-.2l1.6-2.2c.2-.2.5-.3.8-.2l1.1.4c.3.1.5.4.5.7v1.5c0 .4.4.7.8.6l3.1-.8c.3-.1.5-.3.6-.6l.8-2.2c.1-.3.4-.5.7-.4l2 .7c.4.1.7-.1.8-.5l1.4-4.2c.1-.3 0-.6-.3-.7l-2-.7c-.3-.1-.5-.4-.4-.7l.3-1.1c.1-.3.4-.5.7-.4l2.2.8c.4.1.7-.1.8-.5l1.4-4.7-1.4-4.7c-.1-.4-.5-.7-.9-.5l-4 1.5c-.3.1-.6 0-.8-.2l-3.3-3.3c-.4-.4-1-.2-1.1.5l-1 4.6c0 .3-.3.5-.6.4l-4.5-1.3c-.3-.1-.7 0-.8.3l-2 4.4c-.1.3-.5.4-.8.2l-2.2-1.6c-.3-.2-.7-.1-.8.3l-1.3 4.3c-.1.3 0 .6.3.8l2.5 2.3c.2.2.3.5.2.8l-.7 2.3c0 .2-.2.4-.4.4l-2.1.6c-.4.1-.6.5-.5.9l1.2 4.5c.1.4.5.6.9.5l2.8-1c.3-.1.7 0 .8.3l1.1 2.5z" fill="#CD6116"/><path d="M7.5 17.5l2.2 3-.4 2.5c-.1.3-.4.5-.7.4l-2.6-.8c-.4-.1-.7-.5-.6-.9l1.2-3.7c.1-.4.5-.7.9-.5z" fill="#E4751F"/><path d="M34.7 17l-3.5-1.3c-.3-.1-.7 0-.8.4l-1.4 4.3c-.1.4.2.8.6.8l2.4-.4c.4-.1.7-.4.6-.8l-.3-1.6c-.1-.3.1-.6.4-.6l2-.6c.4-.1.6-.5.4-.9l-.4-.9z" fill="#F5DBC0"/><path d="M17.1 30.6l-2.2-.6c-.5-.1-.8-.5-.8-1v-2.1c0-.4.3-.7.7-.7h.5c.4 0 .7.3.7.7v1.1c0 .3.2.5.5.5h1.2c.3 0 .5.2.5.5v.9c0 .4-.4.7-.8.6l-.3.1z" fill="#C0AD9E"/></svg>
+      </button>
+      <button class="wallet-icon-btn" id="btn-wallet-wc" aria-label="WalletConnect">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><rect width="40" height="40" rx="10" fill="#3396FF"/><path d="M12.5 15.5c4.8-4.7 12.6-4.7 17.4 0l.6.5c.3.2.3.6 0 .9l-2 1.9c-.1.1-.3.1-.5 0l-.7-.7c-3.4-3.3-8.8-3.3-12.2 0l-.8.7c-.1.1-.3.1-.5 0l-2-1.9c-.3-.3-.3-.7 0-.9l.8-.5zm21.5 3.8l1.7 1.7c.3.3.3.7 0 .9l-7.9 7.7c-.3.3-.7.3-.9 0l-5.6-5.5c-.1-.1-.3-.1-.4 0l-5.6 5.5c-.3.3-.7.3-.9 0l-7.9-7.7c-.3-.3-.3-.7 0-.9l1.7-1.7c.3-.3.7-.3.9 0l5.6 5.5c.1.1.3.1.4 0l5.6-5.5c.3-.3.7-.3.9 0l5.6 5.5c.1.1.3.1.4 0l5.6-5.5c.3-.3.7-.3.9 0z" fill="#fff"/></svg>
+      </button>
+    </div>
   </div>
 </div>
 
