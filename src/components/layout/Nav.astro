@@ -1,6 +1,5 @@
 ---
-const isDev = import.meta.env.DEV;
-const ext = (href: string) => (isDev && href !== "/" && href !== "/blog" ? href + ".html" : href);
+const ext = (href: string) => (href !== "/" && href !== "/blog" ? href + ".html" : href);
 const items = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },
