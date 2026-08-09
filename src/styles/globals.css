@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Design tokens — mirrored from `New Design/style-guide.html`.
+   `@theme` makes every token available as a Tailwind utility too
+   (e.g. `bg-mt-purple-500`, `text-mt-gold-200`, `rounded-r-pill`).
+   --------------------------------------------------------------- */
+@theme {
+  --font-sans: "Mulish", system-ui, sans-serif;
+  --font-display: "Mulish", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-mt-purple-400: #b06ee2;
+  --color-mt-purple-500: #9a4fd4;
+  --color-mt-purple-600: #7a3aba;
+  --color-mt-purple-700: #5b2d90;
+  --color-mt-purple-800: #3d1f63;
+  --color-mt-purple-900: #2a1447;
+
+  --color-mt-ink-500: #3a3a46;
+  --color-mt-ink-600: #2b2b34;
+  --color-mt-ink-700: #202027;
+  --color-mt-ink-800: #17171c;
+  --color-mt-ink-900: #0f0f12;
+
+  --color-mt-gold-200: #ffe066;
+  --color-mt-gold-300: #f5c460;
+  --color-mt-gold-400: #d9bf52;
+  --color-mt-gold-500: #c5a93d;
+  --color-mt-yellow: #ffdd00;
+
+  --color-mt-mint: #5de3c4;
+  --color-mt-coral: #ff6b6b;
+
+  --color-mt-white: #ffffff;
+  --color-mt-off-white: #f2ecff;
+  --color-mt-muted: #8a8195;
+  --color-mt-disabled: #4a4653;
+
+  --radius-r-xs: 6px;
+  --radius-r-sm: 10px;
+  --radius-r-md: 16px;
+  --radius-r-lg: 22px;
+  --radius-r-xl: 28px;
+  --radius-r-pill: 999px;
+
+  --shadow-raise: 0 12px 30px -10px rgba(0, 0, 0, 0.55), inset 0 2px 0 rgba(255, 255, 255, 0.03);
+  --shadow-press: inset 0 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-purple-glow: 0 20px 60px -20px rgba(154, 79, 212, 0.55);
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+html.lenis { height: auto; }
+html.lenis body { overflow: hidden; }
+html.lenis-smooth { scroll-behavior: auto !important; }
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--color-mt-white);
+  background:
+    radial-gradient(1200px 800px at 50% -20%, #3a1f66 0%, transparent 70%),
+    radial-gradient(900px 700px at 90% 110%, #2a1447 0%, transparent 60%),
+    var(--color-mt-ink-900);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- focus ring (used across UI primitives) ---------- */
+:where(button, a, input, textarea, select, [role="button"]):focus-visible {
+  outline: 2px solid var(--color-mt-purple-400);
+  outline-offset: 3px;
+  border-radius: var(--radius-r-sm);
+}

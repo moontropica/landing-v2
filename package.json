@@ -1,0 +1,62 @@
+{
+  "name": "cah-landing",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.6",
+    "@astrojs/react": "^5.0.5",
+    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/vercel": "^10.0.7",
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@tailwindcss/vite": "^0.0.0-insiders.46df7ee",
+    "astro": "^6.3.3",
+    "clsx": "^2.1.1",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.23",
+    "lucide-react": "^1.16.0",
+    "motion": "^12.38.0",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-hook-form": "^7.75.0",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.0",
+    "three": "^0.184.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/three": "^0.184.1",
+    "prettier": "^3.8.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.0"
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-astro",
+      "prettier-plugin-tailwindcss"
+    ],
+    "overrides": [
+      {
+        "files": "*.astro",
+        "options": {
+          "parser": "astro"
+        }
+      }
+    ]
+  }
+}

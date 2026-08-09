@@ -1,0 +1,48 @@
+---
+import { Card } from "@components/ui/Card.tsx";
+import { Badge } from "@components/ui/Badge.tsx";
+import { Button } from "@components/ui/Button.tsx";
+import { FadeIn } from "@components/motion/FadeIn.tsx";
+
+const tiles = [
+  {
+    title: "Combat",
+    body: "Fast, tactile, telegraph-respecting. Mistakes cost ground; reads win matches.",
+    tag: "Live",
+    tone: "mint" as const,
+  },
+  {
+    title: "Worldbuilding",
+    body: "A lived-in tropical-lunar setting with factions, lore, and seasonal arcs.",
+    tag: "Ongoing",
+    tone: "new" as const,
+  },
+  {
+    title: "Economy",
+    body: "Earnable, tradeable items with real scarcity. No paywall, no pay-to-win.",
+    tag: "Coming",
+    tone: "gold" as const,
+  },
+];
+---
+<section class="max-w-7xl mx-auto px-8 py-32">
+  <div class="flex items-baseline justify-between mb-10 pb-4 border-b border-dashed border-white/10">
+    <h2 class="italic font-black text-3xl tracking-[-.01em]">Pillars</h2>
+    <span class="font-mono text-xs tracking-[.12em] uppercase text-mt-muted">
+      what we&rsquo;re building
+    </span>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-5">
+    {tiles.map((t, i) => (
+      <FadeIn delay={i * 0.08} client:visible>
+        <Card class="h-full flex flex-col gap-4">
+          <Badge tone={t.tone} client:load>{t.tag}</Badge>
+          <h3 class="italic font-black text-xl">{t.title}</h3>
+          <p class="text-white/80 font-bold leading-relaxed flex-1">{t.body}</p>
+          <Button variant="ghost" size="sm" client:load>Read more →</Button>
+        </Card>
+      </FadeIn>
+    ))}
+  </div>
+</section>

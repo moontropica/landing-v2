@@ -1,0 +1,47 @@
+---
+import HeroScene from "@components/three/HeroScene.tsx";
+import { Button } from "@components/ui/Button.tsx";
+import { Badge } from "@components/ui/Badge.tsx";
+---
+<section class="relative min-h-[100svh] overflow-hidden">
+  <!-- WebGL backdrop -->
+  <div class="absolute inset-0 -z-10">
+    <HeroScene client:only="react" />
+  </div>
+  <!-- Gradient bloom over the canvas -->
+  <div
+    class="pointer-events-none absolute inset-0 -z-10
+           bg-[radial-gradient(700px_400px_at_70%_20%,rgba(176,110,226,.35)_0%,transparent_60%),
+               linear-gradient(180deg,transparent_55%,#0f0f12_100%)]"
+  ></div>
+
+  <div class="max-w-7xl mx-auto px-8 pt-44 pb-32 relative">
+    <Badge tone="gold" client:visible>
+      <span class="w-1.5 h-1.5 rounded-full bg-mt-gold-300 shadow-[0_0_12px_var(--color-mt-gold-300)]"></span>
+      Closed beta · joining waves rolling
+    </Badge>
+
+    <h1
+      class="mt-6 italic font-black tracking-[-.02em] leading-[.95]
+             text-[clamp(44px,7vw,96px)]
+             [text-shadow:0_4px_0_var(--color-mt-purple-700),0_14px_44px_rgba(0,0,0,.35)]"
+    >
+      Moon Tropica<br />
+      <span class="text-mt-off-white opacity-65">a spirited battle arena</span>
+    </h1>
+
+    <p class="mt-6 max-w-xl text-lg font-bold text-white/90">
+      Engage in competitive combat — alongside or against fellow players — to elevate your character
+      and amass the rarest items in the game world.
+    </p>
+
+    <div class="mt-10 flex flex-wrap gap-3 items-center">
+      <Button variant="play" client:load>PLAY</Button>
+      <Button variant="outline" client:load>Read litepaper</Button>
+    </div>
+  </div>
+
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-[11px] tracking-[.2em] uppercase text-mt-muted">
+    scroll
+  </div>
+</section>

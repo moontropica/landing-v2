@@ -1,0 +1,90 @@
+---
+import { getCollection } from "astro:content";
+import Base from "@layouts/Base.astro";
+import { Badge } from "@components/ui/Badge.tsx";
+import { Card } from "@components/ui/Card.tsx";
+
+const tagLabel: Record<string, string> = {
+  "dev-updates": "Dev Updates",
+  announcements: "Announcements",
+  community: "Community",
+  guides: "Guides",
+};
+
+const tagTone: Record<string, "gold" | "mint" | "coral" | "muted"> = {
+  "dev-updates": "gold",
+  announcements: "coral",
+  community: "mint",
+  guides: "muted",
+};
+
+const posts = (await getCollection("blog"))
+  .filter((p) => (import.meta.env.PROD ? !p.data.draft : true))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const title = "Moon Tropica — Blog";
+const description =
+  "Fresh updates, behind-the-scenes stories, and community highlights from the Moon Tropica team.";
+---
+
+<Base title={title} description={description}>
+  <section class="relative overflow-hidden rounded-r-xl mt-8 mx-8 bg-[radial-gradient(700px_400px_at_70%_20%,var(--color-mt-purple-400)_0%,transparent_60%),linear-gradient(135deg,var(--color-mt-purple-500),var(--color-mt-purple-700))] shadow-purple-glow py-20 md:py-24 px-8">
+    <div class="relative z-10 max-w-2xl mx-auto text-center">
+      <Badge tone="gold" client:visible>
+        <span class="w-1.5 h-1.5 rounded-full bg-mt-gold-300 shadow-[0_0_12px_var(--color-mt-gold-300)]"></span>
+        Blog
+      </Badge>
+      <h1 class="mt-4 italic font-black tracking-[-.02em] leading-[.95] text-[clamp(44px,7vw,84px)] [text-shadow:0_4px_0_var(--color-mt-purple-700),0_12px_40px_rgba(0,0,0,.35)]">
+        Moon Tropica<br />
+        <span class="text-mt-off-white opacity-65">Blog</span>
+      </h1>
+      <p class="mt-4 max-w-md mx-auto text-lg font-bold text-white/90">
+        {description}
+      </p>
+    </div>
+    <div class="pointer-events-none absolute top-[-120px] left-[-80px] w-[340px] h-[340px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,.12)_0%,transparent_65%)]"></div>
+    <div class="pointer-events-none absolute bottom-[-160px] right-[-60px] w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,.12)_0%,transparent_65%)]"></div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-8 mt-20">
+    <div class="flex items-baseline justify-between mb-7 pb-4 border-b border-dashed border-white/[.12]">
+      <h2 class="italic font-black text-[clamp(24px,3vw,36px)] tracking-[-.01em] m-0">Recent Posts</h2>
+      <span class="font-mono text-xs text-mt-muted tracking-[.12em] uppercase">{posts.length} posts</span>
+    </div>
+
+    {
+      posts.length === 0 ? (
+        <p class="text-mt-muted font-bold text-center py-16">No posts yet. Check back soon.</p>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {posts.map((post) => {
+            const tags = post.data.tags ?? [];
+            const primaryTag = tags[0];
+            const label = primaryTag ? (tagLabel[primaryTag] ?? primaryTag) : null;
+            const tone = primaryTag ? (tagTone[primaryTag] ?? "muted") : "muted";
+            return (
+              <a href={`/blog/${post.id}`} class="group block no-underline">
+                <Card tone="default" class="h-full flex flex-col gap-3 transition-[border-color] duration-150 hover:border-white/[.16]">
+                  {label && (
+                    <div>
+                      <Badge tone={tone}>{label}</Badge>
+                    </div>
+                  )}
+                  <h3 class="italic font-black text-xl text-mt-off-white m-0 group-hover:text-mt-white transition-colors duration-150">
+                    {post.data.title}
+                  </h3>
+                  <p class="font-semibold text-[15px] text-white/[.88] leading-relaxed m-0 flex-1">
+                    {post.data.description}
+                  </p>
+                  <time class="font-mono text-xs text-mt-muted tracking-[.04em]" datetime={post.data.date.toISOString()}>
+                    {post.data.date.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                  </time>
+                </Card>
+              </a>
+            );
+          })}
+        </div>
+      )
+    }
+  </section>
+</Base>

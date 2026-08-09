@@ -1,0 +1,42 @@
+---
+import "@/styles/globals.css";
+import Nav from "@components/layout/Nav.astro";
+import Footer from "@components/layout/Footer.astro";
+import LenisProvider from "@components/motion/LenisProvider.tsx";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "Moon Tropica · The spirited battle arena",
+  description = "Moon Tropica is a spirited battle arena game where players participate in a variety of action-packed game modes.",
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800;1,900&family=JetBrains+Mono:wght@400;600&display=swap"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <LenisProvider client:idle />
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

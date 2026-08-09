@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Gallery — Moon Tropica</title>
-<meta name="description" content="Browse the Moon Tropica art gallery." />
-<meta content="Gallery — Moon Tropica" property="og:title">
-<meta content="Browse the Moon Tropica art gallery featuring concept art, screenshots, and promotional images." property="og:description">
+<title>Branding — Moon Tropica</title>
+<meta name="description" content="Download Moon Tropica branding assets including logos in PNG and vector formats." />
+<meta content="Branding — Moon Tropica" property="og:title">
+<meta content="Download Moon Tropica branding assets including logos in PNG, SVG, and AI formats for press kits and promotional use." property="og:description">
 <meta content="https://moontropica.com/assets/og-image-2.png" property="og:image">
-<meta content="Gallery — Moon Tropica" property="twitter:title">
-<meta content="Browse the Moon Tropica art gallery featuring concept art, screenshots, and promotional images." property="twitter:description">
+<meta content="Branding — Moon Tropica" property="twitter:title">
+<meta content="Download Moon Tropica branding assets including logos in PNG, SVG, and AI formats for press kits and promotional use." property="twitter:description">
 <meta content="https://moontropica.com/assets/og-image-2.png" property="twitter:image">
 <meta property="og:type" content="website">
 <meta content="summary_large_image" name="twitter:card">
@@ -118,7 +118,7 @@ nav{
 }
 
 /* hero */
-.gallery-hero{
+.brand-hero{
   margin-top:40px;
   background:
     radial-gradient(700px 400px at 70% 20%, var(--mt-purple-400) 0%, transparent 60%),
@@ -129,54 +129,45 @@ nav{
   overflow:hidden;
   box-shadow:0 20px 60px -20px rgba(154,79,212,.55);
 }
-.gallery-hero::before,.gallery-hero::after{
+.brand-hero::before,.brand-hero::after{
   content:"";position:absolute;
   width:340px;height:340px;
   border-radius:50%;
   background:radial-gradient(circle,rgba(255,255,255,.12) 0%,transparent 65%);
   pointer-events:none;
 }
-.gallery-hero::before{top:-120px;left:-80px}
-.gallery-hero::after{bottom:-160px;right:-60px;width:420px;height:420px}
-.gallery-hero-content{position:relative;z-index:1}
-.gallery-hero-img{position:absolute;right:0;top:50%;transform:translateY(-50%);width:320px;height:320px;display:flex;align-items:center;justify-content:center;pointer-events:none}
-.gallery-hero-img img{width:100%;height:100%;object-fit:contain}
-@media(max-width:768px){.gallery-hero-img{display:none}}
-.gallery-hero h1{
+.brand-hero::before{top:-120px;left:-80px}
+.brand-hero::after{bottom:-160px;right:-60px;width:420px;height:420px}
+.brand-hero-content{position:relative;z-index:1}
+.brand-hero h1{
   font-style:italic;font-weight:900;
   font-size:clamp(36px,5vw,64px);
   line-height:.95;margin:0 0 12px;
   letter-spacing:-.02em;
   text-shadow:0 4px 0 var(--mt-purple-700),0 12px 40px rgba(0,0,0,.35);
 }
-.gallery-hero p{max-width:560px;font-weight:700;font-size:17px;color:rgba(255,255,255,.9);margin:0}
+.brand-hero p{max-width:560px;font-weight:700;font-size:17px;color:rgba(255,255,255,.9);margin:0 0 24px;line-height:1.6}
+.brand-hero .btn-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 
-/* thumbnail grid */
-.thumb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
-.thumb-card{
-  position:relative;border-radius:var(--r-lg);overflow:hidden;
-  aspect-ratio:16/9;cursor:pointer;
-  border:1px solid rgba(255,255,255,.06);
-  transition:transform .2s,border-color .2s,box-shadow .2s;
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--font-sans);font-style:italic;font-weight:900;
+  font-size:15px;letter-spacing:.08em;text-transform:uppercase;
+  padding:14px 26px;border:0;border-radius:var(--r-pill);
+  cursor:pointer;transition:transform .08s, box-shadow .12s, background .12s, opacity .12s;
+  white-space:nowrap;user-select:none;text-decoration:none;
 }
-.thumb-card:hover{transform:scale(1.02);border-color:rgba(154,79,212,.4);box-shadow:0 8px 30px rgba(154,79,212,.2)}
-.thumb-card img{width:100%;height:100%;object-fit:cover;display:block}
-
-/* lightbox */
-.lightbox-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
-.lightbox-overlay.open{opacity:1;pointer-events:auto}
-.lightbox-img{max-width:90vw;max-height:85vh;border-radius:var(--r-md);box-shadow:0 20px 60px rgba(0,0,0,.6);transform:scale(.92);transition:transform .25s;object-fit:contain}
-.lightbox-overlay.open .lightbox-img{transform:scale(1)}
-.lightbox-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.5);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:24px;line-height:1;transition:background .12s}
-.lightbox-btn:hover{background:var(--mt-purple-600)}
-.lightbox-btn.prev{left:24px}
-.lightbox-btn.next{right:24px}
-.lightbox-close{position:absolute;top:24px;right:24px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(0,0,0,.5);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:20px;line-height:1;transition:background .12s}
-.lightbox-close:hover{background:var(--mt-purple-600)}
-.lightbox-counter{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;font-family:var(--font-mono);font-size:13px;color:rgba(255,255,255,.6);background:rgba(0,0,0,.5);padding:6px 16px;border-radius:var(--r-pill)}
+.btn:active{transform:translateY(1px)}
+.btn-gold{background:var(--mt-gold-300);color:#1a1600;box-shadow:0 4px 0 #b58429}
+.btn-gold:active{box-shadow:0 1px 0 #b58429;transform:translateY(3px)}
+.btn-outline{background:transparent;color:var(--mt-white);border:2px solid var(--mt-white)}
+.btn-outline:hover{background:rgba(255,255,255,.08)}
+.btn-ghost{background:transparent;color:var(--mt-off-white);padding:10px 12px}
+.btn-ghost:hover{color:var(--mt-white);text-decoration:underline}
 
 /* sections */
-section{margin-top:48px}
+section{margin-top:80px;scroll-margin-top:80px}
 .section-head{
   display:flex;align-items:baseline;justify-content:space-between;
   margin-bottom:28px;padding-bottom:16px;
@@ -190,6 +181,44 @@ section{margin-top:48px}
   font-family:var(--font-mono);font-size:12px;
   color:var(--mt-muted);letter-spacing:.12em;text-transform:uppercase;
 }
+
+/* asset grid */
+.asset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.asset-card{
+  background:var(--mt-ink-700);
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:var(--r-lg);padding:24px;
+  display:flex;flex-direction:column;gap:16px;
+  transition:border-color .2s,transform .15s;
+}
+.asset-card:hover{border-color:rgba(154,79,212,.35);transform:translateY(-2px)}
+.asset-preview{
+  width:100%;height:160px;
+  border-radius:var(--r-md);
+  background:
+    radial-gradient(circle at 50% 50%, var(--mt-purple-800) 0%, var(--mt-ink-900) 100%);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;overflow:hidden;
+}
+.asset-preview img{max-width:100%;max-height:100%;object-fit:contain}
+.asset-info{display:flex;justify-content:space-between;align-items:center}
+.asset-name{font-style:italic;font-weight:900;font-size:14px;color:var(--mt-off-white)}
+.asset-ext{font-family:var(--font-mono);font-size:11px;color:var(--mt-muted);text-transform:uppercase}
+.asset-dl{width:100%;padding:10px;text-align:center;font-size:12px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.1);background:transparent;color:var(--mt-off-white);font-family:var(--font-sans);font-weight:700;cursor:pointer;text-decoration:none;transition:background .12s,border-color .12s}
+.asset-dl:hover{background:var(--mt-purple-600);border-color:var(--mt-purple-600);color:#fff}
+
+/* format badges */
+.format-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-style:italic;font-weight:900;
+  font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+  padding:4px 10px;border-radius:var(--r-pill);
+}
+.badge-png{background:rgba(93,227,196,.14);color:var(--mt-mint)}
+.badge-svg{background:rgba(245,196,96,.15);color:var(--mt-gold-300)}
+.badge-ai{background:rgba(176,110,226,.15);color:var(--mt-purple-400)}
+.badge-muted{background:rgba(255,255,255,.06);color:var(--mt-muted)}
+.format-row{display:flex;gap:6px;flex-wrap:wrap}
 
 /* footer */
 footer{margin-top:96px;padding-top:32px;border-top:1px solid rgba(255,255,255,.08)}
@@ -212,15 +241,29 @@ footer{margin-top:96px;padding-top:32px;border-top:1px solid rgba(255,255,255,.0
 }
 .social-link:hover{background:var(--mt-purple-600);color:var(--mt-white)}
 
+/* carousel */
+.carousel-wrap{position:relative}
+.carousel-track{display:flex;gap:24px;overflow-x:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 0}
+.carousel-track > *{flex:0 0 calc(33.333% - 16px);scroll-snap-align:start;min-width:0}
+@media(max-width:600px){.carousel-track > *{flex:0 0 calc(50% - 12px)}}
+@media(max-width:480px){.carousel-track > *{flex:0 0 100%}}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.1);background:var(--mt-ink-700);color:var(--mt-off-white);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .12s;font-size:18px;line-height:1}
+.carousel-btn:hover{background:var(--mt-purple-600)}
+.carousel-btn.prev{left:-16px}
+.carousel-btn.next{right:-16px}
+.brand-hero-img{flex:1;display:flex;align-items:center;justify-content:center}
+@media(max-width:768px){.brand-hero-img{display:none}}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-delay-1{transition-delay:.1s}
 .reveal-delay-2{transition-delay:.2s}
 .reveal-delay-3{transition-delay:.3s}
+.reveal-delay-4{transition-delay:.4s}
 
 /* modal */
-.modal-overlay{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+.modal-overlay{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
 .modal-overlay.open{opacity:1;pointer-events:auto}
 .modal-box{background:var(--mt-ink-800);border:1px solid rgba(255,255,255,.08);border-radius:var(--r-lg);padding:48px 40px;text-align:center;max-width:360px;width:90%;transform:scale(.92);transition:transform .25s;box-shadow:0 20px 60px rgba(0,0,0,.5);position:relative}
 .modal-overlay.open .modal-box{transform:scale(1)}
@@ -251,12 +294,12 @@ footer{margin-top:96px;padding-top:32px;border-top:1px solid rgba(255,255,255,.0
   </button>
   <div class="nav-links" id="navLinks">
     <a href="index.html">Home</a>
-    <a href="gallery.html" class="active">Gallery</a>
-    <a href="branding.html">Branding</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="branding.html" class="active">Branding</a>
     <a href="faq.html">FAQ</a>
     <a href="governance.html">Governance</a>
     <a href="https://docs.moontropica.com/" target="_blank">Litepaper</a>
-    <a href="blog.html">Blog</a>
+    <a href="/blog">Blog</a>
     <a href="#" onclick="event.preventDefault();openContactModal()">Contact</a>
     <div class="nav-divider"></div>
     <a href="https://store.steampowered.com/app/3664890/Moon_Tropica/" target="_blank" class="nav-play">PLAY NOW ›</a>
@@ -272,29 +315,124 @@ document.getElementById('hamburger').addEventListener('click', function(){
 <div class="page">
 
   <!-- HERO -->
-  <div class="gallery-hero reveal" style="display:flex;align-items:center;gap:40px">
-    <div class="gallery-hero-content" style="flex:1">
-      <h1 class="reveal reveal-delay-1">Gallery</h1>
-      <p class="reveal reveal-delay-2">Browse the Moon Tropica universe through concept art, backgrounds, and scenes.</p>
+  <div class="brand-hero reveal" style="display:flex;align-items:center;gap:40px">
+    <div class="brand-hero-content" style="flex:1">
+      <h1 class="reveal reveal-delay-1">Branding Kit</h1>
+      <p class="reveal reveal-delay-2">Download official Moon Tropica logos and branding assets. Available in PNG, SVG, and AI formats.</p>
+      <div class="btn-row reveal reveal-delay-3">
+        <a href="branding/MT_Complete.zip" download class="btn btn-gold">DOWNLOAD ALL</a>
+      </div>
     </div>
-    <div class="gallery-hero-img">
-      <img src="assets/vitalik.png" alt="" />
+    <div class="reveal reveal-delay-2 brand-hero-img">
+      <img src="assets/car.png" alt="Car" style="width:100%;max-width:400px;height:auto" />
     </div>
   </div>
 
-  <!-- THUMBNAILS -->
-  <section class="reveal" id="gallery-section">
-    <div class="thumb-grid" id="thumb-grid"></div>
+  <!-- LOGOS -->
+  <section class="reveal">
+    <div class="section-head">
+      <h2>Logos</h2>
+      <span class="label">PNG / SVG / AI</span>
+    </div>
+    <div class="carousel-wrap">
+      <button class="carousel-btn prev" onclick="scrollCarousel(-1)">‹</button>
+      <div class="carousel-track" id="logo-track">
+        <div class="asset-card">
+          <div class="asset-preview"><img src="branding/PNG/Logo_Horizontal_White.png" alt="Horizontal White" /></div>
+          <div class="asset-info"><span class="asset-name">Horizontal White</span></div>
+          <div class="format-row">
+            <span class="format-badge badge-png">PNG</span>
+            <span class="format-badge badge-svg">SVG</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <a href="branding/PNG/Logo_Horizontal_White.png" download class="asset-dl">PNG</a>
+            <a href="branding/Vector/Logo_Horizontal_White.svg" download class="asset-dl">SVG</a>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="background:#fff"><img src="branding/PNG/Logo_Horizontal_Dark.png" alt="Horizontal Dark" /></div>
+          <div class="asset-info"><span class="asset-name">Horizontal Dark</span></div>
+          <div class="format-row">
+            <span class="format-badge badge-png">PNG</span>
+            <span class="format-badge badge-svg">SVG</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <a href="branding/PNG/Logo_Horizontal_Dark.png" download class="asset-dl">PNG</a>
+            <a href="branding/Vector/Logo_Horizontal_Dark.svg" download class="asset-dl">SVG</a>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview"><img src="branding/PNG/Logo_Stacked_White.png" alt="Stacked White" /></div>
+          <div class="asset-info"><span class="asset-name">Stacked White</span></div>
+          <div class="format-row">
+            <span class="format-badge badge-png">PNG</span>
+            <span class="format-badge badge-svg">SVG</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <a href="branding/PNG/Logo_Stacked_White.png" download class="asset-dl">PNG</a>
+            <a href="branding/Vector/Logo_Stacked_White.svg" download class="asset-dl">SVG</a>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-preview" style="background:#fff"><img src="branding/PNG/Logo_Stacked_Dark.png" alt="Stacked Dark" /></div>
+          <div class="asset-info"><span class="asset-name">Stacked Dark</span></div>
+          <div class="format-row">
+            <span class="format-badge badge-png">PNG</span>
+            <span class="format-badge badge-svg">SVG</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <a href="branding/PNG/Logo_Stacked_Dark.png" download class="asset-dl">PNG</a>
+            <a href="branding/Vector/Logo_Stacked_Dark.svg" download class="asset-dl">SVG</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="scrollCarousel(1)">›</button>
+    </div>
   </section>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox-overlay" id="lightbox">
-    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <button class="lightbox-btn prev" onclick="navLightbox(-1)">‹</button>
-    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
-    <button class="lightbox-btn next" onclick="navLightbox(1)">›</button>
-    <div class="lightbox-counter" id="lightbox-counter"></div>
-  </div>
+  <!-- MARKS -->
+  <section class="reveal">
+    <div class="section-head">
+      <h2>Marks &amp; Assets</h2>
+      <span class="label">PNG / SVG</span>
+    </div>
+    <div class="asset-grid">
+      <div class="asset-card">
+        <div class="asset-preview"><img src="branding/PNG/Logo_3D_2.png" alt="Logo 3D" /></div>
+        <div class="asset-info"><span class="asset-name">Logo 3D</span></div>
+        <div class="format-row">
+          <span class="format-badge badge-png">PNG</span>
+          <span class="format-badge badge-svg">SVG</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <a href="branding/PNG/Logo_3D_2.png" download class="asset-dl">PNG</a>
+          <a href="branding/Vector/Logo_3D.svg" download class="asset-dl">SVG</a>
+        </div>
+      </div>
+      <div class="asset-card">
+        <div class="asset-preview"><img src="branding/PNG/CAH_Token.png" alt="CAH Token" /></div>
+        <div class="asset-info"><span class="asset-name">CAH Token</span></div>
+        <div class="format-row">
+          <span class="format-badge badge-png">PNG</span>
+          <span class="format-badge badge-ai">AI</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <a href="branding/PNG/CAH_Token.png" download class="asset-dl">PNG</a>
+          <a href="branding/Vector/CAH_Token.ai" download class="asset-dl">AI</a>
+        </div>
+      </div>
+      <div class="asset-card">
+        <div class="asset-preview"><img src="branding/PNG/Billy.png" alt="Billy" /></div>
+        <div class="asset-info"><span class="asset-name">Billy Mascot</span></div>
+        <div class="format-row">
+          <span class="format-badge badge-png">PNG</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr;gap:8px">
+          <a href="branding/PNG/Billy.png" download class="asset-dl">PNG</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer class="reveal">
@@ -305,7 +443,7 @@ document.getElementById('hamburger').addEventListener('click', function(){
       </div>
       <div class="footer-col">
         <h4>Game</h4>
-        <a href="blog.html">Blog</a>
+        <a href="/blog">Blog</a>
         <a href="gallery.html">Gallery</a>
         <a href="branding.html">Branding</a>
         <a href="#" onclick="event.preventDefault();openContactModal()">Contact</a>
@@ -398,77 +536,22 @@ document.getElementById('math-a').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') checkMath()
 })
 
-const images = [
-  'assets/gallery/Hero-2.jpg',
-  'assets/gallery/Hero-3.jpg',
-  'assets/gallery/Hero-4.jpg',
-  'assets/gallery/Hero-5.png',
-  'assets/gallery/Hero-6.jpg',
-  'assets/gallery/Hero-7.jpg',
-  'assets/gallery/Hero-8.jpg',
-  'assets/gallery/Hero-9.jpg',
-  'assets/gallery/Hero-10.png',
-  'assets/gallery/bg-1B.jpg',
-  'assets/gallery/bg-3.jpg',
-  'assets/gallery/bg-4.jpg',
-  'assets/gallery/bg-5.jpg',
-  'assets/gallery/bg-6.jpg',
-  'assets/gallery/bg-7.jpg',
-]
-
-let currentIdx = 0
-
-// render thumbnails
-const grid = document.getElementById('thumb-grid')
-images.forEach((src, i) => {
-  const card = document.createElement('div')
-  card.className = 'thumb-card'
-  card.innerHTML = `<img src="${src}" alt="" loading="lazy" />`
-  card.addEventListener('click', () => openLightbox(i))
-  grid.appendChild(card)
-})
-
-// lightbox
-function openLightbox(i) {
-  currentIdx = i
-  updateLightbox()
-  document.getElementById('lightbox').classList.add('open')
-  document.body.style.overflow = 'hidden'
+// ---- carousel ----
+function scrollCarousel(dir) {
+  const track = document.getElementById('logo-track')
+  const card = track.querySelector('.asset-card')
+  const gap = 24
+  const step = (card?.offsetWidth || 280) + gap
+  track.scrollBy({ left: dir * step, behavior: 'smooth' })
 }
 
-function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open')
-  document.body.style.overflow = ''
-}
-
-function navLightbox(dir) {
-  currentIdx = (currentIdx + dir + images.length) % images.length
-  updateLightbox()
-}
-
-function updateLightbox() {
-  document.getElementById('lightbox-img').src = images[currentIdx]
-  document.getElementById('lightbox-counter').textContent = `${currentIdx + 1} / ${images.length}`
-}
-
-document.getElementById('lightbox').addEventListener('click', e => {
-  if (e.target === e.currentTarget) closeLightbox()
-})
-document.addEventListener('keydown', e => {
-  const lb = document.getElementById('lightbox')
-  if (!lb.classList.contains('open')) return
-  if (e.key === 'Escape') closeLightbox()
-  if (e.key === 'ArrowLeft') navLightbox(-1)
-  if (e.key === 'ArrowRight') navLightbox(1)
-})
-
-// scroll reveal
+// ---- scroll reveal ----
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') })
 }, { threshold: .15 })
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 
-// modals
+// ---- modals ----
 function openContactModal(){generateMath();document.getElementById('contact-modal').classList.add('open')}
 function closeContactModal(){document.getElementById('contact-modal').classList.remove('open')}
 function openDiscordModal(){document.getElementById('discord-modal').classList.add('open')}
