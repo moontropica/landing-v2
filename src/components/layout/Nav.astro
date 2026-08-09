@@ -9,8 +9,29 @@ const items = [
 ];
 const path = Astro.url.pathname;
 ---
-<nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 px-2 py-2
-            rounded-r-pill bg-black/40 backdrop-blur-md border border-white/10 shadow-raise">
+
+<!-- Mobile -->
+<nav class="md:hidden flex items-center justify-between px-4 py-4 sticky top-0 z-50 bg-mt-ink-900/80 backdrop-blur-md border-b border-white/[.06]">
+  <a href="/" class="italic font-black text-mt-white text-sm tracking-[.04em] no-underline">
+    MOON&nbsp;TROPICA
+  </a>
+  <button id="hamburger" aria-label="Menu" class="hamburger-btn flex flex-col gap-[5px] cursor-pointer bg-transparent border-none p-2">
+    <span></span><span></span><span></span>
+  </button>
+  <div id="navLinks" class="hidden absolute top-full left-0 right-0 flex-col bg-mt-ink-900/96 backdrop-blur-md border-b border-white/[.06] p-3 gap-1">
+    {items.map((it) => {
+      const active = path === it.href || (it.href !== "/" && path.startsWith(it.href));
+      return (
+        <a href={ext(it.href)} class:list={["no-underline italic font-black text-[13px] tracking-[.08em] uppercase py-2 px-4 rounded-r-pill transition-colors duration-150", active ? "text-mt-white bg-mt-purple-600/20" : "text-mt-muted hover:text-mt-off-white hover:bg-white/5"]}>
+          {it.label}
+        </a>
+      );
+    })}
+  </div>
+</nav>
+
+<!-- Desktop -->
+<nav class="hidden md:flex fixed top-5 left-1/2 -translate-x-1/2 z-50 items-center gap-1 px-2 py-2 rounded-r-pill bg-black/40 backdrop-blur-md border border-white/10 shadow-raise">
   <a href={ext("/")} class="px-3 py-1.5 italic font-black text-mt-white text-sm tracking-[.04em]">
     MOON&nbsp;TROPICA
   </a>
@@ -33,3 +54,28 @@ const path = Astro.url.pathname;
     );
   })}
 </nav>
+
+<style>
+  .hamburger-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-mt-white);
+    border-radius: 2px;
+    transition: transform .2s, opacity .2s;
+  }
+  .hamburger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger-btn.open span:nth-child(2) { opacity: 0; }
+  .hamburger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+</style>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+  if (hamburger && navLinks) {
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("open");
+      navLinks.classList.toggle("!flex");
+    });
+  }
+</script>
