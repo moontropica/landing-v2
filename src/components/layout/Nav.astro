@@ -1,4 +1,6 @@
 ---
+const isDev = import.meta.env.DEV;
+const ext = (href: string) => (isDev && href !== "/" && href !== "/blog" ? href + ".html" : href);
 const items = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },
@@ -10,7 +12,7 @@ const path = Astro.url.pathname;
 ---
 <nav class="fixed top-5 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 px-2 py-2
             rounded-r-pill bg-black/40 backdrop-blur-md border border-white/10 shadow-raise">
-  <a href="/" class="px-3 py-1.5 italic font-black text-mt-white text-sm tracking-[.04em]">
+  <a href={ext("/")} class="px-3 py-1.5 italic font-black text-mt-white text-sm tracking-[.04em]">
     MOON&nbsp;TROPICA
   </a>
   <span class="w-px h-5 bg-white/10 mx-1" aria-hidden></span>
@@ -18,7 +20,7 @@ const path = Astro.url.pathname;
     const active = path === it.href || (it.href !== "/" && path.startsWith(it.href));
     return (
       <a
-        href={it.href}
+        href={ext(it.href)}
         class:list={[
           "px-4 py-2 rounded-r-pill italic font-black text-[13px] tracking-[.08em] uppercase",
           "transition-colors duration-150",
