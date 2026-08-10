@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 /* ---------------------------------------------------------------
    Design tokens — mirrored from `New Design/style-guide.html`.
