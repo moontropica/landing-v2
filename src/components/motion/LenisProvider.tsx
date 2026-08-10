@@ -1,7 +1,13 @@
 import * as React from "react";
 
+function isMobileDevice() {
+  if (typeof window === "undefined") return true;
+  return window.matchMedia("(pointer: coarse)").matches || window.matchMedia("(max-width: 768px)").matches;
+}
+
 export default function LenisProvider() {
   React.useEffect(() => {
+    if (isMobileDevice()) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     let cancelled = false;
     let cleanup: (() => void) | undefined;
