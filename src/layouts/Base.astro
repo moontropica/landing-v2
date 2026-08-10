@@ -6,10 +6,12 @@ import LenisProvider from "@components/motion/LenisProvider.tsx";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 const {
   title = "Moon Tropica · The spirited battle arena",
   description = "Moon Tropica is a spirited battle arena game where players participate in a variety of action-packed game modes.",
+  image = "https://moontropica.com/assets/og-image-2.png",
 } = Astro.props;
 ---
 <!doctype html>
@@ -20,8 +22,10 @@ const {
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={image} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
