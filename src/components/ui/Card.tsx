@@ -1,5 +1,5 @@
 import * as React from "react";
-import { cn } from "@/lib/cn";
+import { clsx } from "clsx";
 
 type Tone = "default" | "purple" | "dark";
 
@@ -18,7 +18,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function Card({ tone = "default", className, children, ...rest }: CardProps) {
   return (
-    <div className={cn(tones[tone], className)} {...rest}>
+    <div className={clsx(tones[tone], className)} {...rest}>
       {children}
     </div>
   );
