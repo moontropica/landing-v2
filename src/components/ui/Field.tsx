@@ -30,7 +30,7 @@ export const Field = React.forwardRef<HTMLInputElement, FieldProps>(
             id={inputId}
             ref={ref}
             className={cn(
-              "w-full text-mt-white border-0 rounded-r-pill px-[22px] py-4",
+              "w-full text-mt-white border-0 rounded-pill px-[22px] py-4",
               "font-sans font-bold text-base outline-none transition-[box-shadow,background] duration-150",
               "placeholder:text-white/35 placeholder:italic",
               toneClasses,
@@ -43,14 +43,14 @@ export const Field = React.forwardRef<HTMLInputElement, FieldProps>(
               type="button"
               onClick={max}
               className="absolute right-3 top-1/2 -translate-y-1/2 bg-mt-gold-300 text-[#1a1600]
-                         rounded-r-pill px-2.5 py-1 italic font-black text-[11px] tracking-[.12em] uppercase cursor-pointer"
+                         rounded-pill px-2.5 py-1 italic font-black text-[11px] tracking-[.12em] uppercase cursor-pointer"
             >
               MAX
             </button>
           )}
           {suffix && !max && (
             <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2
-                            bg-black/35 rounded-r-pill px-3 py-1.5 italic font-black text-[13px] tracking-[.08em]">
+                            bg-black/35 rounded-pill px-3 py-1.5 italic font-black text-[13px] tracking-[.08em]">
               {suffix}
             </div>
           )}

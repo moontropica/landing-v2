@@ -3,7 +3,7 @@
 /* ---------------------------------------------------------------
    Design tokens — mirrored from `New Design/style-guide.html`.
    `@theme` makes every token available as a Tailwind utility too
-   (e.g. `bg-mt-purple-500`, `text-mt-gold-200`, `rounded-r-pill`).
+   (e.g. `bg-mt-purple-500`, `text-mt-gold-200`, `rounded-pill`).
    --------------------------------------------------------------- */
 @theme {
   --font-sans: "Mulish", system-ui, sans-serif;
@@ -37,12 +37,12 @@
   --color-mt-muted: #8a8195;
   --color-mt-disabled: #4a4653;
 
-  --radius-r-xs: 6px;
-  --radius-r-sm: 10px;
-  --radius-r-md: 16px;
-  --radius-r-lg: 22px;
-  --radius-r-xl: 28px;
-  --radius-r-pill: 999px;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
 
   --shadow-raise: 0 12px 30px -10px rgba(0, 0, 0, 0.55), inset 0 2px 0 rgba(255, 255, 255, 0.03);
   --shadow-press: inset 0 2px 0 rgba(0, 0, 0, 0.4);

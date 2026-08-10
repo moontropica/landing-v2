@@ -33,10 +33,10 @@ export function Progress({ value, max = 100, tone = "gold", label, display, clas
         aria-valuenow={value}
         aria-valuemin={0}
         aria-valuemax={max}
-        className="w-full h-2.5 bg-white/[.08] rounded-r-pill overflow-hidden relative"
+        className="w-full h-2.5 bg-white/[.08] rounded-pill overflow-hidden relative"
       >
         <div
-          className={cn("h-full rounded-r-pill transition-[width] duration-500 ease-out", fills[tone])}
+          className={cn("h-full rounded-pill transition-[width] duration-500 ease-out", fills[tone])}
           style={{ width: `${pct}%` }}
         />
       </div>

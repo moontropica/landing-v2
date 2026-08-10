@@ -30,7 +30,7 @@ export function Alert({ tone = "info", title, className, children, ...rest }: Al
     <div
       role="status"
       className={cn(
-        "flex items-start gap-3.5 px-5 py-4 rounded-r-md font-bold text-sm border",
+        "flex items-start gap-3.5 px-5 py-4 rounded-md font-bold text-sm border",
         t.wrap,
         className,
       )}

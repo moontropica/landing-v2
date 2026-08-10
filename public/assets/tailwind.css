@@ -30,9 +30,8 @@
     --font-weight-extrabold: 800;
     --font-weight-black: 900;
     --leading-relaxed: 1.625;
-    --radius-md: 0.375rem;
-    --radius-lg: 0.5rem;
-    --radius-xl: 0.75rem;
+    --radius-md: 16px;
+    --radius-lg: 22px;
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --blur-md: 12px;
     --default-transition-duration: 150ms;
@@ -56,11 +55,7 @@
     --color-mt-off-white: #f2ecff;
     --color-mt-muted: #8a8195;
     --color-mt-disabled: #4a4653;
-    --radius-r-sm: 10px;
-    --radius-r-md: 16px;
-    --radius-r-lg: 22px;
-    --radius-r-xl: 28px;
-    --radius-r-pill: 999px;
+    --radius-pill: 999px;
     --shadow-press: inset 0 2px 0 rgba(0, 0, 0, 0.4);
   }
 }
@@ -557,22 +552,14 @@
   .rounded-full {
     border-radius: calc(infinity * 1px);
   }
-  .rounded-r-lg {
-    border-radius: var(--radius-r-lg);
+  .rounded-lg {
+    border-radius: var(--radius-lg);
   }
-  .rounded-r-md {
-    border-radius: var(--radius-r-md);
+  .rounded-md {
+    border-radius: var(--radius-md);
   }
-  .rounded-r-pill {
-    border-radius: var(--radius-r-pill);
-  }
-  .rounded-r-lg {
-    border-top-right-radius: var(--radius-lg);
-    border-bottom-right-radius: var(--radius-lg);
-  }
-  .rounded-r-md {
-    border-top-right-radius: var(--radius-md);
-    border-bottom-right-radius: var(--radius-md);
+  .rounded-pill {
+    border-radius: var(--radius-pill);
   }
   .border {
     border-style: var(--tw-border-style);

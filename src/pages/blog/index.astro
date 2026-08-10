@@ -27,10 +27,10 @@ const description =
 ---
 
 <Base title={title} description={description} image="https://moontropica.com/assets/og-image-2.png">
-  <section class="relative overflow-hidden rounded-r-lg mt-8 mx-4 md:mx-8 bg-[radial-gradient(700px_400px_at_70%_20%,var(--color-mt-purple-400)_0%,transparent_60%),linear-gradient(135deg,var(--color-mt-purple-500),var(--color-mt-purple-700))] shadow-purple-glow py-16 md:py-24 px-4 md:px-8">
+  <section class="relative overflow-hidden rounded-lg mt-8 mx-4 md:mx-8 bg-[radial-gradient(700px_400px_at_70%_20%,var(--color-mt-purple-400)_0%,transparent_60%),linear-gradient(135deg,var(--color-mt-purple-500),var(--color-mt-purple-700))] shadow-purple-glow py-16 md:py-24 px-4 md:px-8">
     <div class="relative z-10 max-w-2xl mx-auto text-center">
       <Badge tone="gold" client:visible>
-        <span class="w-1.5 h-1.5 rounded-r-pill bg-mt-gold-300 shadow-[0_0_12px_var(--color-mt-gold-300)]"></span>
+        <span class="w-1.5 h-1.5 rounded-pill bg-mt-gold-300 shadow-[0_0_12px_var(--color-mt-gold-300)]"></span>
         Blog
       </Badge>
       <h1 class="mt-4 italic font-black tracking-[-.02em] leading-[.95] text-[clamp(44px,7vw,84px)] [text-shadow:0_4px_0_var(--color-mt-purple-700),0_12px_40px_rgba(0,0,0,.35)]">
@@ -41,8 +41,8 @@ const description =
         {description}
       </p>
     </div>
-    <div class="pointer-events-none absolute top-[-120px] left-[-80px] w-[340px] h-[340px] rounded-r-pill bg-[radial-gradient(circle,rgba(255,255,255,.12)_0%,transparent_65%)]"></div>
-    <div class="pointer-events-none absolute bottom-[-160px] right-[-60px] w-[420px] h-[420px] rounded-r-pill bg-[radial-gradient(circle,rgba(255,255,255,.12)_0%,transparent_65%)]"></div>
+    <div class="pointer-events-none absolute top-[-120px] left-[-80px] w-[340px] h-[340px] rounded-pill bg-[radial-gradient(circle,rgba(255,255,255,.12)_0%,transparent_65%)]"></div>
+    <div class="pointer-events-none absolute bottom-[-160px] right-[-60px] w-[420px] h-[420px] rounded-pill bg-[radial-gradient(circle,rgba(255,255,255,.12)_0%,transparent_65%)]"></div>
   </section>
 
   <section class="max-w-7xl mx-auto px-4 sm:px-8 mt-20">
@@ -63,7 +63,7 @@ const description =
             const tone = primaryTag ? (tagTone[primaryTag] ?? "muted") : "muted";
             return (
               <a href={`/blog/${post.id}`} class="group block no-underline">
-                <div class="bg-gradient-to-b from-white/[.04] to-white/[.02] border border-white/[.08] rounded-r-lg p-6 h-full flex flex-col gap-5 transition-[border-color] duration-150 hover:border-white/[.16]">
+                <div class="bg-gradient-to-b from-white/[.04] to-white/[.02] border border-white/[.08] rounded-lg p-6 h-full flex flex-col gap-5 transition-[border-color] duration-150 hover:border-white/[.16]">
                   {label && (
                     <div>
                       <Badge tone={tone}>{label}</Badge>
