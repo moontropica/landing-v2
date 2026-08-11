@@ -7,13 +7,16 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  ogType?: string;
 }
 const {
   title = "Moon Tropica · The spirited battle arena",
   description = "Moon Tropica is a spirited battle arena game where players participate in a variety of action-packed game modes.",
   image = "https://moontropica.com/assets/og-image-2.png",
+  ogType = "website",
 } = Astro.props;
 const imageUrl = image.startsWith("/") ? new URL(image, Astro.site).href : image;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
 ---
 <!doctype html>
 <html lang="en">
@@ -24,8 +27,12 @@ const imageUrl = image.startsWith("/") ? new URL(image, Astro.site).href : image
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={imageUrl} />
-    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Moon Tropica" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
