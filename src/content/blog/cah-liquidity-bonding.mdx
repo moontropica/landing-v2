@@ -143,26 +143,41 @@ Everything is deployed on Ethereum mainnet (chain ID 1), block 25029174 (May 5 2
 
 ### Contracts
 
-| What | Address | Etherscan |
-|---|---|---|
-| BondingManager | `0xAe6D00983dD85d1FDC339B8535d24D48995A621D` | [View](https://etherscan.io/address/0xae6d00983dd85d1fdc339b8535d24d48995a621d) |
-| VestingManager | `0xC387B147bF1660428498b5030c82f80364195e41` | [View](https://etherscan.io/address/0xc387b147bf1660428498b5030c82f80364195e41) |
+<table>
+  <thead>
+    <tr><th>What</th><th>Address</th><th>Etherscan</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>BondingManager</td><td><code>0xAe6D00983dD85d1FDC339B8535d24D48995A621D</code></td><td><a href="https://etherscan.io/address/0xae6d00983dd85d1fdc339b8535d24d48995a621d">View</a></td></tr>
+    <tr><td>VestingManager</td><td><code>0xC387B147bF1660428498b5030c82f80364195e41</code></td><td><a href="https://etherscan.io/address/0xc387b147bf1660428498b5030c82f80364195e41">View</a></td></tr>
+  </tbody>
+</table>
 
 Both are verified on Etherscan. The source code is public and auditable.
 
 ### Governance
 
-| Role | Address |
-|---|---|
-| Gnosis Safe (owner) | `0x1561A63eA31bDfB7b1D08faeEbC6d0b7ce98995E` |
-| Treasury (receives fees + LP) | `0x467d72B5217e3ea45bc32c2a6A55692AeE4f429F` |
+<table>
+  <thead>
+    <tr><th>Role</th><th>Address</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Gnosis Safe (owner)</td><td><code>0x1561A63eA31bDfB7b1D08faeEbC6d0b7ce98995E</code></td></tr>
+    <tr><td>Treasury (receives fees + LP)</td><td><code>0x467d72B5217e3ea45bc32c2a6A55692AeE4f429F</code></td></tr>
+  </tbody>
+</table>
 
 ### Uniswap V4 (canonical pool)
 
-| Component | Address |
-|---|---|
-| PoolManager | `0x000000000004444c5dc75cB358380D2e3dE08A90` |
-| PositionManager | `0xbd216513d74c8cf14cf4747e6aaa6420ff64ee9e` |
+<table>
+  <thead>
+    <tr><th>Component</th><th>Address</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>PoolManager</td><td><code>0x000000000004444c5dc75cB358380D2e3dE08A90</code></td></tr>
+    <tr><td>PositionManager</td><td><code>0xbd216513d74c8cf14cf4747e6aaa6420ff64ee9e</code></td></tr>
+  </tbody>
+</table>
 
 The canonical pool is native ETH paired with CAH at a 3.14% fee tier, tick spacing 628, with no hook. It was already deployed before the bonding system — the contracts just read from it.
 
@@ -195,12 +210,17 @@ The trust model is: bonders trust that the 2-of-4 multisig will act in the proto
 
 As the canonical pool's TVL grows (more and more people bond), the multiplier automatically tapers. The multisig adjusts `discountBps` manually to match the schedule:
 
-| Canonical pool TVL | Multiplier | Bonus |
-|---|---|---|
-| $60K – $250K | 2.0x | Double your LP |
-| $250K – $750K | 1.5x | 50% bonus |
-| $750K – $2M | 1.25x | 25% bonus |
-| $2M – $4M | 1.10x | 10% bonus |
+<table>
+  <thead>
+    <tr><th>Canonical pool TVL</th><th>Multiplier</th><th>Bonus</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>$60K – $250K</td><td>2.0x</td><td>Double your LP</td></tr>
+    <tr><td>$250K – $750K</td><td>1.5x</td><td>50% bonus</td></tr>
+    <tr><td>$750K – $2M</td><td>1.25x</td><td>25% bonus</td></tr>
+    <tr><td>$2M – $4M</td><td>1.10x</td><td>10% bonus</td></tr>
+  </tbody>
+</table>
 
 Why taper? Early bonders take more risk (smaller pool, less proven), so they get a bigger bonus. As the pool deepens and the protocol proves itself, the incentive drops. This keeps the reward pool from draining faster than the pool depth justifies.
 
