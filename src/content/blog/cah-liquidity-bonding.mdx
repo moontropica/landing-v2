@@ -1,0 +1,218 @@
+---
+title: "How the CAH Bonding System Works"
+description: "A plain-English walkthrough of the CAH protocol-owned liquidity bonding system: what it is, why it exists, and how every piece fits together."
+date: 2026-08-10
+tags: ["documentation"]
+image: "/assets/blog/billybond.jpg"
+---
+
+## What Is This?
+
+The CAH Bonding System lets you trade your Uniswap V4 liquidity position for **bonus CAH tokens** that unlock over one year.
+
+Here's the trade:
+
+- **You give:** a full-range CAH/ETH liquidity position on Uniswap V4 (you provide both CAH and ETH so other people can trade against it)
+- **You get:** vested CAH tokens worth **2x more** than the liquidity you put in — paid out slowly over 365 days
+- **The protocol keeps:** your LP position forever, growing permanent trading depth for CAH
+
+You're not "lending" the liquidity temporarily. You're selling it to the protocol in exchange for a guaranteed CAH bonus. The protocol owns it forever after that.
+
+---
+
+## The Big Idea
+
+Normal DeFi projects rent liquidity — they pay people (in tokens) to put money in a pool, and the moment the rewards stop, the liquidity disappears. It's a leaky bucket.
+
+Bonding flips the model:
+
+1. **You get your bonus up front** (well, vested over a year — but it's locked in the moment you bond).
+2. **The protocol owns the liquidity permanently.** No one can pull it out except the multisig (for emergency or governance reasons).
+3. **That liquidity earns swap fees forever**, which flow back to the protocol treasury.
+
+Over time the protocol builds a deep, self-sustaining trading pool. No rent. No mercenary capital. Every bond makes the pool thicker permanently.
+
+The target is $4M in protocol-owned liquidity, funded by at most 25% of the total CAH supply (8.75M tokens).
+
+The canonical CAH/ETH pool is already live on Uniswap V4 — a 3.14% fee tier pool pairing native ETH with CAH, with no hook attached. The bonding system plugs into this existing pool.
+
+---
+
+## How It Works (Step by Step)
+
+Bonding is a **5-step process**, all done from your wallet through the frontend. Here's the human version:
+
+### Step 1 — Swap some ETH for CAH (if you need CAH)
+
+You need both CAH and ETH to create a liquidity position. If you only have one or the other, the frontend can swap what you're missing through Uniswap against the existing pool. One click, one transaction.
+
+### Step 2 — Approve CAH to Uniswap V4's Permit2
+
+Uniswap V4 uses Permit2 for token approvals (instead of the old "approve ERC-20 directly" approach). You sign one approval so Uniswap can spend your CAH when it's time to mint the position.
+
+### Step 3 — Mint a full-range CAH/ETH LP position
+
+You provide the CAH and ETH together as a single "position" in the Uniswap V4 pool. **Full range** means your liquidity covers every possible price from near-zero to near-infinity — you never need to worry about being "out of range." This position is represented as an NFT in your wallet.
+
+### Step 4 — Approve the position NFT to the bonding contract
+
+Before the protocol can take your position, you need to authorize it. One approval transaction on the NFT — just like approving a token, but for an ERC-721.
+
+### Step 5 — Hit "Bond"
+
+One final transaction. The contract checks everything is valid (right tokens, full range, big enough, reward pool has enough CAH to cover your bonus), then takes your NFT into permanent custody and creates a vesting schedule for your bonus CAH.
+
+That's it. After step 5, the LP position belongs to the protocol forever, and your bonus CAH is locked into a vesting schedule.
+
+---
+
+## The Two Contracts
+
+There are exactly two smart contracts. No hooks, no oracles, no third-party dependencies beyond Uniswap V4 itself.
+
+### BondingManager — The Deposit Box
+
+Think of this like a safety deposit box at a bank. It:
+
+- **Accepts** your full-range CAH/ETH LP NFT
+- **Checks** everything is valid before taking it (right tokens, full range, within size limits, reward pool can afford it)
+- **Calculates** your bonus: how much CAH you get based on the current price, multiplier, and price floor
+- **Locks** the NFT permanently — only the multisig can ever touch the liquidity inside
+- **Reads the price** directly from the canonical Uniswap V4 pool (no external oracle needed)
+- **Applies a price floor** so the multiplier can't be gamed even if someone temporarily moves the pool price
+- **Tells** the VestingManager: *"Create a vesting schedule for this person, for this many CAH"*
+
+The BondingManager also gives the multisig tools to manage all the bonded positions:
+- Collect swap fees from anyone trading through the pool
+- Reduce liquidity (if the multisig ever needs to exit)
+- Transfer positions to the treasury
+
+### VestingManager — The Reward Vault
+
+Think of this like a timed-release safe. It:
+
+- **Holds** the 8.75M CAH reward pool (the "bonus tokens" that bonders earn)
+- **Creates vesting schedules** when the BondingManager tells it to — each schedule tracks how much CAH you're owed, how much you've claimed, and when you can claim
+- **Releases tokens** slowly: 30 days of nothing (the cliff), then 335 days of daily unlocks
+- **Lets you claim** whenever you want after the cliff — claim daily, weekly, monthly, whatever
+- **Can take a small fee** on each claim (set by the multisig, capped at 10%, currently 0%) — the fee goes to the treasury
+- **Makes sure it never over-commits** — if the reward pool doesn't have enough CAH to cover the next bond, bonding is rejected immediately
+- **Allows anyone** to deposit more CAH into the reward pool (a "donate" function — no permission needed)
+
+The invariant the contract enforces is simple: the CAH sitting in the VestingManager must always be at least as much as the total committed to all active vesting schedules. The math works because when you claim, the contract reduces both its balance and the "committed" number by the same amount (your claimed gross). When you bond, it checks the pool can afford the new schedule before committing.
+
+---
+
+## The Vesting Schedule
+
+Every bond creates one vesting schedule that looks like this:
+
+```
+Day 0 --> Day 30:        Cliff period. 0% claimable.
+Day 30 --> Day 365:      Linear unlock. A little bit each day.
+Day 365:                 Fully vested. Everything is claimable.
+```
+
+- **Cliff duration:** 30 days — no tokens for the first month. This prevents instant dump-and-run.
+- **Vest duration:** 335 days — after the cliff, your CAH unlocks evenly over ~11 months.
+- **Total:** 365 days from the day you bond to the day everything is yours.
+
+### Example
+
+You bond a position and get 100,000 CAH as your bonus.
+
+- Days 0–30: claimable = 0
+- Day 31: claimable = ~274 CAH (1/365th)
+- Day 60: claimable = ~8,493 CAH
+- Day 182 (6 months): claimable = ~50,000 CAH (halfway)
+- Day 365: claimable = 100,000 CAH (fully vested)
+
+You can claim as often or as rarely as you want. Each claim pays out what's built up since your last claim.
+
+### Claim Fee
+
+The multisig can set a small fee on each claim (capped at 10%). Right now it's set to **0%** — you get every token. If the multisig ever turns on a fee (say, 2%), that 2% would go to the protocol treasury and you'd receive 98% of your claimable amount.
+
+The fee is transparent: the frontend shows you "100 CAH claimable → 2 fee, 98 received" before you claim. No surprises.
+
+---
+
+## Where Everything Lives
+
+Everything is deployed on Ethereum mainnet (chain ID 1), block 25029174 (May 5 2026).
+
+### Contracts
+
+| What | Address | Etherscan |
+|---|---|---|
+| BondingManager | `0xAe6D00983dD85d1FDC339B8535d24D48995A621D` | [View](https://etherscan.io/address/0xae6d00983dd85d1fdc339b8535d24d48995a621d) |
+| VestingManager | `0xC387B147bF1660428498b5030c82f80364195e41` | [View](https://etherscan.io/address/0xc387b147bf1660428498b5030c82f80364195e41) |
+
+Both are verified on Etherscan. The source code is public and auditable.
+
+### Governance
+
+| Role | Address |
+|---|---|
+| Gnosis Safe (owner) | `0x1561A63eA31bDfB7b1D08faeEbC6d0b7ce98995E` |
+| Treasury (receives fees + LP) | `0x467d72B5217e3ea45bc32c2a6A55692AeE4f429F` |
+
+### Uniswap V4 (canonical pool)
+
+| Component | Address |
+|---|---|
+| PoolManager | `0x000000000004444c5dc75cB358380D2e3dE08A90` |
+| PositionManager | `0xbd216513d74c8cf14cf4747e6aaa6420ff64ee9e` |
+
+The canonical pool is native ETH paired with CAH at a 3.14% fee tier, tick spacing 628, with no hook. It was already deployed before the bonding system — the contracts just read from it.
+
+---
+
+## The Multisig
+
+A 2-of-4 Gnosis Safe (`0x1561...995E`) owns both contracts. This means two out of four designated signers must approve any action.
+
+### What the multisig can (and should) do
+
+- **Adjust the multiplier** (current: 2x, capped: 4x) — lower it as pool depth grows
+- **Update the price floor** — keep it close to the real market price to prevent manipulation
+- **Change bond size limits** — raise the cap as the pool grows, tighten as needed
+- **Set the daily payout cap** — prevent the reward pool from draining too quickly
+- **Pause or resume bonding** — emergency kill switch
+- **Collect swap fees** from bonded positions — send them to the treasury
+- **Withdraw liquidity** from bonded positions (emergency exit)
+- **Deposit more CAH** into the reward pool — top up when it runs low
+- **Turn on a claim fee** (capped at 10%) — optionally skim a small percentage of claims
+- **Change the treasury address** — point fees and LP withdrawals somewhere new
+
+### What the multisig is trusted not to do
+
+Since the multisig owns both contracts and holds custody of every bonded LP NFT, it technically **can** drain all the liquidity or withdraw uncommitted reward tokens. This is by design — escape hatches exist for emergencies (exploit response, migration, etc.).
+
+The trust model is: bonders trust that the 2-of-4 multisig will act in the protocol's interest. All parameter changes are on-chain and visible. All multisig transactions are publicly viewable on the Safe.
+
+### The Discount Schedule
+
+As the canonical pool's TVL grows (more and more people bond), the multiplier automatically tapers. The multisig adjusts `discountBps` manually to match the schedule:
+
+| Canonical pool TVL | Multiplier | Bonus |
+|---|---|---|
+| $60K – $250K | 2.0x | Double your LP |
+| $250K – $750K | 1.5x | 50% bonus |
+| $750K – $2M | 1.25x | 25% bonus |
+| $2M – $4M | 1.10x | 10% bonus |
+
+Why taper? Early bonders take more risk (smaller pool, less proven), so they get a bigger bonus. As the pool deepens and the protocol proves itself, the incentive drops. This keeps the reward pool from draining faster than the pool depth justifies.
+
+---
+
+## Summing It Up
+
+1. You put CAH + ETH into a Uniswap V4 full-range position.
+2. You bond that position to the protocol.
+3. The protocol gives you **more CAH than you put in** — locked into a 365-day vesting schedule.
+4. The protocol keeps your LP position forever, earning swap fees and deepening the pool.
+5. After 30 days, you start claiming your bonus a little at a time.
+6. After 365 days, everything is yours.
+
+No farming. No rent. No exit. Just a one-way trade: your liquidity for the protocol's bonus CAH.
