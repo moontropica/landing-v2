@@ -143,6 +143,8 @@ Everything is deployed on Ethereum mainnet (chain ID 1), block 25029174 (May 5 2
 
 ### Contracts
 
+<div class="overflow-x-auto">
+
 <table>
   <thead>
     <tr><th>What</th><th>Address</th><th>Etherscan</th></tr>
@@ -153,9 +155,13 @@ Everything is deployed on Ethereum mainnet (chain ID 1), block 25029174 (May 5 2
   </tbody>
 </table>
 
+</div>
+
 Both are verified on Etherscan. The source code is public and auditable.
 
 ### Governance
+
+<div class="overflow-x-auto">
 
 <table>
   <thead>
@@ -167,7 +173,11 @@ Both are verified on Etherscan. The source code is public and auditable.
   </tbody>
 </table>
 
+</div>
+
 ### Uniswap V4 (canonical pool)
+
+<div class="overflow-x-auto">
 
 <table>
   <thead>
@@ -178,6 +188,8 @@ Both are verified on Etherscan. The source code is public and auditable.
     <tr><td>PositionManager</td><td><code>0xbd216513d74c8cf14cf4747e6aaa6420ff64ee9e</code></td></tr>
   </tbody>
 </table>
+
+</div>
 
 The canonical pool is native ETH paired with CAH at a 3.14% fee tier, tick spacing 628, with no hook. It was already deployed before the bonding system — the contracts just read from it.
 
@@ -210,6 +222,8 @@ The trust model is: bonders trust that the 2-of-4 multisig will act in the proto
 
 As the canonical pool's TVL grows (more and more people bond), the multiplier automatically tapers. The multisig adjusts `discountBps` manually to match the schedule based on time or the TVL outlined below:
 
+<div class="overflow-x-auto">
+
 <table>
   <thead>
     <tr><th>Canonical Pool TVL</th><th>Multiplier</th><th>Bonus</th></tr>
@@ -221,6 +235,8 @@ As the canonical pool's TVL grows (more and more people bond), the multiplier au
     <tr><td>$2M – $4M</td><td>1.10x</td><td>10% bonus</td></tr>
   </tbody>
 </table>
+
+</div>
 
 Why taper? Early bonders take more risk (smaller pool, less proven), so they get a bigger bonus. As the pool deepens and the protocol proves itself, the incentive drops. This keeps the reward pool from draining faster than the pool depth justifies.
 
