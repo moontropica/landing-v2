@@ -1,83 +1,80 @@
 ---
-title: "Four Years in the Arena: The Road from Launch to V2"
+title: "Four Years in the Works: The Road to V2"
 description: "From a token launch in the worst market cycle on record to Steam, a renounced contract, live bonding, on-chain governance, and the V2 overhaul — the full Moon Tropica story."
 date: 2026-08-10
 tags: ["dev-updates"]
 image: "/assets/blog/dario.jpg"
 ---
 
-Most projects that launched when we did are gone. Not pivoted, not quiet — gone. So before V2 lands, it felt worth writing down how we got here, in order, for anyone who wasn't around at the start and for anyone who was and wants to see the whole shape of it.
-
+Most projects that launched when we did are gone. Not pivoted, not quiet, gone. So before V2 lands, it felt worth writing down how we got here, in order, for anyone who wasn't around at the start and for anyone who was and wants to see the whole shape of it.
+ 
 ## Starting in the Worst Possible Month
-
-$CAH launched on Ethereum mainnet in late 2022. No presale. No venture capital. No external funding of any kind. The market was in freefall, every incentive pointed toward waiting for better conditions, and we launched anyway — because the alternative was building on someone else's timeline with someone else's expectations attached.
-
-That first stretch was unglamorous. A partnership program to connect projects across chains. Merch. Prototypes. Moon Tropica began life as a 2D RPG built around fast, readable combat, and the earliest maps — Lost Isle, Volcanic — were less about level design philosophy and more about proving the core loop was fun at all.
-
+ 
+$CAH launched on Ethereum mainnet in late 2022. No presale. No venture capital. No external funding of any kind. The market was in freefall, every incentive pointed toward waiting for better conditions, and we launched anyway, because the alternative was building on someone else's timeline with someone else's expectations attached.
+ 
+That first stretch was unglamorous. A partnership program to connect projects across chains. Merch. Prototypes. Moon Tropica began life as a 2D RPG built around fast, readable combat, and the earliest maps (Lost Isle, Volcanic) were less about level design philosophy and more about proving the core loop was fun at all.
+ 
 The pixel art style wasn't a budget decision, though it gets read that way. It was chosen for mobile performance, for fast iteration, for the fact that a 2D top-down game translates cleanly to touch controls, and because it doesn't age. A stylized game from 2012 still looks intentional. A mid-tier 3D game from 2012 looks like 2012.
-
+ 
 ## The Grind Years
-
+ 
 2024 was heads-down. Critical UX work in service of finishing the matchmaking engine, because community battles were the whole point and nothing else mattered until players could reliably find each other. Customization got a serious expansion. We joined NeoTokyo Citadel, showed up at Token2049, and opened the closed beta waitlist.
-
-And the partnerships stacked up: Immutable for tech stack and scaling, ATOR for decentralized routing, zkHive for formal verification, NeuralAI for AI-assisted asset creation, SuperVerse, ZIG, INFRA, SPECT, AUTOS, HASHAI, Reploy. Some became deep technical integrations — NeuralAI eventually fed into fully AI-modeled levels. Others were about being visible in the right rooms. Both were necessary.
-
+ 
+And the partnerships stacked up: Immutable for tech stack and scaling, ATOR for decentralized routing, zkHive for formal verification, NeuralAI for AI-assisted asset creation, SuperVerse, ZIG, INFRA, SPECT, AUTOS, HASHAI, Reploy. Some became deep technical integrations, and NeuralAI eventually fed into fully AI-modeled levels. Others were about being visible in the right rooms. Both were necessary.
+ 
 August 2024 brought the first real development blog. That mattered more than it sounds like it should. Publishing on a cadence forces you to have something to publish.
-
+ 
 ## The Year We Actually Shipped
-
-January 2025: $CAH bridged to BNB Chain via Entangle.
-
+ 
 May 2025: Alpha. Three years after launch. Playable, by actual people, with actual weapons.
-
+ 
 June 2025: Steam. Free to play, PC and Mac, live to the public.
-
-Then the economics caught up with the game. In September 2025 we made a one-time, permanent change: total supply moved from 3.5M to 35M. It was a genuinely uncomfortable decision and we said so at the time. The reasoning was mechanical — at 3.5M tokens, any position large enough to matter moved the price too much to be worth taking. Deeper liquidity, real player incentives, a treasury that could fund development without going back to outside capital, and a valuation with room to be accurate. Supply now sits at 50% liquidity, 10% each to team, bootstrap, and foundation, and 5% each to community and staking.
-
-On October 8, 2025, the contract was renounced. No mint function, no admin key, no path back. Whatever else happens, the supply is the supply — 35,000,000, permanently.
-
+ 
+Then the economics caught up with the game. In September 2025 we made a one-time, permanent change: total supply moved from 3.5M to 35M. It was a genuinely uncomfortable decision and we said so at the time. The reasoning was mechanical. At 3.5M tokens, any position large enough to matter moved the price too much to be worth taking. We needed deeper liquidity, real player incentives, a treasury that could fund development without going back to outside capital, and a valuation with room to be accurate. Supply now sits at 50% liquidity, 10% each to team, bootstrap, and foundation, and 5% each to community and staking.
+ 
+On October 8, 2025, the contract was renounced. No mint function, no admin key, no path back. Whatever else happens, the supply is the supply: 35,000,000, permanently.
+ 
 ## The Quiet Quarter
-
+ 
 The end of 2025 doesn't have a headline attached to it, which is exactly the point. Staking contract work ground forward. The liquidity and buyback tooling got finished. The economic model and roadmap docs were rewritten to match what the token had actually become rather than what it was in 2022. New characters got teased.
-
+ 
 There was a decision made around then that's worth stating plainly, because it cost us reach: we didn't spend on KOLs. The offers were there, they always are, and the math on rented attention has never once worked out for a project like this. Slower is fine. Organic is durable.
-
+ 
 ## Governance Went Live
-
-Early 2026 brought MIP-0001 — the first Moon Tropica Improvement Proposal, covering staking metrics, voted on-chain by $CAH holders through the governance page. It passed and was put into motion.
-
+ 
+Early 2026 brought MIP-0001, the first Moon Tropica Improvement Proposal, covering staking metrics and voted on-chain by $CAH holders through the governance page. It passed and was put into motion.
+ 
 That sounds like a small thing. It isn't. It was the first time the community changed a live parameter of the economy by vote rather than by asking us nicely. The two-tier structure behind it: liquidity stakers create proposals, standard stakers vote with power weighted by stake. Scope covers feature direction, crafting and item economy rules, seasonal events, fee adjustments, treasury delegation, and reward configuration.
-
+ 
 ## The May Refresh
-
+ 
 May 2026 was the biggest single release since Steam. New look across the site. Deeper liquidity. Updated governance. Reworked docs. And public bonding went live.
-
+ 
 Bonding is the piece that took longest to get right, so here's how it actually works:
-
-1. **The canonical pool.** A native-ETH/CAH Uniswap V4 pool with a 3.14% fee and 628 tick spacing — π and 2π×100, because if you're going to pick constants you may as well pick ones that mean something. It's the price oracle for bonds and the destination for new bonded positions.
+ 
+1. **The canonical pool.** A native-ETH/CAH Uniswap V4 pool with a 3.14% fee and 628 tick spacing, which is π and 2π×100, because if you're going to pick constants you may as well pick ones that mean something. It's the price oracle for bonds and the destination for new bonded positions.
 2. **The trade.** Hand the protocol a full-range CAH/ETH LP position, receive a vested CAH grant worth more than you put in. Thirty-day cliff, then 335 days of per-second linear unlock.
 3. **Full-range only.** A balanced full-range position values cleanly at twice its ETH side no matter where price goes. Concentrated positions can be almost entirely one-sided, which makes valuation either unfair to the bonder or exploitable against the protocol.
-
-The trade-off is real and we've never buried it: bonding is one-way. The LP NFT belongs to the protocol permanently. There is no unbond — not five minutes later, not ever. Don't bond capital you need back.
-
-Staking rewards run on a declining multiplier by design: 1.7× stepped to 1.5×, then 1.5× to 1.3×. Earlier participants lock a higher rate and keep it. That's the whole mechanism — no lottery, no snapshot games, just a rate that goes down over time and a schedule published in advance.
-
+The trade-off is real and we've never buried it: bonding is one-way. The LP NFT belongs to the protocol permanently. There is no unbond, not five minutes later, not ever. Don't bond capital you need back.
+ 
+Staking rewards run on a declining multiplier by design: 1.7× stepped to 1.5×, then 1.5× to 1.3×. Earlier participants lock a higher rate and keep it. That's the whole mechanism. No lottery, no snapshot games, just a rate that goes down over time and a schedule published in advance.
+ 
 ## V2
-
+ 
 Which brings us to now. V2 isn't a patch, it's a rebuild of the philosophy underneath the game.
-
-Capital investment paired with liquidity incentives, so the economy has depth behind it instead of vibes. A reworked in-game economy. Console prototyping — early, but real. New characters, including integrations pulling from meme culture and the wider crypto conversation, alongside familiar faces like Billy. Sponsorship conversations. Moon Tropica Lite's graphics framework is done, giving us one consistent visual and performance foundation across a very wide device range instead of fighting each one separately. Map expansion concepts are in prototyping.
-
+ 
+Capital investment paired with liquidity incentives, so the economy has depth behind it instead of vibes. A reworked in-game economy. Console prototyping, early but real. New characters, including integrations pulling from meme culture and the wider crypto conversation, alongside familiar faces like Billy. Sponsorship conversations. Moon Tropica Lite's graphics framework is done, giving us one consistent visual and performance foundation across a very wide device range instead of fighting each one separately. Map expansion concepts are in prototyping.
+ 
 Bounty allocation is being finalized: how contribution rewards get distributed, what qualifies, and how new CAHmunity contributors onboard and earn a vested spot through sustained work rather than a one-time claim. Categories, requirements, and rollout timing go out once the structure is locked.
-
-We've been shipping this through a market that spent most of the year folding. That's not a complaint — it's the same weather we launched into.
-
+ 
+We've been shipping this through a market that spent most of the year folding. That's not a complaint. It's the same weather we launched into.
+ 
 ## What's Next
-
+ 
 The long-term goal hasn't moved since 2022: grow from a battle arena into a full open world. Islands to explore, quests and dungeons, digital land, crafting and item upgrades, player-run in-game businesses with real economic weight.
-
+ 
 Nearer term: the on-chain wagering system for sanctioned PvP matches, ranked matchmaking, guild tournaments, and getting Lite into people's hands.
-
-Four years, no funding, contract renounced, game on Steam, economy live on-chain, governance in community hands. Built by the CAHmunity — which is not a marketing line, it's an accurate description of who did the work.
-
+ 
+Four years, no funding, contract renounced, game on Steam, economy live on-chain, governance in community hands. Built by the CAHmunity, which is not a marketing line. It's an accurate description of who did the work.
+ 
 See you in the arena.
