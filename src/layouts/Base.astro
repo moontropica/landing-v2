@@ -8,12 +8,14 @@ interface Props {
   description?: string;
   image?: string;
   ogType?: string;
+  jsonLd?: string;
 }
 const {
   title = "Moon Tropica · The spirited battle arena",
   description = "Moon Tropica is a spirited battle arena game where players participate in a variety of action-packed game modes.",
   image = "https://moontropica.com/assets/og-image-2.png",
   ogType = "website",
+  jsonLd,
 } = Astro.props;
 const imageUrl = image.startsWith("/") ? new URL(image, Astro.site).href : image;
 const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
@@ -43,6 +45,7 @@ const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
     <link rel="stylesheet" href="/assets/tailwind.css" />
     <link rel="shortcut icon" href="/assets/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" href="/assets/webclip.jpg" />
+    {jsonLd && <script type="application/ld+json" set:html={jsonLd}></script>}
     <title>{title}</title>
   </head>
   <body>

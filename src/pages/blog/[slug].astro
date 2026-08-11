@@ -33,9 +33,25 @@ const wordCount = post.body?.split(/\s+/).length ?? 0;
 const readingTime = Math.max(1, Math.ceil(wordCount / 200));
 
 const title = `${post.data.title} — Moon Tropica Blog`;
+
+const postImage = post.data.image
+  ? (post.data.image.startsWith("/") ? new URL(post.data.image, Astro.site).href : post.data.image)
+  : null;
+const postUrl = new URL(Astro.url.pathname, Astro.site).href;
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  ...(postImage ? { image: postImage } : {}),
+  datePublished: post.data.date.toISOString().split("T")[0],
+  author: { "@type": "Organization", name: "Moon Tropica" },
+  publisher: { "@type": "Organization", name: "Moon Tropica", logo: { "@type": "ImageObject", url: "https://moontropica.com/assets/og-image-2.png" } },
+  url: postUrl,
+});
 ---
 
-<Base title={title} description={post.data.description} image={post.data.image} ogType="article">
+<Base title={title} description={post.data.description} image={post.data.image} ogType="article" jsonLd={jsonLd}>
   <div class="max-w-3xl mx-auto px-4 sm:px-0 mt-8 mb-6">
     <a href="/blog" class="inline-flex items-center gap-1.5 font-sans italic font-black text-[13px] tracking-[.08em] uppercase text-mt-muted hover:text-mt-white transition-colors duration-150 no-underline">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>

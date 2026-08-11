@@ -24,9 +24,18 @@ const posts = (await getCollection("blog"))
 const title = "Moon Tropica — Blog";
 const description =
   "Fresh updates, behind-the-scenes stories, and community highlights from the Moon Tropica team.";
+
+const jsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: title,
+  description: description,
+  url: new URL(Astro.url.pathname, Astro.site).href,
+  publisher: { "@type": "Organization", name: "Moon Tropica" },
+});
 ---
 
-<Base title={title} description={description} image="https://moontropica.com/assets/og-image-2.png">
+<Base title={title} description={description} image="https://moontropica.com/assets/og-image-2.png" jsonLd={jsonLd}>
   <div class="max-w-7xl mx-auto px-4 sm:px-8">
     <section class="relative overflow-hidden rounded-lg mt-10 bg-[radial-gradient(700px_400px_at_70%_20%,var(--color-mt-purple-400)_0%,transparent_60%),linear-gradient(135deg,var(--color-mt-purple-500),var(--color-mt-purple-700))] shadow-purple-glow py-[48px] md:py-[64px] px-[24px] md:px-[56px]">
       <div class="relative z-10 max-w-2xl mx-auto text-center">
