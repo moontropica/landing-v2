@@ -208,7 +208,7 @@ The trust model is: bonders trust that the 2-of-4 multisig will act in the proto
 
 ### The Discount Schedule
 
-As the canonical pool's TVL grows (more and more people bond), the multiplier automatically tapers. The multisig adjusts `discountBps` manually to match the schedule:
+As the canonical pool's TVL grows (more and more people bond), the multiplier automatically tapers. The multisig adjusts `discountBps` manually to match the schedule based on time or the TVL outlined below:
 
 <table>
   <thead>
