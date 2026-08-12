@@ -1,0 +1,107 @@
+---
+title: "Multiplier Update to 1.3x — A New Phase for the CAH Bonding Protocol"
+description: "The CAH bonding multiplier moves from 2.0x to 1.3x. Here's why that's a net positive for Moon Tropica, the crypto space, and everything we've built to get here."
+date: 2026-08-10
+tags: ["announcements"]
+image: "/assets/blog/13x.jpg"
+---
+
+## The Multiplier Update
+
+The Gnosis Safe has updated `discountBps` from **10000 to 3000**, moving the bonding multiplier from **2.0x to 1.3x**.
+
+<div class="overflow-x-auto">
+
+<table>
+  <thead>
+    <tr><th></th><th>Before</th><th>After</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>discountBps</td><td>10000</td><td>3000</td></tr>
+    <tr><td>Multiplier</td><td>2.0x</td><td>1.3x</td></tr>
+    <tr><td>$1,000 LP → bonus</td><td>$2,000 CAH</td><td>$1,300 CAH</td></tr>
+  </tbody>
+</table>
+
+</div>
+
+This wasn't an emergency change — it's a milestone. The protocol has proven itself stable since launch, the bonding system is running smoothly, and early bonders were properly rewarded at the 2.0x rate. As the pool deepens and the system matures, the incentive naturally tapers. That's how sustainable tokenomics work.
+
+New bonders still receive a **30% premium** on their LP value, paid in CAH over one year. That's still a strong incentive — just no longer an "impossible to ignore" one. The bonding protocol remains live, open, and fully operational.
+
+---
+
+## Why This Is a Net Positive
+
+### For Moon Tropica
+
+**Slower dilution.** Every bond mints less CAH into circulation than it did at 2.0x. The 8.75M CAH reward pool stretches further. More bonds can happen before the pool dries up. That means more total protocol-owned liquidity over the pool's lifetime — not just a fast sprint and an empty tank.
+
+**Longer runway.** At 1.3x, the same reward pool backstops roughly 50% more LP value bonded before exhaustion. That's more time for swap fees to compound, more time for the treasury to grow, and more time for CAH to find a broader audience.
+
+**Swap fee compounding.** Every bonded position earns trading fees forever. Those fees flow to the treasury. The longer the protocol runs, the more self-sustaining it becomes. Slower emissions make that flywheel spin.
+
+### For the Crypto Space
+
+This is what responsible governance looks like — and everyone gets to watch it happen on-chain.
+
+Every parameter change is a public Gnosis Safe transaction. The multiplier, the price floor, the daily cap, the claim fee — all visible on Etherscan. No backroom deals. No hidden tweaks. Just a multisig executing transparently.
+
+The model itself — protocol-owned liquidity instead of rented liquidity — is something DeFi has been circling for years. Bonding replaces mercenary capital with permanent depth. No farms. No infinite printing. No LPs who vanish the moment a juicier yield appears somewhere else.
+
+When a protocol voluntarily tapers its own incentive, it signals something real: the system was built to last, not to pump.
+
+---
+
+## Protocol Upgrades & Enhancements
+
+Since deploying the BondingManager and VestingManager in May, the protocol has been steadily hardened:
+
+**Bonding flow.** A complete 5-step UI walks users from token swap → Permit2 approval → LP mint → NFT approval → bond, all in one place. No scattered tabs, no manual ABI juggling.
+
+**Vesting dashboard.** Every bonder sees their schedules, cliff countdowns, daily unlock rates, and claimable amounts — broken out as gross / fee / net so nothing's hidden.
+
+**Admin panel.** The multisig has a full control surface: system overview, bonded positions table, parameter controls, batch fee collection, and alert banners for low reward pool or stale price floors. Every setter is a Safe-proposed transaction.
+
+**Claim fee mechanism.** A configurable fee on vesting claims, capped at 10%. Currently at 0%. If ever turned on, it skims a transparent percentage to the treasury.
+
+**Admin LP management.** Collect swap fees, withdraw liquidity, or transfer bonded positions to the treasury — all from one panel.
+
+**Daily payout caps.** No flash-draining the reward pool. The contract enforces a per-day ceiling on total CAH emitted through bonding.
+
+**Monitoring toolchain.** Floor-drift alerts if the canonical pool spot diverges from `minBondPriceEth`. Pre-deploy preflight checks. Post-deploy invariant verification. Wallet balance checks. All scripted.
+
+**Gnosis Safe governance.** 2-of-4 multisig holds ownership of both contracts. Every admin action is a proposal requiring two signers.
+
+**Etherscan verification.** Both contracts are fully verified on Etherscan. Source code is public and auditable.
+
+**Dynamic multiplier badges.** The frontend reads `discountBps` from the chain in real time. No hard-coded values. The badge updates the moment a governance TX lands.
+
+**RPC performance.** Event scanning is deduplicated and cached to localStorage. Incremental log scans. 10-minute auto-refresh. ~10x fewer RPC calls than naive polling, and data survives page reloads.
+
+---
+
+## Changelog
+
+- **Pinwheel spinner on TVL** — when protocol-owned TVL is `$0.00`, a gold pinwheel appears, indicating the system is live and listening for the first bond
+- **Leaderboard page** — public ranking of every bonder by USD value bonded, with token ID, pool variant, and timestamp
+- **Dynamic multiplier badges** — multiplier reads `discountBps` live from the BondingManager contract instead of displaying a hard-coded `2.0x`
+- **Event scanner overhaul** — deduplicated via TanStack Query, incremental log scans, localStorage persistence with 10-minute refresh. Data survives page reloads and RPC interruptions
+- **No `$0.00` flash** — TVL, leaderboard, and admin panel values no longer blink to zero during load or RPC refetch; stale data is preserved across revalidations
+- **Admin loading/error guards** — skeleton states and graceful fallbacks on every system overview, positions table, and parameter control row
+- **Vesting progress fix** — schedules now show correct progress percentage after the cliff period passes (was stuck at 0%)
+- **"No CAH left" ineligibility badge** — clear indicator when the reward pool is drained, so bonders understand exactly why their position can't be bonded
+
+---
+
+## What's Next
+
+The protocol is in soft-launch. Bonding is live. The frontend is deployed. The contracts are verified. The multisig is active.
+
+Next milestones:
+
+- **Public announcement** once the reward pool is topped up and the system has been smoke-tested with real bonds
+- **Scaling** — raising `maxBondEth`, adding more CAH to the reward pool, monitoring daily cap utilization
+- **Further tapering** — `discountBps` will decrease again as TVL crosses the next tier, per the published discount schedule
+
+The bonding protocol is a long-term instrument. The multiplier will go down as the pool grows up. That's the design. Every bond adds permanent depth. Every day moves the protocol closer to self-sustaining.
